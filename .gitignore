@@ -1,0 +1,35 @@
+# LaTeX build files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+# Intermediate files
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+
+# Editors and system files
+.DS_Store
+.history
+.env
+.vscode
+Thumbs.db
+*.swp
+*~
+
+# Output PDFs
+*.pdf
