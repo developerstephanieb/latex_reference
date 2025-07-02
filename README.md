@@ -26,8 +26,6 @@ latex-reference/
 └── .gitignore
 ```
 
----
-
 ## Compiling
 
 To compile a `.tex` file locally:
