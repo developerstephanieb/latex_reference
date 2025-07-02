@@ -4,7 +4,7 @@ This guide provides a concise overview of the basic LaTeX syntax needed to write
 
 ---
 
-## 1. Repository Structure
+## 1. Basic Document Structure
 
 ```latex
 \documentclass{article} % or book, report, etc.
