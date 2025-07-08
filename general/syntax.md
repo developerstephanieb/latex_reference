@@ -123,4 +123,4 @@ pdflatex filename.tex
 
 ---
 
-Next: Learn more about [Environments](./environments.md) and [Math Mode](./math-mode.md).
+Next: Learn more about [Environments](./environments.md) and [Math Mode](./math_mode.md).

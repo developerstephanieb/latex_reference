@@ -20,9 +20,9 @@ latex_reference/
 │   ├── geometry.md
 │   └── graphicx.md
 ├── templates/
-│   ├── resume-template.tex
-│   ├── beamer-template.tex
-│   └── article-template.tex
+│   ├── resume_template.tex
+│   ├── beamer_template.tex
+│   └── article_template.tex
 └── .gitignore
 ```
 
