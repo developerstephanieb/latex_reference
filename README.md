@@ -8,7 +8,6 @@ A structured collection of LaTeX syntax, packages, templates, and practical exam
 
 ```
 latex_reference/
-├── README.md
 ├── 01_general/
 │   ├── basics.md
 │   ├── environments.md
@@ -23,7 +22,8 @@ latex_reference/
 ├── 03_templates/
 │   ├── article/
 │   └── resume/
-└── .gitignore
+├── .gitignore 
+└── README.md
 ```
 
 ## Compiling
