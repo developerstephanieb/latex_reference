@@ -8,21 +8,21 @@ A structured collection of LaTeX syntax, packages, templates, and practical exam
 
 ```
 latex_reference/
-├── general/
-│   ├── syntax.md
+├── README.md
+├── 01_general/
+│   ├── basics.md
 │   ├── environments.md
 │   ├── document_structure.md
 │   └── math_mode.md
-├── packages/
+├── 02_packages/
 │   ├── amsmath.md
 │   ├── tikz.md
 │   ├── listings.md
 │   ├── geometry.md
 │   └── graphicx.md
-├── templates/
-│   ├── resume_template.tex
-│   ├── beamer_template.tex
-│   └── article_template.tex
+├── 03_templates/
+│   ├── article/
+│   └── resume/
 └── .gitignore
 ```
 
