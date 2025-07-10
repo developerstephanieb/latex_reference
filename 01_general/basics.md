@@ -95,7 +95,7 @@ Curly braces `{...}` group text or scope command effects.
 
 ---
 
-## 7. Math
+## 7. Basic Math
 
 ### Inline Math
 For formulas within a line of text, use single dollar signs `$...$`.
@@ -118,7 +118,7 @@ The equation for energy is
 
 ## 8. Environments
 
-Use `\begin{name} ... \end{name}` to structure and format blocks of content.
+Use `\begin{environment} ... \end{environment}` to structure and format blocks of content.
 
 ```latex
 % Itemized list environment
@@ -143,6 +143,8 @@ Use the `verbatim` environment or `\verb|...|` to include raw text.
 \begin{verbatim}
 This is raw text # $ % &
 \end{verbatim}
+
+\verb|This is also raw text # $ % &|
 ```
 
 ---
@@ -152,25 +154,25 @@ This is raw text # $ % &
 ### Other Files
 Use `\input{...}` to include other `.tex` files.
 
+*Note: Included file should **not** have its own `\documentclass` or `\begin{document}`*.
+
 ```latex
 \input{chapter1}  % Loads chapter1.tex
 ```
 
--  Included file should not have its own \documentclass or \begin{document}.
+---
 
 ### Images
 
 Use `\includegraphics{...}` from the `graphicx` package to insert images.
-It's best practice to wrap it in a **figure** environment to add a caption and enable cross-referencing.
+- Supports .png, .jpg, and .pdf
+- Optional arguments like `width`, `height`, `scale`, and `angle` control the image’s appearance.
 
 ```latex
 \usepackage{graphicx} % Add this in the preamble
 
 \includegraphics[width=0.5\textwidth, angle=10]{image.png}
 ```
-
-- Supports .png, .jpg, and .pdf
-- Optional arguments like `width`, `height`, `scale`, and `angle` control the image’s appearance.
 
 ---
 
