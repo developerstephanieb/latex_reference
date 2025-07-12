@@ -130,14 +130,12 @@ Use these commands to ensure function names are typeset in an upright (roman) fo
 
 ### Calculus
 
-**Note**: To use these commands without limits, simply omit `_{start}^{end}`.
-
 | Name      | Command               | Example                  |    Rendered Output     |
 | --------- | --------------------- | ------------------------ | :--------------------: |
 | integral  | `\int_{start}^{end}`  | `$\int_{0}^{1} x^2\,dx$` | $\int_{0}^{1} x^2\,dx$ |
 | summation | `\sum_{start}^{end}`  | `$\sum_{i=1}^{n} i$`     |   $\sum_{i=1}^{n} i$   |
 | product   | `\prod_{start}^{end}` | `$\prod_{i=1}^{n} i$`    |  $\prod_{i=1}^{n} i$   |
-| limit     | `\lim_{start}^{end}`  | `$\lim_{x \to \infty}$`  | $\lim_{x \to \infty}$  |
+| limit     | `\lim_{var \to }`     | `$\lim_{x \to \infty}$`  | $\lim_{x \to \infty}$  |
 
 ### Set Theory
 
