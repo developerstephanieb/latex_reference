@@ -135,7 +135,7 @@ Use these commands to ensure function names are typeset in an upright (roman) fo
 | integral  | `\int_{start}^{end}`  | `$\int_{0}^{1} x^2\,dx$` | $\int_{0}^{1} x^2\,dx$ |
 | summation | `\sum_{start}^{end}`  | `$\sum_{i=1}^{n} i$`     |   $\sum_{i=1}^{n} i$   |
 | product   | `\prod_{start}^{end}` | `$\prod_{i=1}^{n} i$`    |  $\prod_{i=1}^{n} i$   |
-| limit     | `\lim_{var \to }`     | `$\lim_{x \to \infty}$`  | $\lim_{x \to \infty}$  |
+| limit     | `\lim_{var \to val}`  | `$\lim_{x \to \infty}$`  | $\lim_{x \to \infty}$  |
 
 ### Set Theory
 
@@ -234,4 +234,3 @@ For additional mathematical symbols, load the `amssymb` package by adding `\usep
 |                                    $\therefore$                                    | therefore  | `\therefore`                                                                       |
 |                                     $\because$                                     | because    | `\because`                                                                         |
 | $\mathbb{C}$, $\mathbb{R}$, $\mathbb{Q}$, $\mathbb{Z}$, $\mathbb{N}$, $\mathbb{I}$ | number set | `\mathbb{C}`, `\mathbb{R}`, `\mathbb{Q}`, `\mathbb{Z}`, `\mathbb{N}`, `\mathbb{I}` |
-

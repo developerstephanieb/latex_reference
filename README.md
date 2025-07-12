@@ -10,16 +10,16 @@ A structured collection of LaTeX syntax, packages, templates, and practical exam
 latex_reference/
 ├── 01_general/
 │   ├── basics.md
-│   ├── environments.md
 │   ├── document_structure.md
+│   ├── environments.md
 │   └── math_mode.md
 ├── 02_packages/
 │   ├── amsmath.md
 │   ├── amssymb.md
-│   ├── tikz.md
-│   ├── listings.md
 │   ├── geometry.md
-│   └── graphicx.md
+│   ├── graphicx.md
+│   ├── listings.md
+│   └── tikz.md
 ├── 03_templates/
 │   ├── article/
 │   └── resume/
