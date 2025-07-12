@@ -15,6 +15,7 @@ latex_reference/
 │   └── math_mode.md
 ├── 02_packages/
 │   ├── amsmath.md
+│   ├── amssymb.md
 │   ├── tikz.md
 │   ├── listings.md
 │   ├── geometry.md

@@ -1,4 +1,4 @@
-# LaTeX Syntax Overview
+# LaTeX Basics
 
 This guide provides an overview of the basic LaTeX syntax needed to write and compile documents effectively.
 
@@ -95,7 +95,7 @@ Curly braces `{...}` group text or scope command effects.
 
 ---
 
-## 7. Basic Math
+## 7. Entering Math Mode
 
 ### Inline Math
 For formulas within a line of text, use single dollar signs `$...$`.
@@ -105,7 +105,7 @@ The equation for energy is $E = mc^2$.
 ```
 
 ### Display Math
-For formulas that get their own line, use `\[ ... \]`.
+For formulas that should be centered on their own line, use `\[ ... \]`.
 
 ```latex
 The equation for energy is
@@ -154,7 +154,7 @@ This is raw text # $ % &
 ### Other Files
 Use `\input{...}` to include other `.tex` files.
 
-*Note: Included file should **not** have its own `\documentclass` or `\begin{document}`*.
+**Note**: Included file should **not** have its own `\documentclass` or `\begin{document}`.
 
 ```latex
 \input{chapter1}  % Loads chapter1.tex
