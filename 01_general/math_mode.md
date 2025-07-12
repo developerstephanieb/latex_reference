@@ -34,33 +34,20 @@ This guide provides an overview of math mode, a special environment where text i
 
 For formulas within a line of text, use single dollar signs `$...$`.
 
-**Example**:
 ```latex
 The equation for energy is $a^2 + b^2 = c^2$.
 ```
-**Rendered Output**:
-  
-The equation for energy is $a^2 + b^2 = c^2$.
-
 
 ### Display Math
 
 For formulas that should be centered on their own line, use `\[ ... \]`.
 
-**Example**:
 ```latex
 The equation for energy is:
 \[
     a^2 + b^2 = c^2
 \]
 ```
-
-**Rendered Output**:
-  
-The equation for energy is:
-$$
-    a^2 + b^2 = c^2
-$$
 
 ---
 
@@ -230,13 +217,13 @@ For more advanced mathematical typesetting, load the `amsmath` package by adding
 
 #### Additional Commands
 
-| Name               | Command                    | Example                                   |             Rendered Output             |
-| ------------------ | -------------------------- | ----------------------------------------- | :-------------------------------------: |
-| text in math       | `\text{...}`               | `$\text{speed} = 30$`                     |           $\text{speed} = 30$           |
-| box around content | `\boxed{...}`              | `$\boxed{E=mc^2}$`                        |            $\boxed{E=mc^2}$             |
-| dots               | `\dots`,`\cdots`, `\vdots` | `$\dots`,`$\cdots`, `$\vdots$`            |        $\dots$ $\cdots$ $\vdots$        |
-| double integral    | `\iint_{start}^{end}`      | `$\iint_{0}^{1} \int_{0}^{1} xy\,dx\,dy$` | $\iint_{0}^{1} \int_{0}^{1} xy\,dx\,dy$ |
-| triple integral    | `\iiint_{start}^{end}`     | `$ \iiint z\,dx\,dy\,dz$`                 |         $\iiint z\,dx\,dy\,dz$          |
+| Name               | Command                    | Example                        |      Rendered Output      |
+| ------------------ | -------------------------- | ------------------------------ | :-----------------------: |
+| text in math       | `\text{...}`               | `$\text{speed} = 30$`          |    $\text{speed} = 30$    |
+| box around content | `\boxed{...}`              | `$\boxed{E=mc^2}$`             |     $\boxed{E=mc^2}$      |
+| dots               | `\dots`,`\cdots`, `\vdots` | `$\dots`,`$\cdots`, `$\vdots$` | $\dots$ $\cdots$ $\vdots$ |
+| double integral    | `\iint`                    | `$\iint xy\,dx\,dy$`           |    $\iint xy\,dx\,dy$     |
+| triple integral    | `\iiint`                   | `$\iiint z\,dx\,dy\,dz$`       |  $\iiint z\,dx\,dy\,dz$   |
 
 ### amssymb
 
