@@ -8,7 +8,7 @@ A structured collection of LaTeX syntax, packages, templates, and practical exam
 
 ```
 latex_reference/
-├── 01_general/
+├── 01_fundamentals/
 │   ├── basics.md
 │   ├── document_structure.md
 │   ├── environments.md

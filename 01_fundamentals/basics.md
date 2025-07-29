@@ -1,10 +1,27 @@
 # LaTeX Basics
 
-This guide provides an overview of the basic LaTeX syntax needed to write and compile documents effectively.
+This guide provides an overview of the basic LaTeX syntax needed to write and compile documents.
 
 ---
 
-## 1. Basic Document Structure
+## Table of Contents
+
+[Basic Document Structure](#basic-document-structure)   
+[Commands](#commands)   
+[Comments](#comments)    
+[Special Characters](#special-characters)    
+[Grouping](#grouping)    
+[Whitespace Rules](#whitespace-rules)   
+[Entering Math Mode](#entering-math-mode)   
+[Environments](#environments)   
+[Verbatism](#verbatim)   
+[External Files](#external-files)   
+[Images](#images)   
+[Compiling](#compiling)   
+
+---
+
+## Basic Document Structure
 
 A LaTeX document has two main parts:
 1. **Preamble**: Where you specify the document type using `\documentclass{...}`, load packages, and set styles.
@@ -22,7 +39,7 @@ Hello, world!
 
 ---
 
-## 2. Commands
+## Commands
 
 Commands start with a backslash `\`, are case-sensitive, and can take arguments:
 - **Required arguments** are enclosed in curly braces `{...}`.
@@ -41,7 +58,7 @@ Commands start with a backslash `\`, are case-sensitive, and can take arguments:
 
 ---
 
-## 3. Comments
+## Comments
 
 Everything after `%` on a line is ignored.
 
@@ -51,7 +68,7 @@ Everything after `%` on a line is ignored.
 
 ---
 
-## 4. Special Characters
+## Special Characters
 
 To print the following characters, escape them with a backslash:
 
@@ -70,7 +87,7 @@ To print the following characters, escape them with a backslash:
 
 ---
 
-## 5. Grouping
+## Grouping
 
 Curly braces `{...}` group text or scope command effects.
 
@@ -84,7 +101,7 @@ Curly braces `{...}` group text or scope command effects.
 
 ---
 
-## 6. Whitespace Rules
+## Whitespace Rules
 
 - **Multiple spaces or line breaks** are treated as one.
 - **New Paragraphs**: Blank lines start new paragraphs.
@@ -95,28 +112,22 @@ Curly braces `{...}` group text or scope command effects.
 
 ---
 
-## 7. Entering Math Mode
+## Entering Math Mode
 
-### Inline Math
-For formulas within a line of text, use single dollar signs `$...$`.
-
-```latex
-The equation for energy is $E = mc^2$.
-```
-
-### Display Math
-For formulas that should be centered on their own line, use `\[ ... \]`.
+For inline math, enclose the expression in single dollar signs `$...$`. For display math, which centers the formula on its own line, use `\[ ... \]`.
 
 ```latex
-The equation for energy is
+This energy equation is written inline: $E = mc^2$
+
+And this Newton’s second law equation is shown using display math:
 \[
-    E = mc^2
+    F = ma
 \]
 ```
 
 ---
 
-## 8. Environments
+## Environments
 
 Use `\begin{environment} ... \end{environment}` to structure and format blocks of content.
 
@@ -135,7 +146,7 @@ Use `\begin{environment} ... \end{environment}` to structure and format blocks o
 
 ---
 
-## 9. Verbatim
+## Verbatim
 
 Use the `verbatim` environment or `\verb|...|` to include raw text.
 
@@ -149,9 +160,8 @@ This is raw text # $ % &
 
 ---
 
-## 10. Including External Content
+## External Files
 
-### Other Files
 Use `\input{...}` to include other `.tex` files.
 
 **Note**: Included file should **not** have its own `\documentclass` or `\begin{document}`.
@@ -162,7 +172,7 @@ Use `\input{...}` to include other `.tex` files.
 
 ---
 
-### Images
+## Images
 
 Use `\includegraphics{...}` from the `graphicx` package to insert images.
 - Supports .png, .jpg, and .pdf
@@ -176,7 +186,7 @@ Use `\includegraphics{...}` from the `graphicx` package to insert images.
 
 ---
 
-## 11. Compiling
+## Compiling
 
 Use a LaTeX compiler like `pdflatex`:
 
@@ -185,7 +195,3 @@ pdflatex filename.tex
 ```
 
 Or use [Overleaf](https://www.overleaf.com/) to compile online.
-
----
-
-Next: Learn more about [Environments](./environments.md) and [Math Mode](./math_mode.md).

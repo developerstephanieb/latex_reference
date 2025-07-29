@@ -2,56 +2,34 @@
 
 This guide provides an overview of math mode, a special environment where text is interpreted as a mathematical formula.
 
+
 ---
+
 ## Table of Contents
-- [LaTeX Math Mode](#latex-math-mode)
-  - [Table of Contents](#table-of-contents)
-  - [1. Entering Math Mode](#1-entering-math-mode)
-    - [Inline Math](#inline-math)
-    - [Display Math](#display-math)
-  - [2. Fundamental Constructs](#2-fundamental-constructs)
-  - [3. Common Symbols and Functions](#3-common-symbols-and-functions)
-    - [General](#general)
-    - [Greek Letters](#greek-letters)
-    - [Operators and Relations](#operators-and-relations)
-    - [Functions](#functions)
-    - [Calculus](#calculus)
-    - [Set Theory](#set-theory)
-    - [Logic Symbols](#logic-symbols)
-    - [Accents](#accents)
-  - [4. Essential Math Packages](#4-essential-math-packages)
-    - [amsmath](#amsmath)
-      - [Key Environments](#key-environments)
-      - [Additional Commands](#additional-commands)
-    - [amssymb](#amssymb)
-      - [Additional Symbols](#additional-symbols)
+
+[Entering Math Mode](#entering-math-mode)  
+[Fundamental Constructs](#fundamental-constructs)  
+[Common Symbols and Functions](#common-symbols-and-functions)  
+[Essential Math Packages](#essential-math-packages)  
 
 ---
 
-## 1. Entering Math Mode
+## Entering Math Mode
 
-### Inline Math
-
-For formulas within a line of text, use single dollar signs `$...$`.
+For inline math, enclose the expression in single dollar signs `$...$`. For display math, which centers the formula on its own line, use `\[ ... \]`.
 
 ```latex
-The equation for energy is $a^2 + b^2 = c^2$.
-```
+This equation is written inline: $E = mc^2$
 
-### Display Math
-
-For formulas that should be centered on their own line, use `\[ ... \]`.
-
-```latex
-The equation for energy is:
+This equation is shown using display math:
 \[
-    a^2 + b^2 = c^2
+    F = ma
 \]
 ```
 
 ---
 
-## 2. Fundamental Constructs
+## Fundamental Constructs
 
 Inside math mode, characters and commands take on new roles.
 
@@ -67,7 +45,7 @@ Inside math mode, characters and commands take on new roles.
 
 ---
 
-## 3. Common Symbols and Functions
+## Common Symbols and Functions
 
 ### General
 
@@ -118,7 +96,7 @@ Inside math mode, characters and commands take on new roles.
 
 ### Functions
 
-Use these commands to ensure function names are typeset in an upright (roman) font instead of italics (which are reserved for variables), and to ensure correct spacing.
+Use these commands to typeset function names upright (roman) and with correct spacing, avoiding italics reserved for variables.
 
 |             Symbol              | Name                         | Command                         |
 | :-----------------------------: | ---------------------------- | ------------------------------- |
@@ -168,12 +146,13 @@ Use these commands to ensure function names are typeset in an upright (roman) fo
 
 ---
 
-## 4. Essential Math Packages
+## Essential Math Packages
 
 ### amsmath
+
 For more advanced mathematical typesetting, load the `amsmath` package by adding `\usepackage{amsmath}` to the preamble.
 
-#### Key Environments
+This package provides several useful environments:
 
 * **`equation`**: Use this for a single, numbered equation.
 
@@ -213,7 +192,7 @@ For more advanced mathematical typesetting, load the `amsmath` package by adding
     \]
     ```
 
-#### Additional Commands
+And useful commands:
 
 | Name               | Command                    | Example                        |      Rendered Output      |
 | ------------------ | -------------------------- | ------------------------------ | :-----------------------: |
@@ -227,7 +206,7 @@ For more advanced mathematical typesetting, load the `amsmath` package by adding
 
 For additional mathematical symbols, load the `amssymb` package by adding `\usepackage{amssymb}` to the preamble.
 
-#### Additional Symbols
+This package provides a number of extra symbols:
 
 |                                       Symbol                                       | Name       | Command                                                                            |
 | :--------------------------------------------------------------------------------: | ---------- | :--------------------------------------------------------------------------------- |
