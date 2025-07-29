@@ -114,12 +114,14 @@ Curly braces `{...}` group text or scope command effects.
 
 ## Entering Math Mode
 
+## Entering Math Mode
+
 For inline math, enclose the expression in single dollar signs `$...$`. For display math, which centers the formula on its own line, use `\[ ... \]`.
 
 ```latex
-This energy equation is written inline: $E = mc^2$
+This equation is written inline: $E = mc^2$
 
-And this Newton’s second law equation is shown using display math:
+This equation is shown using display math:
 \[
     F = ma
 \]

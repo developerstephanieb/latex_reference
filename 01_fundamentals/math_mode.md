@@ -33,7 +33,7 @@ This equation is shown using display math:
 
 Inside math mode, characters and commands take on new roles.
 
-**Note**: Superscripts and subscripts containing more than one character must be grouped using curly braces `{}` (e.g., `x^{10}`).
+*Note*: Superscripts and subscripts containing more than one character must be grouped using curly braces `{}` (e.g., `x^{10}`).
 
 | Name         | Command                         | Example Code    | Rendered Output |
 | ------------ | ------------------------------- | --------------- | :-------------: |
@@ -60,7 +60,7 @@ Inside math mode, characters and commands take on new roles.
 
 ### Greek Letters
 
-**Note**: Capitalizing the command yields the uppercase letter.
+*Note*: Capitalizing the command yields the uppercase letter.
 
 |       Symbol       | Name    | Command            |
 | :----------------: | ------- | ------------------ |
@@ -96,7 +96,7 @@ Inside math mode, characters and commands take on new roles.
 
 ### Functions
 
-Use these commands to typeset function names upright (roman) and with correct spacing, avoiding italics reserved for variables.
+*Note*: Use these commands to typeset function names upright (roman) and with proper spacing. This distinguishes them from variables, which are italicized by default.
 
 |             Symbol              | Name                         | Command                         |
 | :-----------------------------: | ---------------------------- | ------------------------------- |
@@ -192,7 +192,7 @@ This package provides several useful environments:
     \]
     ```
 
-And useful commands:
+And additional commands:
 
 | Name               | Command                    | Example                        |      Rendered Output      |
 | ------------------ | -------------------------- | ------------------------------ | :-----------------------: |
