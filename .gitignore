@@ -1,4 +1,3 @@
-# LaTeX build files
 *.aux
 *.lof
 *.log
@@ -15,23 +14,22 @@
 *.blg
 *.run.xml
 
-# Intermediate files
 *.fdb_latexmk
 *.synctex.gz
 *.nav
 *.snm
 *.vrb
+*.bak
 
-# Editors and system files
 .DS_Store
-.history
-.env
-.vscode
-Thumbs.db
+
 *.swp
 *~
 
-# Output PDFs
+.vscode
+.history
+.env
+
 *.pdf
 
 /example
