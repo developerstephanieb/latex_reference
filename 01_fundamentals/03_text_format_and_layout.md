@@ -1,0 +1,171 @@
+# 04: Text Format and Layout
+
+This guide covers the essential LaTeX commands for formatting text, from changing the style of individual words to controlling the layout of entire blocks.
+
+---
+
+## Font Styles
+
+These commands change the appearance of text to add emphasis. They can be nested inside each other.
+
+- `\textbf{text}`: Makes text bold.
+
+- `\textit{text}`: Makes text italic.
+
+- `\underline{text}`: Underlines text.
+
+```latex
+\documentclass{article}
+
+\begin{document}
+
+\textbf{This text is bold.}
+\textit{This text is italic.}
+\underline{This text is underlined.}
+
+You can also \textbf{\textit{nest them}}.
+
+\end{document}
+```
+
+---
+
+## Font Sizing
+
+These commands change the size of text relative to the document’s base font size. Wrap them in braces `{...}` to limit their scope.
+
+- `\tiny`: Smallest available text size.
+
+- `\scriptsize`: Smaller than footnotes; often used for subscripts or annotations.
+
+- `\footnotesize`: Standard size for footnotes.
+
+- `\small`: Slightly smaller than the default.
+
+- `\large`, `\Large`, `\LARGE`: Progressively larger sizes above the default.
+
+- `\huge`, `\Huge`: Very large and largest text sizes, respectively.
+
+```latex
+\documentclass{article}
+
+\begin{document}
+
+{\tiny Tiny text.}
+
+{\scriptsize Script size text.}
+
+{\footnotesize Footnote-sized text.}
+
+{\small Small text.}
+
+{\Large Large text.}
+
+{\Huge Huge text.}
+
+\end{document}
+```
+
+---
+
+## Font Families
+
+These commands switch between the three main font families available in LaTeX.
+
+- `\textrm{text}`: Switches to the Roman (serif) family. This is the default.
+
+- `\textsf{text}`: Switches to the Sans-serif family.
+
+- `\texttt{text}`: Switches to the Teletype (monospace) family.
+
+```latex
+\documentclass{article}
+
+\begin{document}
+
+\textrm{This is the default Roman (serif) font.}
+
+\textsf{This is a sans-serif font.}
+
+\texttt{This is a teletype (monospace) font.}
+
+\end{document}
+```
+
+---
+
+## Alignment
+
+These environments change the layout and structure of entire blocks of text.
+
+- `\begin{center}`: Centers each line of text.
+  
+- `\begin{flushleft}`: Aligns text to the left margin (creating a ragged right edge).
+  
+- `\begin{flushright}`: Aligns text to the right margin (creating a ragged left edge).
+
+```latex
+\documentclass{article}
+
+\begin{document}
+
+\begin{center}
+This text is centered.
+\end{center}
+
+\begin{flushright}
+This text is aligned to the right.
+\end{flushright}
+
+\end{document}
+```
+
+---
+
+## Blockquotes
+
+These environments are used for block quotes, which are indented from both margins.
+
+- `\begin{quote}`: Used for short quotes.
+
+- `\begin{quotation}`: Used for longer quotes (more than one paragraph), with slightly more indentation.
+
+```latex
+\documentclass{article}
+\begin{document}
+
+Here is some introductory text for a quote.
+\begin{quote}
+This is a short quotation, indented from both margins.
+\end{quote}
+
+\end{document}
+```
+
+---
+
+## Global Font Settings
+
+Global font settings can be defined in the preamble to set defaults for the entire document.
+
+- `\documentclass[options]{class}`: Sets the default font size. Common size options are `10pt`, `11pt`, and `12pt`.
+
+- `\renewcommand{\familydefault}{family_code}`: Sets the default font family.
+
+  | Family Code  | Description                               |
+  | ------------ | ----------------------------------------- |
+  | `\rmdefault` | Sets the default to Roman (serif).        |
+  | `\sfdefault` | Sets the default to Sans-serif.           |
+  | `\ttdefault` | Sets the default to Monospace (Teletype). |
+
+```latex
+% Preamble settings
+\documentclass[12pt]{article} % Set base font size to 12pt
+\renewcommand{\familydefault}{\sfdefault} % Set default font to sans-serif
+
+\begin{document}
+
+This entire document now uses a 12pt sans-serif font as its default.
+
+\end{document}
+```

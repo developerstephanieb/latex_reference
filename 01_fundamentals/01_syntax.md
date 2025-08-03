@@ -6,9 +6,7 @@ This guide provides an overview of the basic LaTeX syntax needed to write and co
 
 ## Comments
 
-Comments are used to add notes to the code.
-
-- `%`: Starts a comment. Everything after it on the line is ignored.
+Everything after `%` on the line is ignored.
 
 ```latex
 % This is a comment
@@ -57,7 +55,7 @@ Environments define blocks of content with specific formatting behavior.
 
 - **Environment**: A block that applies a formatting style to its content, enclosed by `\begin{name}` and `\end{name}`.
 
-- `document`: An environment that encloses all visible content in a LaTeX file, beginning with `\begin{document}` and ending with `\end{document}`.
+- `\begin{document}`: An environment that encloses all visible content in a LaTeX file.
 
 ```latex
 \documentclass{article}
@@ -80,9 +78,9 @@ LaTeX handles whitespace according to specific rules.
 
 - **Line Breaks**: A single line break is also treated as a space.
 
-- **Blank Line**: One or more blank lines signal the end of a paragraph and the start of a new one.
+- **Blank Lines**: One or more blank lines signal the end of a paragraph and the start of a new one.
 
-Manual commands can also control spacing and breaks.
+Commands also control spacing and breaks.
 
 - `\\` or `\newline`: Forces a line break.
 
@@ -97,6 +95,15 @@ Manual commands can also control spacing and breaks.
 - `\hspace{length}`: Inserts horizontal space.
 
 - `\vspace{length}`: Inserts vertical space.
+  
+  | Unit  | Meaning                       |
+  | :---: | ----------------------------- |
+  |  pt   | Point (1/72 inch)             |
+  |  mm   | Millimeter                    |
+  |  cm   | Centimeter                    |
+  |  in   | Inch                          |
+  |  em   | Width of 'M' in current font  |
+  |  ex   | Height of 'x' in current font |
 
 ```latex
 \documentclass{article}
@@ -131,22 +138,22 @@ This text will start on the second page.
 
 ---
 
-## Special Characters
+## Escaping Special Characters
 
 To print special characters, escape them with a backslash (`\`).
 
 | Character | Code                 |
-| --------: | :------------------- |
-|       `#` | `\#`                 |
-|       `$` | `\$`                 |
-|       `%` | `\%`                 |
-|       `&` | `\&`                 |
-|       `_` | `\_`                 |
-|       `{` | `\{`                 |
-|       `}` | `\}`                 |
-|       `~` | `\textasciitilde{}`  |
-|       `^` | `\textasciicircum{}` |
-|       `\` | `\textbackslash{}`   |
+| :-------: | :------------------- |
+|    `#`    | `\#`                 |
+|    `$`    | `\$`                 |
+|    `%`    | `\%`                 |
+|    `&`    | `\&`                 |
+|    `_`    | `\_`                 |
+|    `{`    | `\{`                 |
+|    `}`    | `\}`                 |
+|    `~`    | `\textasciitilde{}`  |
+|    `^`    | `\textasciicircum{}` |
+|    `\`    | `\textbackslash{}`   |
 
 ```latex
 \documentclass{article}
@@ -161,9 +168,7 @@ To print special characters, escape them with a backslash (`\`).
 
 ## Grouping
 
-Curly braces group text and limit the scope of commands.
-
-- `{...}`: Creates a group. Commands issued inside only apply within the braces.
+Curly braces `{...}` groups text and limits the scope of commands.
 
 ```latex
 \documentclass{article}
@@ -180,9 +185,9 @@ This text is back to the normal size.
 
 ## Verbatim
 
-To display text exactly as typed, use verbatim tools.
+To display text exactly as typed, use verbatim tools. 
 
-- `verbatim`: An environment that outputs all enclosed content literally.
+- `\begin{verbatim}`: An environment that outputs all enclosed content literally.
 
 - `\verb|text|`: An inline command for literal text.
 

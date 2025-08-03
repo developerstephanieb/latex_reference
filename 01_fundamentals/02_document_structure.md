@@ -8,7 +8,7 @@ This guide explains the fundamental structure of a LaTeX document, including its
 
 A LaTeX document is divided into two main parts:
 
-- **Preamble**: Everything before `\begin{document}`. It sets up the document by loading packages, defining metadata, and adjusting formatting.
+- **Preamble**: Everything before `\begin{document}`. It sets up the document by specifying the document class, loading packages, defining metadata, and configuring layout and behavior.
 
 - **Document Body**: Everything between `\begin{document}` and `\end{document}`. It encloses the content to be typeset.
 
@@ -17,8 +17,8 @@ A LaTeX document is divided into two main parts:
 \documentclass{article}
 
 \begin{document}
-% ----- Document Body -----
 
+% ----- Document Body -----
 Content goes here.
 
 \end{document}
@@ -34,7 +34,7 @@ These commands define metadata in the preamble, which `\maketitle` then renders 
 
 - `\author{text}`: Stores the author's name(s).
 
-- `\date{text}`: Stores a specific date. Use `\today` to dynamically inserts the current date.
+- `\date{text}`: Stores a specific date. Use `\today` to dynamically insert the current date.
  
 - `\maketitle`: Typesets the stored title, author, and date information. 
 
@@ -61,9 +61,9 @@ These commands define metadata in the preamble, which `\maketitle` then renders 
 These commands format and number section headings. To create an unnumbered heading, add an asterisk (`*`) after the command name.
 
 - `\section{title}`: Creates a new top-level section.
-- `\subsection{title}`: Creates a subsection within a section.
+- `\subsection{title}`: Creates a subsection.
 - `\subsubsection{title}`: Creates a sub-subsection.
-- `\paragraph{title}`: Creates a paragraph heading in-line with the text that follows it. Bolded and unnumbered by default.
+- `\paragraph{title}`: Creates a paragraph heading in-line with the text that follows it. It is bolded and unnumbered by default.
 - `\subparagraph{title}`: Creates the lowest-level inline heading, also unnumbered.
 
 ```latex
@@ -98,7 +98,7 @@ This section is not numbered because of the asterisk.
 
 The table of contents is dynamically generated and updates with each compile.
 
-- `\tableofcontents`: Inserts a table of contents at that spot, automatically populated from the sectioning commands.
+- `\tableofcontents`: Directly inserts a table of contents, automatically populated from the sectioning commands.
 
 ```latex
 \documentclass{article}
@@ -111,7 +111,7 @@ The table of contents is dynamically generated and updates with each compile.
 This section will appear in the ToC.
 
 \subsection{First Point}
-A subsection, indented under "Main Body" in the ToC.
+A subsection, indented under Main Body in the ToC.
 
 \section*{Acknowledgments}  % Unnumbered; not listed in the ToC
 This section is not numbered and will not appear in the ToC.
@@ -121,11 +121,38 @@ This section is not numbered and will not appear in the ToC.
 
 ---
 
+## Appendix
+
+This commands marks the start of appendices.
+
+- `\appendix`: Changes sectioning labels from numbers to letters for all content that follows.
+
+```latex
+\documentclass{article}
+
+\begin{document}
+
+\section{Main Content}
+The core of the document goes here.
+
+\appendix % Starts the appendix
+
+\section{Supplemental Details}
+This section appears as Appendix A.
+
+\section{Additional Material}
+This section appears as Appendix B.
+
+\end{document}
+```
+
+---
+
 ## Including External Files
 
-For large projects, the document can be split into multiple `.tex` files.
+For large projects, the document can be split into multiple `.tex` files. The external files should not have its own preamble or document environment.
 
-- `\input{filename}`: Directly inserts the content of `filename.tex`. The included file should not have its own preamble or document environment.
+- `\input{filename}`: Directly inserts the content of `filename.tex`.
 
 - `\include{filename}`: Inserts content of `filename.tex` on a new page, typically for major sections like chapters. To specify which of the `\include` files to compile, use `\includeonly{file1, ...}` in the preamble.
 

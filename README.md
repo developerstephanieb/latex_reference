@@ -11,8 +11,11 @@ latex_reference/
 ├── 01_fundamentals/
 │   ├── 01_syntax.md
 │   ├── 02_document_structure.md 
-│   ├── 03_text_formatting.md
-│   └── 
+│   ├── 03_text_format_and_layout
+│   ├── 04_math_mode.md
+│   ├── 05_lists.md
+│   ├── 06_tables.md
+│   └──
 ├── 02_packages/
 │   ├── amsmath.md
 │   ├── amssymb.md
