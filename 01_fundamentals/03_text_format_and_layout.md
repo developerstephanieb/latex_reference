@@ -6,7 +6,7 @@ This guide covers the essential LaTeX commands for formatting text, from changin
 
 ## Font Styles
 
-These commands change the appearance of text to add emphasis. They can be nested inside each other.
+These commands change the appearance of text to add emphasis and can be nested inside each other.
 
 - `\textbf{text}`: Makes text bold.
 
@@ -51,17 +51,13 @@ These commands change the size of text relative to the document’s base font si
 
 \begin{document}
 
-{\tiny Tiny text.}
+{\small This is smaller than the default.}
 
-{\scriptsize Script size text.}
+This is the normal, default text size.
 
-{\footnotesize Footnote-sized text.}
+{\Large This is larger than the default.}
 
-{\small Small text.}
-
-{\Large Large text.}
-
-{\Huge Huge text.}
+{\Huge This is one of the largest sizes available.}
 
 \end{document}
 ```
@@ -72,7 +68,7 @@ These commands change the size of text relative to the document’s base font si
 
 These commands switch between the three main font families available in LaTeX.
 
-- `\textrm{text}`: Switches to the Roman (serif) family. This is the default.
+- `\textrm{text}`: Switches to the Roman (serif) family, which is the default.
 
 - `\textsf{text}`: Switches to the Sans-serif family.
 
@@ -87,7 +83,7 @@ These commands switch between the three main font families available in LaTeX.
 
 \textsf{This is a sans-serif font.}
 
-\texttt{This is a teletype (monospace) font.}
+\texttt{This is a teletype (monospace) font, often used for code.}
 
 \end{document}
 ```
@@ -96,7 +92,7 @@ These commands switch between the three main font families available in LaTeX.
 
 ## Alignment
 
-These environments change the layout and structure of entire blocks of text.
+These environments control the horizontal alignment of entire blocks of text.
 
 - `\begin{center}`: Centers each line of text.
   
@@ -152,11 +148,11 @@ Global font settings can be defined in the preamble to set defaults for the enti
 
 - `\renewcommand{\familydefault}{family_code}`: Sets the default font family.
 
-  | Family Code  | Description                               |
-  | ------------ | ----------------------------------------- |
-  | `\rmdefault` | Sets the default to Roman (serif).        |
-  | `\sfdefault` | Sets the default to Sans-serif.           |
-  | `\ttdefault` | Sets the default to Monospace (Teletype). |
+  | `family_code` | Description                               |
+  | ------------- | ----------------------------------------- |
+  | `\rmdefault`  | Sets the default to Roman (serif).        |
+  | `\sfdefault`  | Sets the default to Sans-serif.           |
+  | `\ttdefault`  | Sets the default to Monospace (Teletype). |
 
 ```latex
 % Preamble settings

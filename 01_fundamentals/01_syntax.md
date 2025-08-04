@@ -1,4 +1,4 @@
-# LaTeX Basics
+# 01: Syntax
 
 This guide provides an overview of the basic LaTeX syntax needed to write and compile documents.  
 
@@ -6,7 +6,7 @@ This guide provides an overview of the basic LaTeX syntax needed to write and co
 
 ## Comments
 
-Everything after `%` on the line is ignored.
+The percent sign (`%`) marks the beginning of a comment. Everything after it on the line is ignored.
 
 ```latex
 % This is a comment
@@ -22,14 +22,14 @@ Commands control formatting and behavior. Every LaTeX document begins with the `
 
 - `\documentclass[options]{class}`: A command that specifies the type of document to be created.   
 
-  | Class     | Purpose                             |
+  | `class`   | Purpose                             |
   | --------- | ----------------------------------- |
   | `article` | For short documents.                |
   | `report`  | For longer documents with chapters. |
   | `book`    | For books.                          |
   | `letter`  | For writing letters.                |
 
-  | Options                  | Description                                        |
+  | `options`                | Description                                        |
   | ------------------------ | -------------------------------------------------- |
   | `10pt`, `11pt`, `12pt`   | Sets the base font size for the document.          |
   | `a4paper`, `letterpaper` | Sets the paper size.                               |
@@ -70,17 +70,15 @@ Content goes here.
 
 ---
 
-## Whitespace Rules
+## Whitespace and Breaks
 
-LaTeX handles whitespace according to specific rules.
+LaTeX handles whitespace according to specific rules, and provides commands for manual control.
 
-- **Spaces and Tabs**: Consecutive spaces or tabs are treated as one.
+- **Spaces and Tabs**: Multiple consecutive spaces or tabs are treated as a single space.
 
-- **Line Breaks**: A single line break is also treated as a space.
+- **Line Breaks**: A single line break is also treated as a single space.
 
 - **Blank Lines**: One or more blank lines signal the end of a paragraph and the start of a new one.
-
-Commands also control spacing and breaks.
 
 - `\\` or `\newline`: Forces a line break.
 
@@ -88,22 +86,11 @@ Commands also control spacing and breaks.
 
 - `~`: Inserts a non-breaking space, ensuring that the words it connects are not separated by a line break.
 
-- `\par`: Ends the current paragraph and starts a new one.
+- `\noindent`: Prevents the automatic indentation at the start of a paragraph.
 
-- `\noindent`: Prevents indentation at the start of a paragraph.
+- `\hspace{length}`: Inserts horizontal space using a specified length. See [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units.
 
-- `\hspace{length}`: Inserts horizontal space.
-
-- `\vspace{length}`: Inserts vertical space.
-  
-  | Unit  | Meaning                       |
-  | :---: | ----------------------------- |
-  |  pt   | Point (1/72 inch)             |
-  |  mm   | Millimeter                    |
-  |  cm   | Centimeter                    |
-  |  in   | Inch                          |
-  |  em   | Width of 'M' in current font  |
-  |  ex   | Height of 'x' in current font |
+- `\vspace{length}`: Inserts vertical space using a specified length. See [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units.
 
 ```latex
 \documentclass{article}
@@ -116,9 +103,6 @@ line break is also just a space.
 This text starts a new paragraph because there was a blank line above it.
 
 \noindent This paragraph starts without indentation.
-
-\par
-This paragraph was separated using \verb|\par|.
 
 You can force a line break\\without starting a new paragraph.
 
@@ -157,6 +141,7 @@ To print special characters, escape them with a backslash (`\`).
 
 ```latex
 \documentclass{article}
+
 \begin{document}
 
 \$5.00, 100\%, R\&D, and item \#1.
@@ -166,9 +151,33 @@ To print special characters, escape them with a backslash (`\`).
 
 ---
 
+## Quotation Marks
+
+To produce typographically correct curly quotation marks, you must use backticks (`` ` ``) for opening quotes and single apostrophes (`'`) for closing quotes. Using the standard double-quote character (`"`) will result in incorrect, straight quotes.
+
+- Single Quotes: Use a single backtick (`` ` ``) to open and a single apostrophe (`'`) to close.
+
+- Double Quotes: Use two backticks (``` `` ```) to open and two apostrophes (`''`) to close.
+
+```latex
+\documentclass{article}
+
+\begin{document}
+
+``This is a double-quoted sentence.''
+
+`This is a single-quoted sentence.'
+
+"This is incorrect." % Avoid using the standard double-quote key
+
+\end{document}
+```
+
+---
+
 ## Grouping
 
-Curly braces `{...}` groups text and limits the scope of commands.
+Curly braces `{...}` groups text and limits the scope of commands applied within them.
 
 ```latex
 \documentclass{article}
@@ -192,9 +201,15 @@ To display text exactly as typed, use verbatim tools.
 - `\verb|text|`: An inline command for literal text.
 
 ```latex
+\documentclass{article}
+
+\begin{document}
+
 \begin{verbatim}
 This is raw text # $ % &
 \end{verbatim}
 
 \verb|This is also raw text # $ % &|
+
+\end{document}
 ```

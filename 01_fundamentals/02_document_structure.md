@@ -8,9 +8,9 @@ This guide explains the fundamental structure of a LaTeX document, including its
 
 A LaTeX document is divided into two main parts:
 
-- **Preamble**: Everything before `\begin{document}`. It sets up the document by specifying the document class, loading packages, defining metadata, and configuring layout and behavior.
+- **Preamble**: Everything before `\begin{document}`. It sets up the document by specifying the document class, loading packages, and defining metadata.
 
-- **Document Body**: Everything between `\begin{document}` and `\end{document}`. It encloses the content to be typeset.
+- **Document Body**: Everything between `\begin{document}` and `\end{document}`. It encloses all content to be typeset.
 
 ```latex
 % ----- Preamble -----
@@ -21,6 +21,28 @@ A LaTeX document is divided into two main parts:
 % ----- Document Body -----
 Content goes here.
 
+\end{document}
+```
+
+---
+
+## Loading Packages
+
+Packages are external files that add new features and commands to LaTeX. They must be loaded in the preamble using the `\usepackage` command.
+
+- `\usepackage[options]{package_name}`: Loads a package, with optional settings.
+
+```latex
+\documentclass{article}
+
+% Load the 'amsmath' package for advanced math environments
+\usepackage{amsmath}
+
+% Load the 'graphicx' package in the preamble
+\usepackage{graphicx}
+
+\begin{document}
+% The commands from amsmath and graphicx are now available.
 \end{document}
 ```
 
@@ -61,10 +83,14 @@ These commands define metadata in the preamble, which `\maketitle` then renders 
 These commands format and number section headings. To create an unnumbered heading, add an asterisk (`*`) after the command name.
 
 - `\section{title}`: Creates a new top-level section.
+  
 - `\subsection{title}`: Creates a subsection.
+  
 - `\subsubsection{title}`: Creates a sub-subsection.
-- `\paragraph{title}`: Creates a paragraph heading in-line with the text that follows it. It is bolded and unnumbered by default.
-- `\subparagraph{title}`: Creates the lowest-level inline heading, also unnumbered.
+  
+- `\paragraph{title}`: Creates a paragraph heading in-line with the text that follows it. 
+  
+- `\subparagraph{title}`: Creates the lowest-level inline heading.
 
 ```latex
 \documentclass{article}
@@ -81,10 +107,10 @@ A subsection (e.g., 1.1).
 A sub-subsection (e.g., 1.1.1).
 
 \paragraph{Key Figures}  % Titled paragraph; inline heading
-Text begins on the same line as the title. Typically bolded and not numbered.
+Text begins on the same line as the title.
 
 \subparagraph{Secondary Contributors}  % Finer inline heading
-Nested under the paragraph heading. Also not numbered.
+Nested under the paragraph heading.
 
 \section*{Acknowledgments}  % Unnumbered section
 This section is not numbered because of the asterisk.
@@ -94,9 +120,36 @@ This section is not numbered because of the asterisk.
 
 ---
 
+## Customizing Numbering Depth
+
+LaTeX controls which sectioning commands are numbered using the `secnumdepth` counter. In the `article` class, the default value for `secnumdepth` is `3`, meaning only sections down to `\subsubsection` are numbered. To include numbering for `\paragraph` and `\subparagraph`, increase the value of `secnumdepth` in the preamble.
+
+- `\setcounter{secnumdepth}{level}`: Sets the maximum depth of numbered sectioning.
+  
+  | `level` | Command          |
+  | :-----: | ---------------- |
+  |    1    | `\section`       |
+  |    2    | `\subsection`    |
+  |    3    | `\subsubsection` |
+  |    4    | `\paragraph`     |
+  |    5    | `\subparagraph`  |
+
+```latex
+\documentclass{article}
+\setcounter{secnumdepth}{5}
+
+\begin{document}
+
+Sections up to subparagraph are now numbered.
+
+\end{document}
+```
+
+---
+
 ## Table of Contents
 
-The table of contents is dynamically generated and updates with each compile.
+The table of contents updates automatically, but requires two compilations: first to gather headings, then to render the table.
 
 - `\tableofcontents`: Directly inserts a table of contents, automatically populated from the sectioning commands.
 
@@ -114,7 +167,7 @@ This section will appear in the ToC.
 A subsection, indented under Main Body in the ToC.
 
 \section*{Acknowledgments}  % Unnumbered; not listed in the ToC
-This section is not numbered and will not appear in the ToC.
+This section is unnumbered and will not appear in the ToC.
 
 \end{document}
 ```
@@ -123,9 +176,9 @@ This section is not numbered and will not appear in the ToC.
 
 ## Appendix
 
-This commands marks the start of appendices.
+This commands changes how top-level sections are labeled.
 
-- `\appendix`: Changes sectioning labels from numbers to letters for all content that follows.
+- `\appendix`: Marks the start of the appendices. After this command, `\section` commands will produce headings like `Appendix A`, `Appendix B`, and so on.
 
 ```latex
 \documentclass{article}
@@ -140,9 +193,6 @@ The core of the document goes here.
 \section{Supplemental Details}
 This section appears as Appendix A.
 
-\section{Additional Material}
-This section appears as Appendix B.
-
 \end{document}
 ```
 
@@ -150,7 +200,7 @@ This section appears as Appendix B.
 
 ## Including External Files
 
-For large projects, the document can be split into multiple `.tex` files. The external files should not have its own preamble or document environment.
+For large projects, the content can be split into multiple `.tex` files. The external files should not contain their own preamble or document environment.
 
 - `\input{filename}`: Directly inserts the content of `filename.tex`.
 
@@ -159,17 +209,12 @@ For large projects, the document can be split into multiple `.tex` files. The ex
 ```latex
 \documentclass{report}
 
-\title{Analysis of Everything}
-\author{The Author}
-
 % Command to only compile specific \include'd files
 \includeonly{chapter1}
 
 \begin{document}
-\maketitle
 
 \input{introduction} % Inserts introduction.tex here.
-
 \include{chapter1}   % Inserts chapter1.tex on a new page.
 \include{chapter2}   % Skipped because it's not listed in \includeonly.
 

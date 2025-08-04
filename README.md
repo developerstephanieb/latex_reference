@@ -11,11 +11,13 @@ latex_reference/
 ├── 01_fundamentals/
 │   ├── 01_syntax.md
 │   ├── 02_document_structure.md 
-│   ├── 03_text_format_and_layout
-│   ├── 04_math_mode.md
+│   ├── 03_text_format_and_layout.md
+│   ├── 04_lengths_and_dimensions.md
 │   ├── 05_lists.md
-│   ├── 06_tables.md
-│   └──
+│   ├── 06_images_and_figures.md
+│   ├── 07_tables.md
+│   ├── 08_math_mode.md
+│   └── 09_defining_commands.md
 ├── 02_packages/
 │   ├── amsmath.md
 │   ├── amssymb.md
@@ -28,6 +30,9 @@ latex_reference/
 ├── 03_templates/
 │   ├── article/
 │   └── resume/
+├── 04_appendix/
+│   ├── 
+│   └── 
 ├── .gitignore 
 └── README.md
 ```
