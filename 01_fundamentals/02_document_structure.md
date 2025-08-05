@@ -97,22 +97,22 @@ These commands format and number section headings. To create an unnumbered headi
 
 \begin{document}
 
-\section{Introduction}  % Top-level section
+\section{Introduction}
 This is the first main section. It is numbered automatically (e.g., 1).
 
-\subsection{Background}  % Subsection within Introduction
+\subsection{Background}
 A subsection (e.g., 1.1).
 
-\subsubsection{Historical Context}  % Sub-subsection within Background
+\subsubsection{Historical Context}
 A sub-subsection (e.g., 1.1.1).
 
-\paragraph{Key Figures}  % Titled paragraph; inline heading
+\paragraph{Key Figures}
 Text begins on the same line as the title.
 
-\subparagraph{Secondary Contributors}  % Finer inline heading
+\subparagraph{Secondary Contributors}
 Nested under the paragraph heading.
 
-\section*{Acknowledgments}  % Unnumbered section
+\section*{Acknowledgments}
 This section is not numbered because of the asterisk.
 
 \end{document}
@@ -122,17 +122,17 @@ This section is not numbered because of the asterisk.
 
 ## Customizing Numbering Depth
 
-LaTeX controls which sectioning commands are numbered using the `secnumdepth` counter. In the `article` class, the default value for `secnumdepth` is `3`, meaning only sections down to `\subsubsection` are numbered. To include numbering for `\paragraph` and `\subparagraph`, increase the value of `secnumdepth` in the preamble.
+LaTeX controls which sectioning commands are numbered using the `secnumdepth` counter. In the `article` class, the default value is `3`, meaning only sections up to `\subsubsection` are numbered. To include numbering for `\paragraph` and `\subparagraph`, increase the value of `secnumdepth` in the preamble.
 
 - `\setcounter{secnumdepth}{level}`: Sets the maximum depth of numbered sectioning.
   
-  | `level` | Command          |
-  | :-----: | ---------------- |
-  |    1    | `\section`       |
-  |    2    | `\subsection`    |
-  |    3    | `\subsubsection` |
-  |    4    | `\paragraph`     |
-  |    5    | `\subparagraph`  |
+  | `level` | Deepest Numbered Level |
+  | :-----: | ---------------------- |
+  |    1    | `\section`             |
+  |    2    | `\subsection`          |
+  |    3    | `\subsubsection`       |
+  |    4    | `\paragraph`           |
+  |    5    | `\subparagraph`        |
 
 ```latex
 \documentclass{article}
@@ -151,7 +151,7 @@ Sections up to subparagraph are now numbered.
 
 The table of contents updates automatically, but requires two compilations: first to gather headings, then to render the table.
 
-- `\tableofcontents`: Directly inserts a table of contents, automatically populated from the sectioning commands.
+- `\tableofcontents`: Directly inserts a table of contents, automatically populated from numbered sectioning commands.
 
 ```latex
 \documentclass{article}
@@ -191,7 +191,7 @@ The core of the document goes here.
 \appendix % Starts the appendix
 
 \section{Supplemental Details}
-This section appears as Appendix A.
+This section appears as ``Appendix A''.
 
 \end{document}
 ```

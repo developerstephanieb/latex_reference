@@ -2,7 +2,7 @@
 
 This guide explains how to include images using the `graphicx` package and how to wrap them in the `figure` environment to add captions and labels.
 
---- `'
+---
 
 ## The `graphicx` Package
 
@@ -14,8 +14,8 @@ To include images, load the `graphicx` package in the preamble.
 
   | `options`       | Description                                                                                                                 |
   | --------------- | --------------------------------------------------------------------------------------------------------------------------- |
-  | `width=length`  | Resizes the image to a specific `width`. See [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units.  |
-  | `height=length` | Resizes the image to a specific `height`. See [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units. |
+  | `width=length`  | Resizes the image to a specific `width` (see [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units). |
+  | `height=length` | Resizes the image to a specific `height`(see [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units). |
   | `scale=factor`  | Scales the image by a `factor` (e.g., `0.5` for 50% of original size).                                                      |
   | `angle=degrees` | Rotates the image counter-clockwise by a number of `degrees`.                                                               |
 
@@ -25,11 +25,9 @@ To include images, load the `graphicx` package in the preamble.
 
 \begin{document}
 
-Here is some text, followed by an image scaled to 80% of the text width.
+Here is some text, followed by an image scaled to 80\% of the text width.
 
-\includegraphics[width=0.8\textwidth]{example-image} % 'example-image' is a placeholder
-
-More text after the image.
+\includegraphics[width=0.8\textwidth]{example-image-a} % 'example-image-a' is a placeholder
 
 \end{document}
 ```
@@ -56,7 +54,7 @@ To add a caption, create a label for referencing, and control placement, wrap th
 
 - `\ref{marker}`: Prints the number of the figure associated with `marker`.
 
-- `\centering`: A command used inside the `figure` environment to center the float.
+- `\centering`: Often used inside the `figure` environment to center the float.
 
 ```latex
 \documentclass{article}
@@ -73,7 +71,38 @@ As you can see in Figure~\ref{fig:sample}, the image is centered and has a capti
   \label{fig:sample} % Place label after caption
 \end{figure}
 
-The text continues after the figure.
+\end{document}
+```
+
+---
+
+## Side-by-Side Figures
+
+To place figures next to each other, use the `minipage` environment. Each `\includegraphics` command is wrapped in its own `minipage`, and the `\hfill` command is used to push them apart. This entire construction can be placed inside a single `figure` environment to create a unified, captioned figure.
+
+```latex
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{figure}[h!]
+  \begin{minipage}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{example-image-a}
+    \caption{The first image.}
+    \label{fig:image1}
+  \end{minipage}
+  \hfill % Fills the space between the images
+  \begin{minipage}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{example-image-b}
+    \caption{The second image.}
+    \label{fig:image2}
+  \end{minipage}
+\end{figure}
+
+Figure~\ref{fig:image1} and Figure~\ref{fig:image2} are placed side-by-side.
 
 \end{document}
 ```

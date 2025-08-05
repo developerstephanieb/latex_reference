@@ -48,7 +48,7 @@ We can add horizontal space, like this \hspace{1cm} gap, using absolute units.
 
 Below is an image that has been scaled to 50\% of the total text width using a relative parameter.
 
-\includegraphics[width=0.5\textwidth]{example-image}
+\includegraphics[width=0.5\textwidth]{example-image-a}
 
 This ensures the image will always be half the width of the text block,
 even if the page margins change.

@@ -1,4 +1,4 @@
-# 04: Text Format and Layout
+# 03: Text Format and Layout
 
 This guide covers the essential LaTeX commands for formatting text, from changing the style of individual words to controlling the layout of entire blocks.
 
@@ -96,9 +96,9 @@ These environments control the horizontal alignment of entire blocks of text.
 
 - `\begin{center}`: Centers each line of text.
   
-- `\begin{flushleft}`: Aligns text to the left margin (creating a ragged right edge).
+- `\begin{flushleft}`: Aligns text to the left margin.
   
-- `\begin{flushright}`: Aligns text to the right margin (creating a ragged left edge).
+- `\begin{flushright}`: Aligns text to the right margin.
 
 ```latex
 \documentclass{article}
@@ -128,12 +128,44 @@ These environments are used for block quotes, which are indented from both margi
 
 ```latex
 \documentclass{article}
+
 \begin{document}
 
 Here is some introductory text for a quote.
 \begin{quote}
 This is a short quotation, indented from both margins.
 \end{quote}
+
+\end{document}
+```
+
+---
+
+## Minipage
+
+The `minipage` environment creates a small, self-contained "page" within the document. Its primary use is to place several blocks of content (text, images, tables) side-by-side.
+
+- `\begin{minipage}[pos]{width}`: Creates an inline block of a specified `width` (see [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units). The optional `[pos]` argument controls the vertical alignment.
+
+  | `pos` | Description                                                      |
+  | :---: | ---------------------------------------------------------------- |
+  |  `t`  | **t**op: Aligns the top of the minipage with the baseline.       |
+  |  `c`  | **c**enter: Vertically centers the minipage (default).           |
+  |  `b`  | **b**ottom: Aligns the bottom of the minipage with the baseline. |
+
+```latex
+\documentclass{article}
+
+\begin{document}
+
+\noindent % Prevents indentation for the minipages
+\begin{minipage}[t]{0.45\textwidth} % Note the [t] for top alignment
+  \textbf{Column 1:} This is the first block of text. It is contained within its own minipage. The content here is longer to show the top alignment.
+\end{minipage}
+\hfill % Adds flexible space to push the columns apart
+\begin{minipage}[t]{0.45\textwidth} % Note the [t] for top alignment
+  \textbf{Column 2:} This is the second block of text.
+\end{minipage}
 
 \end{document}
 ```

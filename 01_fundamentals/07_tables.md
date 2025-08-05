@@ -10,20 +10,20 @@ The `tabular` environment is the core tool for creating the grid and content of 
 
 - `\begin{tabular}{cols}`: Creates a table. The `{cols}` argument defines the column layout.
 
-  |     `cols`      | Description                                                                                                                                 |
-  | :-------------: | ------------------------------------------------------------------------------------------------------------------------------------------- |
-  |       `l`       | A left-aligned column.                                                                                                                      |
-  |       `c`       | A center-aligned column.                                                                                                                    |
-  |       `r`       | A right-aligned column.                                                                                                                     |
-  |   `p{width}`    | A paragraph column of a fixed width. Text will auto-wrap. See [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units. |
-  | `@{expression}` | Replaces inter-column space with `expression` (e.g. `@{ -- }`). Use `@{}` to remove the space.                                              |
-  |      `\|`       | Adds a vertical line between columns.                                                                                                       |
+  |     `cols`      | Description                                                                                                                                  |
+  | :-------------: | -------------------------------------------------------------------------------------------------------------------------------------------- |
+  |       `l`       | A left-aligned column.                                                                                                                       |
+  |       `c`       | A center-aligned column.                                                                                                                     |
+  |       `r`       | A right-aligned column.                                                                                                                      |
+  |   `p{width}`    | A paragraph column of a fixed width (see [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units). Text will auto-wrap. |
+  | `@{expression}` | Replaces inter-column space with `expression` (e.g. `@{ -- }`). Use `@{}` to remove the space.                                               |
+  |      `\|`       | Adds a vertical line between columns.                                                                                                        |
 
-- Columns (`&`): Separates content into the next column.
+- `&`: Separates content into the next column.
 
-- Rows (`\\`): Ends the current row.
+- `\\`: Ends the current row.
 
-- Horizontal Lines (`\hline`): Adds a horizontal line across the table.
+- `\hline`: Adds a horizontal line across the table.
 
 ```latex
 \documentclass{article}
@@ -78,7 +78,7 @@ For more complex tables, a cell may need to span multiple columns.
 
 \begin{document}
 
-Here is the same table with a partial horizontal line:
+Here is a table with merged header columns and a partial horizontal line:
 \begin{tabular}{|l|c|c|}
     \hline
     \textbf{Item} & \multicolumn{2}{c|}{\textbf{Details}}          \\
@@ -135,10 +135,40 @@ As shown in Table~\ref{tab:shopping_list}, the total cost is important.
         \hline
     \end{tabular}
     \caption{A Sample Shopping List}
-    \label{tab:shopping_list}
+    \label{tab:shopping_list} % Place label after caption
 \end{table}
 
-Some more text following the table.
+\end{document}
+```
+
+---
+
+## Side-by-Side Tables
+
+To place tables next to each other, use the `minipage` environment. Each `tabular` environment is wrapped in its own `minipage`, and the `\hfill` command is used to push them apart. This entire construction can be placed inside a single `table` environment to create a unified, captioned table.
+
+```latex
+\documentclass{article}
+
+\begin{document}
+
+\begin{table}[h!]
+    \begin{minipage}[b]{0.48\textwidth}
+        \centering
+        \begin{tabular}{|c|c|} \hline A & B \\ \hline 1 & 2 \\ \hline \end{tabular}
+        \caption{First Floating Table}
+        \label{tab:float1}
+    \end{minipage}
+    \hfill % Fills the space between the images
+    \begin{minipage}[b]{0.48\textwidth}
+        \centering
+        \begin{tabular}{|c|c|} \hline C & D \\ \hline 3 & 4 \\ \hline \end{tabular}
+        \caption{Second Floating Table}
+        \label{tab:float2}
+    \end{minipage}
+\end{table}
+
+Table~\ref{tab:float1} and Table~\ref{tab:float2} are placed side-by-side.
 
 \end{document}
 ```

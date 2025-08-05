@@ -37,8 +37,7 @@ Commands control formatting and behavior. Every LaTeX document begins with the `
   | `landscape`              | Sets the page orientation to landscape.            |
 
 ```latex
-% Creates an article with a base font size of 11pt on US letter paper.
-\documentclass[11pt, letterpaper]{article}
+\documentclass{article}
 
 \begin{document}
 
@@ -60,10 +59,9 @@ Environments define blocks of content with specific formatting behavior.
 ```latex
 \documentclass{article}
 
-% All visible content goes inside the document environment.
 \begin{document}
 
-Content goes here.
+All visible content goes here.
 
 \end{document}
 ```
@@ -78,7 +76,7 @@ LaTeX handles whitespace according to specific rules, and provides commands for 
 
 - **Line Breaks**: A single line break is also treated as a single space.
 
-- **Blank Lines**: One or more blank lines signal the end of a paragraph and the start of a new one.
+- **Blank Lines**: One or more blank lines mark the end of a paragraph and the start of a new one.
 
 - `\\` or `\newline`: Forces a line break.
 
@@ -88,25 +86,29 @@ LaTeX handles whitespace according to specific rules, and provides commands for 
 
 - `\noindent`: Prevents the automatic indentation at the start of a paragraph.
 
+- `\hfill`: Adds a flexible horizontal space that expands to fill all available room.
+
 - `\hspace{length}`: Inserts horizontal space using a specified length. See [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units.
 
 - `\vspace{length}`: Inserts vertical space using a specified length. See [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units.
 
 ```latex
 \documentclass{article}
+
 \begin{document}
 
 Multiple   spaces are treated as one.
 A single
 line break is also just a space.
+You can force a line break\\without starting a new paragraph.
 
 This text starts a new paragraph because there was a blank line above it.
 
 \noindent This paragraph starts without indentation.
 
-You can force a line break\\without starting a new paragraph.
-
 The text in Section~5 will always stay together.
+
+Left text \hfill Right text.
 
 \hspace{2em}This line begins with extra horizontal space.
 
@@ -153,7 +155,7 @@ To print special characters, escape them with a backslash (`\`).
 
 ## Quotation Marks
 
-To produce typographically correct curly quotation marks, you must use backticks (`` ` ``) for opening quotes and single apostrophes (`'`) for closing quotes. Using the standard double-quote character (`"`) will result in incorrect, straight quotes.
+To produce typographically correct curly quotation marks, use backticks (`` ` ``) for opening quotes and single apostrophes (`'`) for closing quotes. Using the standard double-quote character will result in incorrect, straight quotes.
 
 - Single Quotes: Use a single backtick (`` ` ``) to open and a single apostrophe (`'`) to close.
 
@@ -181,6 +183,7 @@ Curly braces `{...}` groups text and limits the scope of commands applied within
 
 ```latex
 \documentclass{article}
+
 \begin{document}
 
 This is normal sized text.

@@ -26,7 +26,8 @@ latex_reference/
 │   ├── hyperref.md
 │   ├── listings.md
 │   ├── xcolor.md
-│   └── tikz.md
+│   ├── tikz.md
+│   └── subcaption.md
 ├── 03_templates/
 │   ├── article/
 │   └── resume/
