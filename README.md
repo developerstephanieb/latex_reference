@@ -17,7 +17,9 @@ latex_reference/
 │   ├── 06_images_and_figures.md
 │   ├── 07_tables.md
 │   ├── 08_math_mode.md
-│   └── 09_defining_commands.md
+│   ├── 09_cross_referencing.md
+│   ├── 10_defining_commands.md
+│   └── 11_bibliography_and_citations.md
 ├── 02_packages/
 │   ├── amsmath.md
 │   ├── amssymb.md

@@ -8,7 +8,7 @@ This guide explains how to include images using the `graphicx` package and how t
 
 To include images, load the `graphicx` package in the preamble.
 
-- `\usepackage{graphicx}`: This command must be placed in the preamble to enable image-related commands.
+- `\usepackage{graphicx}`: Loads the `graphicx` package, enabling image-related commands.
 
 - `\includegraphics[options]{filename}`: Inserts the image specified by `filename`. Common file types include PNG, JPG, and PDF. Image files should be placed in the same directory as the `.tex` file or referenced with a relative path (e.g., `path/to/filename`).
 
