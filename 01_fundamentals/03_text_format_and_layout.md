@@ -145,7 +145,7 @@ This is a short quotation, indented from both margins.
 
 The `minipage` environment creates a small, self-contained "page" within the document. Its primary use is to place several blocks of content (text, images, tables) side-by-side.
 
-- `\begin{minipage}[pos]{width}`: Creates an inline block of a specified `width` (see [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units). The optional `[pos]` argument controls the vertical alignment.
+- `\begin{minipage}[pos]{width}`: Creates an inline block of a specified [`width`](04_lengths_and_dimensions.md). The optional `[pos]` argument controls the vertical alignment.
 
   | `pos` | Description                                                      |
   | :---: | ---------------------------------------------------------------- |

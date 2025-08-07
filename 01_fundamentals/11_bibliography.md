@@ -28,7 +28,7 @@ This method involves creating the bibliography by hand directly inside the LaTeX
 The theory of relativity was a major breakthrough in physics~\cite{einstein1905}.
 Another key paper is~\cite{dirac1928}.
 
-\begin{thebibliography}{9} % Start of bibliography
+\begin{thebibliography}{9} % Starts the bibliography
 
 \bibitem{einstein1905}
 A. Einstein, "On the Electrodynamics of Moving Bodies," 1905.
@@ -100,7 +100,7 @@ Each entry in the `.bib` file starts with `@entrytype`, followed by a unique `ci
 
 - `citation_key`: A unique identifier for the source. It's used with the `\cite{citation_key}` command to refer to this specific entry.
 
-- `field = {value}`: Each entry type has a set of required and optional fields, which are case-insensitive. The values of `field` must be enclosed in curly braces `{value}` or double quotes `"value"` (except for plain numbers). To protect capitalization or corporate author names from being reformatted, use an extra set of braces `{{value}}` (e.g., `title = {A Guide to {LaTeX}}` or `author = {{The LaTeX Project}}`).
+- `field = {value}`: Each entry type has a set of required and optional fields, which are case-insensitive. The values of `field` must be enclosed in curly braces `{value}` or double quotes `"value"` (except for plain numbers). To protect capitalization and text formatting, use an extra set of braces `{{value}}` (e.g., `title = {A Guide to {LaTeX}}` or `author = {{The LaTeX Project}}`).
 
     | `@entrytype`                    | Required `field`(s)                                    | Optional `field`(s)                                                                                                |
     | :------------------------------ | :----------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |

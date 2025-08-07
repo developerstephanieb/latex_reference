@@ -4,7 +4,7 @@ This guide explains how to include images using the `graphicx` package and how t
 
 ---
 
-## The `graphicx` Package
+## Including Images
 
 To include images, load the `graphicx` package in the preamble.
 
@@ -12,12 +12,12 @@ To include images, load the `graphicx` package in the preamble.
 
 - `\includegraphics[options]{filename}`: Inserts the image specified by `filename`. Common file types include PNG, JPG, and PDF. Image files should be placed in the same directory as the `.tex` file or referenced with a relative path (e.g., `path/to/filename`).
 
-  | `options`       | Description                                                                                                                 |
-  | --------------- | --------------------------------------------------------------------------------------------------------------------------- |
-  | `width=length`  | Resizes the image to a specific `width` (see [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units). |
-  | `height=length` | Resizes the image to a specific `height`(see [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units). |
-  | `scale=factor`  | Scales the image by a `factor` (e.g., `0.5` for 50% of original size).                                                      |
-  | `angle=degrees` | Rotates the image counter-clockwise by a number of `degrees`.                                                               |
+  | `options`       | Description                                                               |
+  | --------------- | ------------------------------------------------------------------------- |
+  | `width=length`  | Resizes the image to a specific [`width`](04_lengths_and_dimensions.md).  |
+  | `height=length` | Resizes the image to a specific [`height`](04_lengths_and_dimensions.md). |
+  | `scale=factor`  | Scales the image by a `factor` (e.g., `0.5` for 50% of original size).    |
+  | `angle=degrees` | Rotates the image counter-clockwise by a number of `degrees`.             |
 
 ```latex
 \documentclass{article}

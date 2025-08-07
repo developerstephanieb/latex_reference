@@ -21,15 +21,11 @@ latex_reference/
 │   ├── 10_defining_commands.md
 │   └── 11_bibliography.md
 ├── 02_packages/
-│   ├── amsmath.md
-│   ├── amssymb.md
 │   ├── geometry.md
-│   ├── graphicx.md
-│   ├── hyperref.md
 │   ├── listings.md
-│   ├── xcolor.md
+│   ├── subcaption.md
 │   ├── tikz.md
-│   └── subcaption.md
+│   └── xcolor.md
 ├── 03_templates/
 │   ├── article/
 │   └── resume/
