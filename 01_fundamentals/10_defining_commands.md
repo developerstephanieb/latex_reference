@@ -37,11 +37,15 @@ Custom commands can also accept arguments for dynamic output.
 % Define \highlight to take one argument (#1)
 \newcommand{\highlight}[1]{\textbf{\textit{#1}}}
 
+% Define \defineterm to take two arguments
+% #1 will be the term (bold), #2 will be the definition (italic)
+\newcommand{\defineterm}[2]{\noindent\textbf{#1}: \textit{#2}\\}
+
 \begin{document}
 
 This is normal text, but we want to \highlight{emphasize this part}.
 
-The \highlight{custom command} makes the formatting consistent.
+\defineterm{Syntax}{The fundamental rules of a language.}
 
 \end{document}
 ```
@@ -64,7 +68,7 @@ The `\renewcommand` command modifies the behavior of an existing command. It ena
 \begin{document}
 
 \begin{enumerate}
-  \item This is the first item. % Will be labeled "Step 1:"
+  \item This is the first item.  % Will be labeled "Step 1:"
   \item This is the second item. % Will be labeled "Step 2:"
 \end{enumerate}
 

@@ -21,7 +21,7 @@ To include images, load the `graphicx` package in the preamble.
 
 ```latex
 \documentclass{article}
-\usepackage{graphicx} % Load the package in the preamble
+\usepackage{graphicx} % Load the 'graphicx' package in the preamble
 
 \begin{document}
 

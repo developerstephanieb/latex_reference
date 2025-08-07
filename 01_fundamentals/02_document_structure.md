@@ -35,11 +35,9 @@ Packages are external files that add new features and commands to LaTeX. They mu
 ```latex
 \documentclass{article}
 
-% Load the 'amsmath' package for advanced math environments
-\usepackage{amsmath}
+\usepackage{amsmath}  % Load the 'amsmath' package in the preamble
 
-% Load the 'graphicx' package in the preamble
-\usepackage{graphicx}
+\usepackage{graphicx} % Load the 'graphicx package in the preamble
 
 \begin{document}
 % The commands from amsmath and graphicx are now available.
@@ -158,7 +156,7 @@ The table of contents updates automatically, but requires two compilations: firs
 
 \begin{document}
 
-\tableofcontents  % Generates the ToC
+\tableofcontents % Generates the ToC
 
 \section{Main Body}
 This section will appear in the ToC.
@@ -166,7 +164,7 @@ This section will appear in the ToC.
 \subsection{First Point}
 A subsection, indented under Main Body in the ToC.
 
-\section*{Acknowledgments}  % Unnumbered; not listed in the ToC
+\section*{Acknowledgments} % Unnumbered; not listed in the ToC
 This section is unnumbered and will not appear in the ToC.
 
 \end{document}

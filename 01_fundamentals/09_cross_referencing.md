@@ -72,7 +72,7 @@ For clickable references and automatic labels, load the `hyperref` package in th
 ```latex
 \documentclass{article}
 \usepackage{graphicx}
-\usepackage{hyperref} % Load the hyperref package last
+\usepackage{hyperref} % Load the 'hyperref' package last in the preamble
 
 \begin{document}
 
