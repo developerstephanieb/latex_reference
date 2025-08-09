@@ -12,20 +12,18 @@ latex_reference/
 │   ├── 01_syntax.md
 │   ├── 02_document_structure.md 
 │   ├── 03_text_format_and_layout.md
-│   ├── 04_lengths_and_dimensions.md
-│   ├── 05_lists.md
-│   ├── 06_images_and_figures.md
-│   ├── 07_tables.md
-│   ├── 08_math_mode.md
-│   ├── 09_cross_referencing.md
-│   ├── 10_defining_commands.md
-│   └── 11_bibliography.md
+│   ├── 04_page_layout.md
+│   ├── 05_lengths_and_dimensions.md
+│   ├── 06_lists.md
+│   ├── 07_images_and_figures.md
+│   ├── 08_tables.md
+│   ├── 09_math_mode.md
+│   ├── 10_cross_referencing.md
+│   ├── 11_defining_commands.md
+│   └── 12_bibliography.md
 ├── 02_packages/
-│   ├── geometry.md
-│   ├── listings.md
-│   ├── subcaption.md
-│   ├── tikz.md
-│   └── xcolor.md
+│   ├── 
+│   └── 
 ├── 03_templates/
 │   ├── article/
 │   └── resume/

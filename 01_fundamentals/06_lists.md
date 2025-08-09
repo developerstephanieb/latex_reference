@@ -1,4 +1,4 @@
-# 05: Lists
+# 06: Lists
 
 This guide covers the standard LaTeX environments used to create itemized, numbered, and descriptive lists.
 

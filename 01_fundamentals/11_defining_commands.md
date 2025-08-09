@@ -1,4 +1,4 @@
-# 10: Defining Commands
+# 11: Defining Commands
 
 This guide covers how to create your own custom commands and modify existing ones. 
 

@@ -1,4 +1,4 @@
-# 08: Math Mode
+# 09: Math Mode
 
 This guide provides an overview of math mode, the specialized environment for typesetting mathematical formulas and equations.
 

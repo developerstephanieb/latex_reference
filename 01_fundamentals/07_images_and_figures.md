@@ -1,4 +1,4 @@
-# 06: Images and Figures
+# 07: Images and Figures
 
 This guide explains how to include images using the `graphicx` package and how to wrap them in the `figure` environment to add captions and labels.
 

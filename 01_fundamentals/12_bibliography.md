@@ -1,4 +1,4 @@
-# 11: Bibliography
+# 12: Bibliography
 
 This guide covers how to create a bibliography and cite sources in LaTeX.
 

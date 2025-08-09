@@ -33,8 +33,9 @@ Commands control formatting and behavior. Every LaTeX document begins with the `
   | ------------------------ | -------------------------------------------------- |
   | `10pt`, `11pt`, `12pt`   | Sets the base font size for the document.          |
   | `a4paper`, `letterpaper` | Sets the paper size.                               |
-  | `oneside`, `twoside`     | Formats for single-sided or double-sided printing. |
   | `landscape`              | Sets the page orientation to landscape.            |
+  | `oneside`, `twoside`     | Formats for single-sided or double-sided printing. |
+  | `twocolumn`              | Typesets the document in two columns.              |
 
 ```latex
 \documentclass{article}

@@ -1,4 +1,4 @@
-# 04: Lengths and Dimensions
+# 05: Lengths and Dimensions
 
 This guide covers how LaTeX handles lengths and dimensions, including the various units of measurement and built-in parameters.
 

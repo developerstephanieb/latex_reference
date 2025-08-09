@@ -1,4 +1,4 @@
-# 09: Cross-Referencing
+# 10: Cross-Referencing
 
 This guide covers LaTeX's cross-referencing system, which creates dynamic links to sections, figures, tables, and equations.
 

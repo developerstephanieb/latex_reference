@@ -1,4 +1,4 @@
-# 07: Tables
+# 08: Tables
 
 This guide explains how to create tables using the `tabular` environment and how to wrap them in the `table` environment to add captions and labels.
 
