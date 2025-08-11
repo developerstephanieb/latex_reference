@@ -6,27 +6,29 @@ This guide covers how to control the page layout of documents, including paper s
 
 ## The `geometry` Package
 
-For control over margins, paper size, and orientation, load the `geometry` package in the preamble. While some page layout `options` can be set in `\documentclass`, it’s best practice to define all dimensions with `geometry`.
+To control page layout, load the `geometry` package in the preamble. While some page layout `options` can be set in `\documentclass`, it’s best practice to define all dimensions with `geometry`.
 
-- `\usepackage[options]{geometry}`: Loads the `geometry` package, enabling page layout settings.
+- `\usepackage[options]{geometry}`: Loads the `geometry` package, enabling control over margins, paper size, orientation, and other page dimensions.
   
-  | `options`                   | Description                                                         |
-  | --------------------------- | ------------------------------------------------------------------- |
-  | `a4paper`, `letterpaper`    | Sets the paper size.                                                |
-  | `landscape`                 | Sets the page orientation to landscape.                             |
-  | `margin=width`              | Sets all four margins (top, bottom, left, right) to the same value. |
-  | `left=width`, `right=width` | Sets the left and right margins individually.                       |
-  | `top=width`, `bottom=width` | Sets the top and bottom margins individually.                       |
-  | `hmargin=width`             | Sets both the left and right margins to the same value.             |
-  | `vmargin=width`             | Sets both the top and bottom margins to the same value.             |
-  | `headsep=distance`          | Sets the space between the header and the text body.                |
-  | `bindingoffset=width`       | Adds extra space to the inner margin for binding.                   |
-  | `showframe`                 | Draws visible frames around the margins for debugging layout.       |
+  | `options`                     | Description                                                         |
+  | ----------------------------- | ------------------------------------------------------------------- |
+  | `a4paper`, `letterpaper`      | Sets the paper size.                                                |
+  | `landscape`                   | Sets the page orientation to landscape.                             |
+  | `margin=length`               | Sets all four margins (top, bottom, left, right) to the same value. |
+  | `left=length`, `right=length` | Sets the left and right margins individually.                       |
+  | `top=length`, `bottom=length` | Sets the top and bottom margins individually.                       |
+  | `hmargin=length`              | Sets both the left and right margins to the same value.             |
+  | `vmargin=length`              | Sets both the top and bottom margins to the same value.             |
+  | `scale=factor`                | Scales the text area.                                               |
+  | `headsep=length`              | Sets the space between the header and the text body.                |
+  | `bindingoffset=width`         | Adds extra space to the inner margin for binding.                   |
+  | `includehead`, `includefoot`  | Includes the header and/or footer as part of the text height.       |
+  | `showframe`                   | Draws visible frames around the margins for debugging layout.       |
 
 ```latex
 \documentclass{article}
 
-% Load the 'geometry' package last in the preamble
+% Load the 'geometry' package in the preamble
 \usepackage[a4paper, margin=1in]{geometry}
 
 \begin{document}
@@ -34,8 +36,7 @@ For control over margins, paper size, and orientation, load the `geometry` packa
 \section{Introduction}
 
 This page has been formatted using the \texttt{geometry} package.
-The paper size is A4, and the top, bottom, left, and right margins
-are all set to exactly one inch.
+The paper size is A4, and the margins are all set to one inch.
 
 \end{document}
 ```
@@ -44,21 +45,238 @@ are all set to exactly one inch.
 
 ## Headers and Footers
 
+The `\pagestyle` command controls the content of the headers and footers for the entire document.
+
+- `\pagestyle{style}`: Sets the page style for the document.
+  
+  | `style`      | Description                                                                                                                                                                                           |
+  | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `plain`      | Prints the page number in the footer, which is the default.                                                                                                                                           |
+  | `headings`   | Prints the current chapter/section title and page number in the header.                                                                                                                               |
+  | `empty`      | Creates empty headers and footers (no page numbers).                                                                                                                                                  |
+  | `myheadings` | Allows for custom header content. Use `\markright{right_text}` <br>for  `oneside` documents or `\markboth{left_text}{right_text}` <br>for different headers on even/odd pages in `twoside` documents. |
+
+- `\thispagestyle{style}`: Overrides the global style for the current page only.
+
+- `\pagenumbering{num_style}`: Sets the numbering style for the pages.
+  
+  | `num_style` | Description                              |
+  | ----------- | ---------------------------------------- |
+  | `arabic`    | Arabic numerals (1, 2, 3...)             |
+  | `roman`     | Lowercase Roman numerals (i, ii, iii...) |
+  | `Roman`     | Uppercase Roman numerals (I, II, III...) |
+  | `alph`      | Lowercase letters (a, b, c...)           |
+  | `Alph`      | Uppercase letters (A, B, C...)           |
+
 ```latex
+\documentclass[twoside]{article}
+
+\pagestyle{myheadings}
+
+% Set the header text for the left (even) and right (odd) pages
+\markboth{Even Page Header}{Odd Page Header}
+
+\begin{document}
+
+\section{First Page (Odd)}
+This is the first page of the document, which is an odd-numbered page (page 1).
+The header on this page will display the "right_text".
+
+\newpage
+
+\section{Second Page (Even)}
+This is the second page, which is an even-numbered page (page 2).
+The header on this page will display the "left_text".
+
+\end{document}
 ```
 
 ---
 
-## Columns
+## The `fancyhdr` Package
+
+For full control over headers and footers, load the `fancyhdr` package.
+
+- `\usepackage{fancyhdr}`: Loads the package, enabling custom headers and footers.
+
+- `\pagestyle{fancy}`: Activates the custom header/footer settings.
+
+- `\lhead{text}, \chead{text}, \rhead{text}`: Set the left, center, and right header fields.
+
+- `\lfoot{text}, \cfoot{text}, \rfoot{text}`: Set the left, center, and right footer fields.
+
+- `\renewcommand{\headrulewidth}{length}`: Sets the thickness of the line under the header. Use `0pt` for no line.
+
+- `\renewcommand{\footrulewidth}{length}`: Sets the thickness of the line above the footer.
+
+- `\fancyhead[selectors]{text}`, `\fancyfoot[selectors]{text}`: A more powerful command for setting header/footer content based on page type (even/odd) in `twoside` documents.
+
+  | `selectors`   | Description                                |
+  | ------------- | ------------------------------------------ |
+  | `L`, `C`, `R` | Left, Center, Right field.                 |
+  | `E`, `O`      | Even, Odd pages (for `twoside` documents). |
+
+- `\fancypagestyle{name}{commands}`: Defines a new page style. You use the `fancyhdr` commands inside its definition to configure it.
+
+- `\fancyhf{}`: Clears all header and footer fields.
+
+- `\setlength{\headheight}{length}`: Sets the header height.
+
+```latex
+\documentclass{article}
+\usepackage{fancyhdr} % Load the `fancyhdr` package in the preamble
+
+% Define a global style
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Define a new, custom style called 'firstpage'
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[C]{First Page Footer}
+}
+
+\begin{document}
+
+% Apply the custom 'firstpage' style to THIS page only
+\thispagestyle{firstpage}
+
+\section*{Title Page}
+This is the first page. It has no header and a special centered footer.
+
+\newpage
+
+\section{Main Content}
+This is the second page. It automatically uses the default 'fancy'
+pagestyle we defined, with the page number in the top right.
+
+\end{document}
+```
 
 ---
 
-## Subpage Layouts
+## Multi-Column Layouts
 
+Enable a two-column layout for the entire document by adding the `twocolumn` option to `\documentclass`.
+
+- `\documentclass[twocolumn]{article}`: Formats the entire document in two columns.
+
+```latex
+\documentclass[twocolumn]{article}
+
+\usepackage{lipsum} % For dummy text
+
+\begin{document}
+
+\section{Introduction}
+\lipsum[1-2]
+
+\section{Background}
+\lipsum[3-4]
+
+\section{Conclusion}
+\lipsum[5-6]
+
+\end{document}
+```
+
+---
+
+## The `multicol` Package
+
+For more control, such as having a full-width title and then switching to multiple columns, load the `multicol` package in the preamble.
+
+- `\usepackage{multicol}`: Loads the package in the preamble, enabling multi-column layouts within selected parts of the document.
+
+- `\begin{multicols}{num}`: Begins an environment with `num` columns. The text will automatically balance across the columns on the last page. To disable this balancing, use `\begin{multicols*}`.
+
+- `\columnbreak`: Forces a column break at the point it is inserted.
+
+- `\setlength{\columnsep}{length}`: Sets the amount of space between columns.
+
+- `\setlength{\columnseprule}{length}`: Sets the thickness of the vertical rule (line) between columns. The default is 0pt (no rule).
+
+```latex
+\documentclass{article}
+\usepackage{multicol} % Load the `multicol` package in the preamble
+\usepackage{lipsum}   % For dummy text
+
+\setlength{\columnsep}{20pt}
+\setlength{\columnseprule}{0.4pt}
+
+\begin{document}
+
+\section*{A Full-Width Title}
+
+\begin{multicols}{2}
+    \lipsum[1]
+    \columnbreak
+    \lipsum[2]
+\end{multicols}
+
+\end{document}
+```
+
+---
+
+## Sub-page Layouts
+
+The `minipage` environment creates a small, self-contained "page" within the document. Its primary use is to place several blocks of content (text, images, tables) side-by-side.
+
+- `\begin{minipage}[pos]{width}`: Creates an inline block of a specified `width`. The optional `pos` argument controls the vertical alignment.
+
+  | `pos` | Description                                                      |
+  | :---: | ---------------------------------------------------------------- |
+  |  `t`  | **t**op: Aligns the top of the minipage with the baseline.       |
+  |  `c`  | **c**enter: Vertically centers the minipage (default).           |
+  |  `b`  | **b**ottom: Aligns the bottom of the minipage with the baseline. |
+
+
+```latex
+\documentclass{article}
+
+\begin{document}
+
+\noindent % Prevents indentation for the minipages
+\begin{minipage}[t]{0.45\textwidth}
+  \textbf{Column 1:} This is the first block of text. It is contained within its own minipage. The content here is longer to show the top alignment.
+\end{minipage}
+\hfill % Adds flexible space to push the columns apart
+\begin{minipage}[t]{0.45\textwidth}
+  \textbf{Column 2:} This is the second block of text.
+\end{minipage}
+
+\end{document}
+```
 
 ---
 
 ## Margin Notes
 
+The `\marginpar` command places short notes in the margin of the document.
+
+- `\marginpar{text}`: Creates a note in the margin. In a `twoside` document, the note will appear in the right margin on odd-numbered pages and the left margin on even-numbered pages.
+
+- `\reversemarginpar`, `\normalmarginpar`: Provide manual control over which side the notes appear on.
+
+- `\setlength{\marginparwidth}{length}`: A length parameter that controls the width of the margin note box.
+
+```latex
+\documentclass{article}
+
+\begin{document}
+
+\section{Main Content}
+It is often useful to add a short note in the margin to provide
+supplementary information or a comment.\marginpar{This is a margin note!}
+The note appears next to the line where the command was placed.
+
+\end{document}
+```
 
 ---
+
+## The `marginnote` Package

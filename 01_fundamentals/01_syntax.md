@@ -1,6 +1,6 @@
 # 01: Syntax
 
-This guide provides an overview of the basic LaTeX syntax needed to write and compile documents.  
+This guide provides an overview of the fundamental LaTeX syntax needed to write documents.
 
 ---
 
@@ -89,9 +89,9 @@ LaTeX handles whitespace according to specific rules, and provides commands for 
 
 - `\hfill`: Adds a flexible horizontal space that expands to fill all available room.
 
-- `\hspace{length}`: Inserts horizontal space using a specified length. See [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units.
+- `\hspace{length}`: Inserts horizontal space using a specified length.
 
-- `\vspace{length}`: Inserts vertical space using a specified length. See [04_lengths_and_dimensions.md](04_lengths_and_dimensions.md) for valid units.
+- `\vspace{length}`: Inserts vertical space using a specified length.
 
 ```latex
 \documentclass{article}
@@ -127,7 +127,7 @@ This text will start on the second page.
 
 ## Escaping Special Characters
 
-To print special characters, escape them with a backslash (`\`).
+To print special characters, escape them with a backslash (`\`) or use a control word that represents the symbol.
 
 | Character | Code                 |
 | :-------: | :------------------- |

@@ -28,7 +28,7 @@ Content goes here.
 
 ## Loading Packages
 
-Packages are external files that add new features and commands to LaTeX. They must be loaded in the preamble using the `\usepackage` command.
+Packages are external files that add new features and commands to LaTeX. They must be loaded in the preamble using the `\usepackage` command. The order in which packages are loaded can be important, as some packages depend on others.
 
 - `\usepackage[options]{package_name}`: Loads a package, with optional settings.
 
@@ -80,6 +80,8 @@ These commands define metadata in the preamble, which `\maketitle` then renders 
 
 These commands format and number section headings. To create an unnumbered heading, add an asterisk (`*`) after the command name.
 
+- `\part`: Creates a new part, the highest-level division in a document.
+
 - `\section{title}`: Creates a new top-level section.
   
 - `\subsection{title}`: Creates a subsection.
@@ -94,6 +96,8 @@ These commands format and number section headings. To create an unnumbered headi
 \documentclass{article}
 
 \begin{document}
+
+\part{Main Topics}
 
 \section{Introduction}
 This is the first main section. It is numbered automatically (e.g., 1).
@@ -126,6 +130,7 @@ LaTeX controls which sectioning commands are numbered using the `secnumdepth` co
   
   | `level` | Deepest Numbered Level |
   | :-----: | ---------------------- |
+  |    0    | `\part`                |
   |    1    | `\section`             |
   |    2    | `\subsection`          |
   |    3    | `\subsubsection`       |
@@ -151,12 +156,20 @@ The table of contents updates automatically, but requires two compilations: firs
 
 - `\tableofcontents`: Directly inserts a table of contents, automatically populated from numbered sectioning commands.
 
+- `\setcounter{tocdepth}{level}`: Controls the deepest section level shown in the TOC.
+
+- `\listoffigures`: Generates a list of all figure captions.
+
+- `\listoftables`: Generates a list of all table captions.
+
 ```latex
 \documentclass{article}
 
 \begin{document}
 
 \tableofcontents % Generates the ToC
+\listoffigures
+\listoftables
 
 \section{Main Body}
 This section will appear in the ToC.
@@ -176,7 +189,7 @@ This section is unnumbered and will not appear in the ToC.
 
 This commands changes how top-level sections are labeled.
 
-- `\appendix`: Marks the start of the appendices. After this command, `\section` commands will produce headings like `Appendix A`, `Appendix B`, and so on.
+- `\appendix`: Marks the start of the appendices. After this command, `\section` commands will produce headings like `A`, `B`, and so on.
 
 ```latex
 \documentclass{article}
@@ -189,7 +202,7 @@ The core of the document goes here.
 \appendix % Starts the appendix
 
 \section{Supplemental Details}
-This section appears as ``Appendix A''.
+This section appears as ``A''.
 
 \end{document}
 ```

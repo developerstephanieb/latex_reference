@@ -24,6 +24,18 @@ LaTeX understands both absolute and relative units of length.
   | `em`  | The width of the letter "M" in the current font.  |
   | `ex`  | The height of the letter "x" in the current font. |
 
+```latex
+\documentclass{article}
+\begin{document}
+
+This example uses an absolute unit to create a fixed-size gap:
+First word \hspace{1cm} Second word.
+
+This example uses a relative unit:
+{\large This word \hspace{2em} and this word are further apart.}
+\end{document}
+```
+
 ---
 
 ## Common Length Parameters
@@ -36,22 +48,45 @@ LaTeX provides several commands that act as variables, holding the current dimen
 
 - `\linewidth`: The width of the current line. In a single-column layout, this is usually the same as `\textwidth`, but it can be narrower inside environments like lists or multi-column layouts.
 
+- `\parindent`: The amount of horizontal indentation at the beginning of a paragraph.
+
 ```latex
 \documentclass{article}
 \usepackage{graphicx} % Required for \includegraphics
 
 \begin{document}
 
-The total width of the text on this page is stored in the \verb|\textwidth| command.
-
-We can add horizontal space, like this \hspace{1cm} gap, using absolute units.
-
-Below is an image that has been scaled to 50\% of the total text width using a relative parameter.
+This image is scaled by 50\% of the total text width.
+This ensures it will always be half the width of the text block,
+even if the page margins change.
 
 \includegraphics[width=0.5\textwidth]{example-image-a}
 
-This ensures the image will always be half the width of the text block,
-even if the page margins change.
+\end{document}
+```
+
+---
+
+## Modifying Length Parameters
+
+The value of any length parameter can be changed using the following commands, typically placed in the preamble to affect the entire document.
+
+- `\setlength{\command}{length}`: Sets the value of a `length` `\command` to a specific length.
+
+- `\addtolength{\command}{length}`: Adds a `length` to the current value of a length `\command`.
+
+```latex
+\documentclass{article}
+
+% Set the paragraph indent to 0pt in the preamble
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+This is the first paragraph. It is not indented, because
+the value of the \verb|\parindent| parameter was changed.
+
+This is the second paragraph. It is also not indented.
 
 \end{document}
 ```

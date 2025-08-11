@@ -6,11 +6,15 @@ This guide covers the essential LaTeX commands for formatting text, from changin
 
 ## Font Styles
 
-These commands change the appearance of text to add emphasis and can be nested inside each other.
+There are two primary ways to apply font styles: as a command that takes an argument, or as a declaration that switches the style on for all subsequent text within its scope.
 
-- `\textbf{text}`: Makes text bold.
+- **Argument Form**: Applies a style to a specific piece of text. This is best for short, local changes.
 
-- `\textit{text}`: Makes text italic.
+- **Declaration Form**: Acts as a switch. This is useful for styling larger blocks of text inside a group `{...}` or an environment.
+
+- `\textbf{text}` and `\bfseries`: Makes text bold.
+
+- `\textit{text}` and `\itshape`: Makes text italic.
 
 - `\underline{text}`: Underlines text.
 
@@ -20,7 +24,9 @@ These commands change the appearance of text to add emphasis and can be nested i
 \begin{document}
 
 \textbf{This text is bold.}
-\textit{This text is italic.}
+
+{\itshape This entire sentence is in italics.}
+
 \underline{This text is underlined.}
 
 You can also \textbf{\textit{nest them}}.
@@ -32,7 +38,7 @@ You can also \textbf{\textit{nest them}}.
 
 ## Font Sizing
 
-These commands change the size of text relative to the document’s base font size. Wrap them in braces `{...}` to limit their scope.
+These declarations change the size of text relative to the document’s base font size. 
 
 - `\tiny`: Smallest available text size.
 
@@ -68,11 +74,11 @@ This is the normal, default text size.
 
 These commands switch between the three main font families available in LaTeX.
 
-- `\textrm{text}`: Switches to the Roman (serif) family, which is the default.
+- `\textrm{text}` and `\rmfamily`: Switches to the Roman (serif) family, which is the default.
 
-- `\textsf{text}`: Switches to the Sans-serif family.
+- `\textsf{text}` and `\sffamily`: Switches to the Sans-serif family.
 
-- `\texttt{text}`: Switches to the Teletype (monospace) family.
+- `\texttt{text}` and `\ttfamily`: Switches to the Teletype (monospace) family.
 
 ```latex
 \documentclass{article}
@@ -81,7 +87,7 @@ These commands switch between the three main font families available in LaTeX.
 
 \textrm{This is the default Roman (serif) font.}
 
-\textsf{This is a sans-serif font.}
+{\sffamily This entire paragraph is in sans-serif font.}
 
 \texttt{This is a teletype (monospace) font, often used for code.}
 
@@ -92,26 +98,27 @@ These commands switch between the three main font families available in LaTeX.
 
 ## Alignment
 
-These environments control the horizontal alignment of entire blocks of text.
+These environments and declarations control the horizontal alignment of entire blocks of text.
 
-- `\begin{center}`: Centers each line of text.
+- `\begin{center}` and `\centering`: Centers each line of text.
   
-- `\begin{flushleft}`: Aligns text to the left margin.
+- `\begin{flushleft}` and `\raggedright`: Aligns text to the left margin, which is the default.
   
-- `\begin{flushright}`: Aligns text to the right margin.
+- `\begin{flushright}` and `\raggedleft`: Aligns text to the right margin.
 
 ```latex
 \documentclass{article}
-
 \begin{document}
 
 \begin{center}
-This text is centered.
+    This text is centered.
 \end{center}
 
-\begin{flushright}
-This text is aligned to the right.
-\end{flushright}
+{
+\raggedleft
+This text is aligned to the right.\\
+Every line is right-aligned.\par  % <-- paragraph terminator is required
+}
 
 \end{document}
 ```
@@ -141,33 +148,17 @@ This is a short quotation, indented from both margins.
 
 ---
 
-## Minipage
+## Verses
 
-The `minipage` environment creates a small, self-contained "page" within the document. Its primary use is to place several blocks of content (text, images, tables) side-by-side.
+The `verse` environment is specifically designed for poetry.
 
-- `\begin{minipage}[pos]{width}`: Creates an inline block of a specified [`width`](04_lengths_and_dimensions.md). The optional `[pos]` argument controls the vertical alignment.
-
-  | `pos` | Description                                                      |
-  | :---: | ---------------------------------------------------------------- |
-  |  `t`  | **t**op: Aligns the top of the minipage with the baseline.       |
-  |  `c`  | **c**enter: Vertically centers the minipage (default).           |
-  |  `b`  | **b**ottom: Aligns the bottom of the minipage with the baseline. |
+- `\begin{verse}`: Used for poetry where stanzas are separated by a blank line and line breaks are created with `\\`.
 
 ```latex
-\documentclass{article}
-
-\begin{document}
-
-\noindent % Prevents indentation for the minipages
-\begin{minipage}[t]{0.45\textwidth} % Note the [t] for top alignment
-  \textbf{Column 1:} This is the first block of text. It is contained within its own minipage. The content here is longer to show the top alignment.
-\end{minipage}
-\hfill % Adds flexible space to push the columns apart
-\begin{minipage}[t]{0.45\textwidth} % Note the [t] for top alignment
-  \textbf{Column 2:} This is the second block of text.
-\end{minipage}
-
-\end{document}
+\begin{verse}
+  Roses are red, \\
+  Violets are blue.
+\end{verse}
 ```
 
 ---
@@ -187,9 +178,8 @@ Global font settings can be defined in the preamble to set defaults for the enti
   | `\ttdefault`  | Sets the default to Monospace (Teletype). |
 
 ```latex
-% Preamble settings
-\documentclass[12pt]{article} % Set base font size to 12pt
-\renewcommand{\familydefault}{\sfdefault} % Set default font to sans-serif
+\documentclass[12pt]{article}
+\renewcommand{\familydefault}{\sfdefault}
 
 \begin{document}
 

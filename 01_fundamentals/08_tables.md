@@ -15,7 +15,7 @@ The `tabular` environment is the tool for creating the grid and content of a tab
   |       `l`       | A left-aligned column.                                                                         |
   |       `c`       | A center-aligned column.                                                                       |
   |       `r`       | A right-aligned column.                                                                        |
-  |   `p{width}`    | A paragraph column of a fixed [`width`](04_lengths_and_dimensions.md). Text will auto-wrap.    |
+  |   `p{width}`    | A paragraph column of a fixed `width`. Text will auto-wrap.                                    |
   | `@{expression}` | Replaces inter-column space with `expression` (e.g. `@{ -- }`). Use `@{}` to remove the space. |
   |      `\|`       | Adds a vertical line between columns.                                                          |
 
@@ -103,11 +103,11 @@ To create cells that spans multiple rows, load the `multirow` package in the pre
 
 - `\multirow{num}{width}{text}`: Creates a cell that spans `num` rows.
   
-  | Argument | Description                                                                                          |
-  | -------- | ---------------------------------------------------------------------------------------------------- |
-  | `num`    | The number of columns to span.                                                                       |
-  | `width`  | The [width](04_lengths_and_dimensions.md) of the content. Use `*` for the natural width of the text. |
-  | `text`   | The content of the cell.                                                                             |
+  | Argument | Description                                                          |
+  | -------- | -------------------------------------------------------------------- |
+  | `num`    | The number of columns to span.                                       |
+  | `width`  | The width of the content. Use `*` for the natural width of the text. |
+  | `text`   | The content of the cell.                                             |
 
 ```latex
 \documentclass{article}
