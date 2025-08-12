@@ -10,11 +10,11 @@ There are two primary ways to apply font styles: as a command that takes an argu
 
 - **Argument Form**: Applies a style to a specific piece of text. This is best for short, local changes.
 
-- **Declaration Form**: Acts as a switch. This is useful for styling larger blocks of text inside a group `{...}` or an environment.
+- **Declaration Form**: Acts as a switch. This is useful for styling larger blocks of text inside a group `{}` or an environment.
 
-- `\textbf{text}` and `\bfseries`: Makes text bold.
+- `\textbf{text}`, `\bfseries`: Makes text bold.
 
-- `\textit{text}` and `\itshape`: Makes text italic.
+- `\textit{text}`, `\itshape`: Makes text italic.
 
 - `\underline{text}`: Underlines text.
 
@@ -74,11 +74,11 @@ This is the normal, default text size.
 
 These commands switch between the three main font families available in LaTeX.
 
-- `\textrm{text}` and `\rmfamily`: Switches to the Roman (serif) family, which is the default.
+- `\textrm{text}`, `\rmfamily`: Switches to the Roman (serif) family, which is the default.
 
-- `\textsf{text}` and `\sffamily`: Switches to the Sans-serif family.
+- `\textsf{text}`, `\sffamily`: Switches to the Sans-serif family.
 
-- `\texttt{text}` and `\ttfamily`: Switches to the Teletype (monospace) family.
+- `\texttt{text}`, `\ttfamily`: Switches to the Teletype (monospace) family.
 
 ```latex
 \documentclass{article}
@@ -100,11 +100,11 @@ These commands switch between the three main font families available in LaTeX.
 
 These environments and declarations control the horizontal alignment of entire blocks of text.
 
-- `\begin{center}` and `\centering`: Centers each line of text.
+- `\begin{center}`, `\centering`: Centers each line of text.
   
-- `\begin{flushleft}` and `\raggedright`: Aligns text to the left margin, which is the default.
+- `\begin{flushleft}`, `\raggedright`: Aligns text to the left margin, which is the default.
   
-- `\begin{flushright}` and `\raggedleft`: Aligns text to the right margin.
+- `\begin{flushright}`, `\raggedleft`: Aligns text to the right margin.
 
 ```latex
 \documentclass{article}
@@ -125,13 +125,48 @@ Every line is right-aligned.\par  % <-- paragraph terminator is required
 
 ---
 
-## Blockquotes
+## Line Spacing
 
-These environments are used for block quotes, which are indented from both margins.
+To control the spacing between lines in a paragraph, load the `setspace` package in the preamble.
+
+- `\usepackage{setspace}`: Loads the `setspace` package, enabling declarations for common spacing presets and an environment for custom spacing.
+
+- `\setstretch{factor}`: Sets a custom line spacing for the entire document.
+
+- `\begin{spacing}{factor}`: An environment that applies a custom spacing factor to a specific block of text.
+
+- `\singlespacing`, `\onehalfspacing`, `\doublespacing`: Declarations that change the line spacing for all subsequent paragraphs in the document body.
+
+```latex
+\documentclass{article}
+\usepackage{setspace} % Load the 'setspace' package in the preamble
+\usepackage{lipsum} % For dummy text
+
+\setstretch{1.25}
+
+\begin{document}
+
+\section*{Global Spacing}
+\lipsum[1] % This will have 1.25 spacing.
+
+\section*{Local Spacing}
+\doublespacing
+\lipsum[2] % This will be double-spaced.
+
+\end{document}
+```
+
+---
+
+## Blockquotes and Verses
+
+These environments are for formatting blocks of quoted prose or poetry and are indented from both margins.
 
 - `\begin{quote}`: Used for short quotes.
 
 - `\begin{quotation}`: Used for longer quotes (more than one paragraph), with slightly more indentation.
+
+- `\begin{verse}`: Used for poetry where stanzas are separated by a blank line and line breaks are created with `\\`.
 
 ```latex
 \documentclass{article}
@@ -143,22 +178,12 @@ Here is some introductory text for a quote.
 This is a short quotation, indented from both margins.
 \end{quote}
 
-\end{document}
-```
-
----
-
-## Verses
-
-The `verse` environment is specifically designed for poetry.
-
-- `\begin{verse}`: Used for poetry where stanzas are separated by a blank line and line breaks are created with `\\`.
-
-```latex
 \begin{verse}
   Roses are red, \\
   Violets are blue.
 \end{verse}
+
+\end{document}
 ```
 
 ---

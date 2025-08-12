@@ -1,6 +1,6 @@
 # 01: Syntax
 
-This guide provides an overview of the fundamental LaTeX syntax needed to write documents.
+This guide provides an overview of the core LaTeX syntax needed to write documents.
 
 ---
 
@@ -87,11 +87,11 @@ LaTeX handles whitespace according to specific rules, and provides commands for 
 
 - `\noindent`: Prevents the automatic indentation at the start of a paragraph.
 
-- `\hfill`: Adds a flexible horizontal space that expands to fill all available room.
+- `\hfill`: Inserts horizontal space that expands to fill the available width.
 
-- `\hspace{length}`: Inserts horizontal space using a specified length.
+- `\hspace{length}`: Inserts horizontal space of a specified length.
 
-- `\vspace{length}`: Inserts vertical space using a specified length.
+- `\vspace{length}`: Inserts vertical space of a specified length.
 
 ```latex
 \documentclass{article}
@@ -156,11 +156,11 @@ To print special characters, escape them with a backslash (`\`) or use a control
 
 ## Quotation Marks
 
-To produce typographically correct curly quotation marks, use backticks (`` ` ``) for opening quotes and single apostrophes (`'`) for closing quotes. Using the standard double-quote character will result in incorrect, straight quotes.
+To produce typographically correct quotation marks, use backticks (`` ` ``) for opening quotes and single apostrophes (`'`) for closing quotes. Using the standard double-quote character will result in incorrect, straight quotes.
 
-- Single Quotes: Use a single backtick (`` ` ``) to open and a single apostrophe (`'`) to close.
+- **Single Quotes**: Use a single backtick (`` ` ``) to open and a single apostrophe (`'`) to close.
 
-- Double Quotes: Use two backticks (``` `` ```) to open and two apostrophes (`''`) to close.
+- **Double Quotes**: Use two backticks (``` `` ```) to open and two apostrophes (`''`) to close.
 
 ```latex
 \documentclass{article}
@@ -171,7 +171,7 @@ To produce typographically correct curly quotation marks, use backticks (`` ` ``
 
 `This is a single-quoted sentence.'
 
-"This is incorrect." % Avoid using the standard double-quote key
+"This is incorrect."
 
 \end{document}
 ```
@@ -180,7 +180,7 @@ To produce typographically correct curly quotation marks, use backticks (`` ` ``
 
 ## Grouping
 
-Curly braces `{...}` groups text and limits the scope of commands applied within them.
+Curly braces `{}` groups text and limits the scope of commands applied within them.
 
 ```latex
 \documentclass{article}

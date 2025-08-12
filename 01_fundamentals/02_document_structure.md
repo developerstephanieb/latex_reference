@@ -61,14 +61,14 @@ These commands define metadata in the preamble, which `\maketitle` then renders 
 ```latex
 \documentclass{article}
 
-% --- Define Metadata in Preamble ---
+% Define metadata in preamble
 \title{A Study of Document Structure}
 \author{A. N. Author}
 \date{\today}
 
 \begin{document}
 
-% --- Typeset Title in Document Body ---
+% Typeset title in document body
 \maketitle
 
 \end{document}
@@ -88,7 +88,7 @@ These commands format and number section headings. To create an unnumbered headi
   
 - `\subsubsection{title}`: Creates a sub-subsection.
   
-- `\paragraph{title}`: Creates a paragraph heading in-line with the text that follows it. 
+- `\paragraph{title}`: Creates a paragraph heading, displayed inline with the text that follows it. 
   
 - `\subparagraph{title}`: Creates the lowest-level inline heading.
 
@@ -124,7 +124,7 @@ This section is not numbered because of the asterisk.
 
 ## Customizing Numbering Depth
 
-LaTeX controls which sectioning commands are numbered using the `secnumdepth` counter. In the `article` class, the default value is `3`, meaning only sections up to `\subsubsection` are numbered. To include numbering for `\paragraph` and `\subparagraph`, increase the value of `secnumdepth` in the preamble.
+LaTeX controls which sectioning commands are numbered using the `secnumdepth` counter. In the `article` class, the default value is 3, meaning only sections up to `\subsubsection` are numbered. To include numbering for deeper levels, increase the value of `secnumdepth` in the preamble.
 
 - `\setcounter{secnumdepth}{level}`: Sets the maximum depth of numbered sectioning.
   
@@ -156,7 +156,7 @@ The table of contents updates automatically, but requires two compilations: firs
 
 - `\tableofcontents`: Directly inserts a table of contents, automatically populated from numbered sectioning commands.
 
-- `\setcounter{tocdepth}{level}`: Controls the deepest section level shown in the TOC.
+- `\setcounter{tocdepth}{level}`: Controls the depth of section levels shown in the TOC.
 
 - `\listoffigures`: Generates a list of all figure captions.
 
@@ -187,9 +187,9 @@ This section is unnumbered and will not appear in the ToC.
 
 ## Appendix
 
-This commands changes how top-level sections are labeled.
+The `\appendix` command is used to mark the beginning of the appendices in a document.
 
-- `\appendix`: Marks the start of the appendices. After this command, `\section` commands will produce headings like `A`, `B`, and so on.
+- `\appendix`: Marks the start of the appendices. After this, `\section` commands in the `article` class will produce headings like `A`, `B`, and so on.
 
 ```latex
 \documentclass{article}

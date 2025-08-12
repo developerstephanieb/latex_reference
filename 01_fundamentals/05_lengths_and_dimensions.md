@@ -26,13 +26,18 @@ LaTeX understands both absolute and relative units of length.
 
 ```latex
 \documentclass{article}
+
 \begin{document}
 
-This example uses an absolute unit to create a fixed-size gap:
+% This uses an absolute unit to create a fixed-size gap:
 First word \hspace{1cm} Second word.
 
-This example uses a relative unit:
-{\large This word \hspace{2em} and this word are further apart.}
+% This uses a relative unit. The space created by `em'
+% depends on the current font size.
+Normal space: A\hspace{2em}B
+
+{\large Larger space: A\hspace{2em}B}
+
 \end{document}
 ```
 
@@ -42,13 +47,17 @@ This example uses a relative unit:
 
 LaTeX provides several commands that act as variables, holding the current dimensions of various page elements. These are most often used to size images, tables, or other blocks relative to the page layout.
 
-- `\textwidth`: The width of the main text block on the page.
+- `\textwidth`, `\textheight`: The width and height of the main text block on the page.
 
-- `\textheight`: The height of the main text block on the page.
+- `\paperwidth`, `\paperheight`: The width and height of the physical paper.
 
 - `\linewidth`: The width of the current line. In a single-column layout, this is usually the same as `\textwidth`, but it can be narrower inside environments like lists or multi-column layouts.
 
+- `\columnwidth`: The width of a single column in a multi-column layout.
+
 - `\parindent`: The amount of horizontal indentation at the beginning of a paragraph.
+
+- `\parskip`: The amount of vertical space between paragraphs.
 
 ```latex
 \documentclass{article}
@@ -69,22 +78,22 @@ even if the page margins change.
 
 ## Modifying Length Parameters
 
-The value of any length parameter can be changed using the following commands, typically placed in the preamble to affect the entire document.
+The value of any length parameter can be changed using the following commands.
 
-- `\setlength{\command}{length}`: Sets the value of a `length` `\command` to a specific length.
+- `\setlength{\command}{length}`: Sets the value of a length `\command` to a specific length.
 
-- `\addtolength{\command}{length}`: Adds a `length` to the current value of a length `\command`.
+- `\addtolength{\command}{length}`: Adds a length to the current value of a length `\command`.
 
 ```latex
 \documentclass{article}
 
-% Set the paragraph indent to 0pt in the preamble
+% Set the paragraph indent to 0pt
 \setlength{\parindent}{0pt}
 
 \begin{document}
 
 This is the first paragraph. It is not indented, because
-the value of the \verb|\parindent| parameter was changed.
+the value of the \texttt{\parindent} parameter was changed.
 
 This is the second paragraph. It is also not indented.
 
