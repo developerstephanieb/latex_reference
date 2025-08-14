@@ -61,7 +61,7 @@ For references to resolve correctly, LaTeX requires compiling the document at le
 
 ## The `hyperref` Package
 
-For clickable references and automatic labels, load the `hyperref` package in the preamble.
+Use the `hyperref` package for clickable references and automatic labels.
 
 - `\usepackage{hyperref}`: Loads the `hyperref` package, making all references clickable hyperlinks in the PDF output.
   

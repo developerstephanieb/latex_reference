@@ -6,7 +6,7 @@ This guide covers how to control the page layout of documents, including paper s
 
 ## The `geometry` Package
 
-To control page layout, load the `geometry` package in the preamble. While some page layout `[options]` can be set in `\documentclass`, it’s best practice to define all dimensions with `geometry`.
+Use the `geometry` package to control page layout. While some page layout `[options]` can be set in `\documentclass`, it’s best practice to define all dimensions with `geometry`.
 
 - `\usepackage[options]{geometry}`: Loads the `geometry` package, enabling control over margins, paper size, orientation, and other page dimensions.
   
@@ -95,7 +95,7 @@ The header on this page will display the \texttt{left_text}.
 
 ## The `fancyhdr` Package
 
-For full control over headers and footers, load the `fancyhdr` package in the preamble.
+Use the `fancyhdr` package for full control over headers and footers.
 
 - `\usepackage{fancyhdr}`: Loads the package, providing commands for custom header and footer design.
 
@@ -188,7 +188,7 @@ Enable a two-column layout for the entire document by adding the `[twocolumn]` o
 
 ## The `multicol` Package
 
-For more control, such as having a full-width title and then switching to multiple columns, load the `multicol` package in the preamble.
+Use the `multicol` package for more control over multi-column layouts, such as having a full-width title and then switching to multiple columns
 
 - `\usepackage{multicol}`: Loads the `multicol` package, enabling multi-column layouts within selected parts of the document.
 
@@ -290,7 +290,7 @@ The `\marginpar` command places short notes in the margin of the document.
 
 ## The `marginnote` Package
 
-For greater flexibility, such as support for environments (like lists, floats, and footnotes) where `\marginpar` may fail, load the `marginnote` package in the preamble.
+Use the `marginnote` package for more flexible margin notes, such as support for environments (like lists, floats, and footnotes) where `\marginpar` may fail.
 
 - `\usepackage{marginnote}`: Loads the `marginnote` package, providing a command to place margin notes anywhere on the page with adjustable vertical spacing.
 

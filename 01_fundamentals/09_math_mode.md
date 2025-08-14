@@ -169,7 +169,7 @@ As shown in Equation~\ref{eq:pythagorean}, the relationship is fundamental.
 
 ## The `amsmath` Package
 
-For environments for multi-line equations and matrices, load the `amsmath` package in the preamble.
+Use the `amsmath` package to access environments for multi-line equations and matrices.
 
 - `\usepackage{amsmath}`: Loads the `amsmath` package, enabling advanced mathematical typesetting.
 
@@ -223,7 +223,7 @@ This is a piecewise function.
 
 ## The `amssymb` Package
 
-For additional mathematical symbols, load the `amssymb` package in the preamble.
+Use the `amssymb` package for additional mathematical symbols.
 
 - `\usepackage{amssymb}`: Loads the `amssymb` package, enabling additional mathematical symbols.
 

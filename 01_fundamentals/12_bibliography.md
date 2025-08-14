@@ -140,7 +140,7 @@ To fully generate a bibliography with BibTeX, run this specific sequence of comm
 
 ## The `biblatex` Package
 
-For more customization and better handling of complex requirements, load the `biblatex` package in the preamble. It is the recommended system for bibliography management in LaTeX.
+Use the `biblatex` package for more customization and better handling of complex requirements. It is the recommended system for bibliography management in LaTeX.
 
 - The `biblatex` workflow also involves two files:
 

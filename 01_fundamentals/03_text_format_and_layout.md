@@ -127,7 +127,7 @@ Every line is right-aligned.\par  % <-- paragraph terminator is required
 
 ## Line Spacing
 
-To control the spacing between lines in a paragraph, load the `setspace` package.
+Use the `setspace` package to control the spacing between lines in a paragraph.
 
 - `\usepackage{setspace}`: Loads the `setspace` package, enabling declarations for common spacing presets and an environment for custom spacing.
 

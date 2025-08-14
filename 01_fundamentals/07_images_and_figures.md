@@ -6,7 +6,7 @@ This guide explains how to include images using the `graphicx` package and how t
 
 ## Including Images
 
-To include images, load the `graphicx` package in the preamble.
+Use the `graphicx` package to include images to a document.
 
 - `\usepackage{graphicx}`: Loads the `graphicx` package, enabling image-related commands.
 
@@ -105,7 +105,7 @@ Use the `minipage` environment to place an image next to a block of text, or to 
 
 ## The `subcaption` Package
 
-To create a single figure that is composed of multiple, individually captioned sub-figures (e.g., "Figure 1a" and "Figure 1b"), load the `subcaption` package in the preamble. This is the correct approach when the images are parts of a larger whole.
+Use the `subcaption` package to create a single figure that is composed of multiple, individually captioned sub-figures (e.g., "Figure 1a" and "Figure 1b"). This is the correct approach when the images are parts of a larger whole.
 
 - `\usepackage{subcaption}`: Loads the `subcaption` package, which provides the `subfigure` environment for creating figures with individually captioned parts.
 
@@ -145,7 +145,7 @@ or to a specific sub-figure, like Figure~\ref{fig:sub1}.
 
 ## The `wrapfig` Package
 
-To wrap text around a figure, load the `wrapfig` package in the preamble. This is useful for placing smaller images within a paragraph of text.
+Use the `wrapfig` package to wrap text around a figure. This is useful for placing smaller images within a paragraph of text.
 
 - `\usepackage{wrapfig}`: Loads the `wrapfig` package, which provides the `wrapfigure` environment for flowing text around an image.
 

@@ -52,7 +52,7 @@ LaTeX provides three primary environments for creating lists. Each `\item` comma
 
 ## The `enumitem` Package
 
-For full control over list formatting,, load the `enumitem` package in the preamble.
+Use the `enumitem` package for additional list formatting features.
 
 - `\usepackage{enumitem}`: Loads the `enumitem` package, enabling list customization.
 

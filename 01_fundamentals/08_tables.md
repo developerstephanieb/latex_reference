@@ -126,7 +126,7 @@ Here is a table with merged header columns and a partial horizontal line:
 
 ## Spanning Rows
 
-To create cells that spans multiple rows, load the `multirow` package in the preamble.
+Use the `multirow` package to create cells that spans multiple rows.
 
 - `\usepackage{multirow}`: Loads the `multirow` package, enabling the `\multirow` command.
 
@@ -281,7 +281,7 @@ Use the `minipage` environment to place a table next to a block of text, or to p
 
 ## The `booktabs` Package
 
-To create professional, publication-quality tables with better spacing and visual appeal, load the `booktabs` package in the preamble. The package discourages the use of vertical lines.
+Use the `booktabs` package to create professional, publication-quality tables with better spacing and visual appeal. The package discourages the use of vertical lines.
 
 - `\usepackage{booktabs}`: Loads the `booktabs` package, enabling its specialized rule commands.
 
