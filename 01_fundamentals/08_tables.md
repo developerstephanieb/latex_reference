@@ -179,7 +179,7 @@ As shown in Table~\ref{tab:shopping_list}, the total cost is important.
 
 ---
 
-## Side-by-Side Tables
+## Side-by-Side Content
 
 To place tables next to each other, use the `minipage` environment. Each `tabular` environment is wrapped in its own `minipage`, and the `\hfill` command is used to push them apart. This entire construction can be placed inside a single `table` environment to create a unified, captioned table.
 

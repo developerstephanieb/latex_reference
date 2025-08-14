@@ -6,7 +6,7 @@ This guide covers how to control the page layout of documents, including paper s
 
 ## The `geometry` Package
 
-To control page layout, load the `geometry` package in the preamble. While some page layout `options` can be set in `\documentclass`, it’s best practice to define all dimensions with `geometry`.
+To control page layout, load the `geometry` package in the preamble. While some page layout `[options]` can be set in `\documentclass`, it’s best practice to define all dimensions with `geometry`.
 
 - `\usepackage[options]{geometry}`: Loads the `geometry` package, enabling control over margins, paper size, orientation, and other page dimensions.
   
@@ -163,7 +163,7 @@ pagestyle defined, with the page number in the top right.
 
 ## Multi-Column Layouts
 
-Enable a two-column layout for the entire document by adding the `twocolumn` option to `\documentclass`.
+Enable a two-column layout for the entire document by adding the `[twocolumn]` option to `\documentclass`.
 
 - `\documentclass[twocolumn]{article}`: Formats the entire document in two columns.
 
@@ -194,7 +194,7 @@ For more control, such as having a full-width title and then switching to multip
 
 - `\usepackage{multicol}`: Loads the `multicol` package, enabling multi-column layouts within selected parts of the document.
 
-- `\begin{multicols}{num}`: Begins an environment with `num` columns. The text will automatically balance across the columns on the last page. To disable this balancing, use `\begin{multicols*}{num}`.
+- `\begin{multicols}{num}`: Begins an environment with `{num}` columns. The text will automatically balance across the columns on the last page. To disable this balancing, use `\begin{multicols*}{num}`.
 
 - `\columnbreak`: Forces a column break at the point it is inserted.
 
@@ -229,7 +229,7 @@ For more control, such as having a full-width title and then switching to multip
 
 The `minipage` environment creates a small, self-contained "page" within the document. Its primary use is to place several blocks of content (text, images, tables) side-by-side.
 
-- `\begin{minipage}[pos]{length}`: Creates an inline block of a specified length. The optional `pos` argument controls the vertical alignment.
+- `\begin{minipage}[pos]{length}`: Creates an inline block of a specified length. The optional `[pos]` argument controls the vertical alignment.
 
   | `pos` | Description                                                        |
   | :---: | ------------------------------------------------------------------ |
@@ -296,12 +296,12 @@ For greater flexibility, such as support for environments (like lists, floats, a
 
 - `\usepackage{marginnote}`: Loads the `marginnote` package, providing a command to place margin notes anywhere on the page with adjustable vertical spacing.
 
-- `\marginnote{text}[offset]`: Creates a margin note. The optional `offset` argument adds vertical space to prevent notes from overlapping.
+- `\marginnote{text}[offset]`: Creates a margin note. The optional `[offset]` argument adds vertical space to prevent notes from overlapping.
 
 ```latex
 \documentclass{article}
 \usepackage[letterpaper, margin=1.5in, marginparwidth=1in]{geometry}
-\usepackage{lipsum} % For dummy text
+\usepackage{lipsum}     % For dummy text
 \usepackage{marginnote} % Load the 'marginnote' package in the preamble
 
 \begin{document}

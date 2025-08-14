@@ -10,7 +10,7 @@ To include images, load the `graphicx` package in the preamble.
 
 - `\usepackage{graphicx}`: Loads the `graphicx` package, enabling image-related commands.
 
-- `\includegraphics[options]{filename}`: Inserts the image specified by `filename`. Common file types include PNG, JPG, and PDF. Image files should be placed in the same directory as the `.tex` file or referenced with a relative path (e.g., `path/to/filename`).
+- `\includegraphics[options]{filename}`: Inserts the image specified by `{filename}`. Common file types include PNG, JPG, and PDF. Image files should be placed in the same directory as the `.tex` file or referenced with a relative path (e.g., `path/to/filename`).
 
   | `options`       | Description                                                            |
   | --------------- | ---------------------------------------------------------------------- |
@@ -54,8 +54,6 @@ To add a caption, create a label for referencing, and control placement, wrap th
 
 - `\ref{marker}`: Prints the number of the figure associated with `marker`.
 
-- `\centering`: Often used inside the `figure` environment to center the float.
-
 ```latex
 \documentclass{article}
 \usepackage{graphicx}
@@ -76,33 +74,98 @@ As you can see in Figure~\ref{fig:sample}, the image is centered and has a capti
 
 ---
 
-## Side-by-Side Figures
+## Side-by-Side Content
 
-To place figures next to each other, use the `minipage` environment. Each `\includegraphics` command is wrapped in its own `minipage`, and the `\hfill` command is used to push them apart. This entire construction can be placed inside a single `figure` environment to create a unified, captioned figure.
+Use the `minipage` environment to place an image next to a block of text, or to place multiple, independent figures next to each other.
 
 ```latex
 \documentclass{article}
 \usepackage{graphicx}
+\usepackage{lipsum} % For dummy text
 
 \begin{document}
 
 \begin{figure}[h!]
-  \begin{minipage}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{example-image-a}
-    \caption{The first image.}
-    \label{fig:image1}
-  \end{minipage}
-  \hfill % Fills the space between the images
-  \begin{minipage}[b]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{example-image-b}
-    \caption{The second image.}
-    \label{fig:image2}
-  \end{minipage}
+    \begin{minipage}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{example-image-a}
+        \caption{A sample image.}
+        \label{fig:side_image}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.55\textwidth}
+        \lipsum[1][1-10]
+    \end{minipage}
 \end{figure}
 
-Figure~\ref{fig:image1} and Figure~\ref{fig:image2} are placed side-by-side.
+\end{document}
+```
+
+---
+
+## The `subcaption` Package
+
+For creating a single figure that is composed of multiple, individually captioned sub-figures (e.g., "Figure 1a" and "Figure 1b"), load the `subcaption` package in the preamble. This is the correct approach when the images are parts of a larger whole.
+
+- `\usepackage{subcaption}`: Loads the `subcaption` package, which provides the `subfigure` environment for creating figures with individually captioned parts.
+
+- `\begin{subfigure}[pos]{width}`: An environment for a single sub-figure. The optional `[pos]` argument (`t`, `c`, or `b`) controls the vertical alignment, just like in `minipage`.
+
+```latex
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{subcaption} % Load the 'subcaption' package in the preamble
+
+\begin{document}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{example-image-a}
+    \caption{First sub-figure}
+    \label{fig:sub1}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{example-image-b}
+    \caption{Second sub-figure}
+    \label{fig:sub2}
+  \end{subfigure}
+  \caption{A figure with two sub-figures.}
+  \label{fig:main}
+\end{figure}
+
+We can now refer to the main figure as Figure~\ref{fig:main},
+or to a specific sub-figure, like Figure~\ref{fig:sub1}.
+
+\end{document}
+```
+
+---
+
+## The `wrapfig` Package
+
+To wrap text around a figure, load the `wrapfig` package in the preamble. This is useful for placing smaller images within a paragraph of text.
+
+- `\usepackage{wrapfig}`: Loads the `wrapfig` package, which provides the `wrapfigure` environment for flowing text around an image.
+
+- `\begin{wrapfigure}{placement}{width}`: The environment for the wrapped figure, where `{placement}` specifies the side of the page (`r` for right, `l` for left) and `{width}` is the total width the figure will occupy.
+
+```latex
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{wrapfig} % Load the 'wrapfig' package in the preamble
+\usepackage{lipsum}  % For dummy text
+
+\begin{document}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.35\textwidth]{example-image-c}
+    \caption{A wrapped figure.}
+\end{wrapfigure}
+
+\lipsum[1-2]
 
 \end{document}
 ```

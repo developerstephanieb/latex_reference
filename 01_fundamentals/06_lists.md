@@ -56,7 +56,7 @@ For full control over list formatting,, load the `enumitem` package in the pream
 
 - `\usepackage{enumitem}`: Loads the `enumitem` package, enabling list customization.
 
-- `\setlist[list_type]{options}`: Sets global options for a specific `list_type` (e.g., `itemize`, `enumerate`, `description`).
+- `\setlist[list_type]{options}`: Sets global options for a specific `[list_type]` (e.g., `itemize`, `enumerate`, `description`).
 
   | `options`           | Description                                                                                                                         |
   | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -75,15 +75,13 @@ For full control over list formatting,, load the `enumitem` package in the pream
   | `before=code`       | Inserts `code` before the list environment begins.                                                                                  |
   | `after=code`        | Inserts `code` after the list environment ends.                                                                                     |
 
-- `\begin{list_type}[options]`: Applies `options` to a single, specific list environment in the document body.
+- `\begin{list_type}[options]`: Applies `[options]` to a single, specific list environment in the document body.
 
 ```latex
 \documentclass{article}
 \usepackage{enumitem} % Load the 'enumitem' package in the preamble
 
 \setlist[enumerate]{label=\Roman*.}
-
-\setlist[itemize]{nosep}
 
 \begin{document}
 
@@ -96,7 +94,7 @@ This numbered list automatically uses the global settings:
 
 \section*{Local Override}
 This list overrides the global settings for a custom format:
-\begin{enumerate}[label=\alph*, start=5, font=\bfseries]
+\begin{enumerate}[label=\alph*), start=5, font=\bfseries]
     \item Starts from `e'.
     \item Uses bold, lowercase letters with a parenthesis.
 \end{enumerate}
