@@ -10,7 +10,7 @@ To include images, load the `graphicx` package in the preamble.
 
 - `\usepackage{graphicx}`: Loads the `graphicx` package, enabling image-related commands.
 
-- `\includegraphics[options]{filename}`: Inserts the image specified by `{filename}`. Common file types include PNG, JPG, and PDF. Image files should be placed in the same directory as the `.tex` file or referenced with a relative path (e.g., `path/to/filename`).
+- `\includegraphics[options]{filename}`: Inserts the image specified by `filename`. Common file types include PNG, JPG, and PDF. Image files should be placed in the same directory as the `.tex` file or referenced with a relative path (e.g., `path/to/filename`).
 
   | `options`       | Description                                                            |
   | --------------- | ---------------------------------------------------------------------- |
@@ -21,7 +21,7 @@ To include images, load the `graphicx` package in the preamble.
 
 ```latex
 \documentclass{article}
-\usepackage{graphicx} % Load the 'graphicx' package in the preamble
+\usepackage{graphicx} % Load the 'graphicx' package
 
 \begin{document}
 
@@ -50,7 +50,7 @@ To add a caption, create a label for referencing, and control placement, wrap th
 
 - `\caption{text}`: Adds a numbered caption to the figure.
 
-- `\label{marker}`: Assigns a unique `marker` to the figure, which can then be referenced elsewhere.
+- `\label{marker}`: Assigns a unique `marker` to the figure, which can then be referenced elsewhere. Figure labels are typically prefixed with `fig:`.
 
 - `\ref{marker}`: Prints the number of the figure associated with `marker`.
 
@@ -60,7 +60,7 @@ To add a caption, create a label for referencing, and control placement, wrap th
 
 \begin{document}
 
-As you can see in Figure~\ref{fig:sample}, the image is centered and has a caption.
+As shown in Figure~\ref{fig:sample}, the image is centered and has a caption.
 
 \begin{figure}[h!] % Place it HERE if possible, overriding rules
   \centering
@@ -105,7 +105,7 @@ Use the `minipage` environment to place an image next to a block of text, or to 
 
 ## The `subcaption` Package
 
-For creating a single figure that is composed of multiple, individually captioned sub-figures (e.g., "Figure 1a" and "Figure 1b"), load the `subcaption` package in the preamble. This is the correct approach when the images are parts of a larger whole.
+To create a single figure that is composed of multiple, individually captioned sub-figures (e.g., "Figure 1a" and "Figure 1b"), load the `subcaption` package in the preamble. This is the correct approach when the images are parts of a larger whole.
 
 - `\usepackage{subcaption}`: Loads the `subcaption` package, which provides the `subfigure` environment for creating figures with individually captioned parts.
 
@@ -114,7 +114,7 @@ For creating a single figure that is composed of multiple, individually captione
 ```latex
 \documentclass{article}
 \usepackage{graphicx}
-\usepackage{subcaption} % Load the 'subcaption' package in the preamble
+\usepackage{subcaption} % Load the 'subcaption' package
 
 \begin{document}
 
@@ -149,13 +149,13 @@ To wrap text around a figure, load the `wrapfig` package in the preamble. This i
 
 - `\usepackage{wrapfig}`: Loads the `wrapfig` package, which provides the `wrapfigure` environment for flowing text around an image.
 
-- `\begin{wrapfigure}{placement}{width}`: The environment for the wrapped figure, where `{placement}` specifies the side of the page (`r` for right, `l` for left) and `{width}` is the total width the figure will occupy.
+- `\begin{wrapfigure}{placement}{width}`: The environment for the wrapped figure, where `placement` specifies the side of the page (`r` for right, `l` for left) and `width` is the total width the figure will occupy.
 
 ```latex
 \documentclass{article}
 \usepackage{graphicx}
-\usepackage{wrapfig} % Load the 'wrapfig' package in the preamble
 \usepackage{lipsum}  % For dummy text
+\usepackage{wrapfig} % Load the 'wrapfig' package
 
 \begin{document}
 

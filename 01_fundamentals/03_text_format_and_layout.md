@@ -127,7 +127,7 @@ Every line is right-aligned.\par  % <-- paragraph terminator is required
 
 ## Line Spacing
 
-To control the spacing between lines in a paragraph, load the `setspace` package in the preamble.
+To control the spacing between lines in a paragraph, load the `setspace` package.
 
 - `\usepackage{setspace}`: Loads the `setspace` package, enabling declarations for common spacing presets and an environment for custom spacing.
 
@@ -139,7 +139,7 @@ To control the spacing between lines in a paragraph, load the `setspace` package
 
 ```latex
 \documentclass{article}
-\usepackage{setspace} % Load the 'setspace' package in the preamble
+\usepackage{setspace} % Load the 'setspace' package
 \usepackage{lipsum}   % For dummy text
 
 \setstretch{1.25}

@@ -79,7 +79,7 @@ For full control over list formatting,, load the `enumitem` package in the pream
 
 ```latex
 \documentclass{article}
-\usepackage{enumitem} % Load the 'enumitem' package in the preamble
+\usepackage{enumitem} % Load the 'enumitem' package
 
 \setlist[enumerate]{label=\Roman*.}
 

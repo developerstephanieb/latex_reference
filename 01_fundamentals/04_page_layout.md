@@ -27,9 +27,7 @@ To control page layout, load the `geometry` package in the preamble. While some 
 
 ```latex
 \documentclass{article}
-
-% Load the 'geometry' package in the preamble
-\usepackage[a4paper, margin=1in]{geometry}
+\usepackage[a4paper, margin=1in]{geometry} % Load the 'geometry' package
 
 \begin{document}
 
@@ -127,7 +125,7 @@ For full control over headers and footers, load the `fancyhdr` package in the pr
 ```latex
 \documentclass{article}
 \usepackage[letterpaper, margin=1in, headheight=15pt]{geometry}
-\usepackage{fancyhdr} % Load the 'fancyhdr' package in the preamble
+\usepackage{fancyhdr} % Load the 'fancyhdr' package
 
 % Define a global style
 \pagestyle{fancy}
@@ -194,7 +192,7 @@ For more control, such as having a full-width title and then switching to multip
 
 - `\usepackage{multicol}`: Loads the `multicol` package, enabling multi-column layouts within selected parts of the document.
 
-- `\begin{multicols}{num}`: Begins an environment with `{num}` columns. The text will automatically balance across the columns on the last page. To disable this balancing, use `\begin{multicols*}{num}`.
+- `\begin{multicols}{num}`: Begins an environment with `num` columns. The text will automatically balance across the columns on the last page. To disable this balancing, use `\begin{multicols*}{num}`.
 
 - `\columnbreak`: Forces a column break at the point it is inserted.
 
@@ -204,8 +202,8 @@ For more control, such as having a full-width title and then switching to multip
 
 ```latex
 \documentclass{article}
-\usepackage{multicol} % Load the 'multicol' package in the preamble
 \usepackage{lipsum}   % For dummy text
+\usepackage{multicol} % Load the 'multicol' package
 
 \setlength{\columnsep}{20pt}
 \setlength{\columnseprule}{0.4pt}
@@ -302,7 +300,7 @@ For greater flexibility, such as support for environments (like lists, floats, a
 \documentclass{article}
 \usepackage[letterpaper, margin=1.5in, marginparwidth=1in]{geometry}
 \usepackage{lipsum}     % For dummy text
-\usepackage{marginnote} % Load the 'marginnote' package in the preamble
+\usepackage{marginnote} % Load the 'marginnote' package
 
 \begin{document}
 

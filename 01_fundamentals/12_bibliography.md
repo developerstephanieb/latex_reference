@@ -166,9 +166,7 @@ For more customization and better handling of complex requirements, load the `bi
 
 ```latex
 \documentclass{article}
-
-% Load the 'biblatex' package in the preamble
-\usepackage[backend=biber, style=numeric]{biblatex}
+\usepackage[backend=biber, style=numeric]{biblatex} % Load the 'biblatex' package
 \addbibresource{myreferences.bib}
 
 \begin{document}

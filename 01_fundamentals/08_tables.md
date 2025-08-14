@@ -6,13 +6,13 @@ This guide explains how to create tables using the `tabular` environment and how
 
 ## Creating Tables
 
-The `tabular` environment is the tool for creating the grid and content of a table.
+The `tabular` environment is used to create the grid and content of a table.
 
 - `\begin{tabular}{cols}`: Creates a table. The `cols` argument defines the column layout.
 
   |     `cols`      | Description                                                                                    |
   | :-------------: | ---------------------------------------------------------------------------------------------- |
-  |       `l`       | A left-aligned column.                                                                         |
+  |       `l`       | A left-aligned column, which is the default.                                                   |
   |       `c`       | A center-aligned column.                                                                       |
   |       `r`       | A right-aligned column.                                                                        |
   |   `p{width}`    | A paragraph column of a fixed `width`. Text will auto-wrap.                                    |
@@ -27,18 +27,14 @@ The `tabular` environment is the tool for creating the grid and content of a tab
 
 ```latex
 \documentclass{article}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
 
 \begin{document}
 
-Here is a simple table:
-\begin{tabular}{lcr} % 3 columns: left, center, right
-    Name   & Score & Grade  \\
-    Alice  & 85    & B      \\
-    Jordan & 92    & A      \\
-\end{tabular}
-
 Here is a table with lines:
-\begin{tabular}{|l|c|r|} % Vertical lines between all columns
+
+\begin{tabular}{|l|c|r|}
     \hline
     \textbf{Item} & \textbf{Quantity} & \textbf{Price} \\
     \hline
@@ -47,11 +43,41 @@ Here is a table with lines:
     \hline
 \end{tabular}
 
-Here is a table using @{} and p{}:
+Here is a table using \verb|@{}| and \verb|p{}|:
+
 \begin{tabular}{l@{ -- }p{4cm}}
     Label & Description                                \\
     Name  & A string identifying the person or object. \\
     Age   & The number of full years since birth.      \\
+\end{tabular}
+
+\end{document}
+```
+
+---
+
+## Table Spacing
+
+Vertical and horizontal spacing can be adjusted with these commands.
+
+- `\renewcommand{\arraystretch}{factor}`: Multiplies the height of each row by `factor`.
+
+- `\setlength{\tabcolsep}{length}`: Sets the amount of horizontal padding on either side of each column to `length`.
+
+```latex
+\documentclass{article}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{10pt}
+
+\begin{document}
+
+\begin{tabular}{|l|c|r|}
+    \hline
+    \textbf{Item} & \textbf{Quantity} & \textbf{Price} \\
+    \hline
+    Bread         & 1                 & \$3.50         \\
+    Milk          & 2                 & \$2.99         \\
+    \hline
 \end{tabular}
 
 \end{document}
@@ -75,10 +101,13 @@ For more complex tables, a cell may need to span multiple columns.
 
 ```latex
 \documentclass{article}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
 
 \begin{document}
 
 Here is a table with merged header columns and a partial horizontal line:
+
 \begin{tabular}{|l|c|c|}
     \hline
     \textbf{Item} & \multicolumn{2}{c|}{\textbf{Details}}          \\
@@ -111,7 +140,7 @@ To create cells that spans multiple rows, load the `multirow` package in the pre
 
 ```latex
 \documentclass{article}
-\usepackage{multirow} % Load the 'multirow' package in the preamble
+\usepackage{multirow} % Load the 'multirow' package
 
 \begin{document}
 
@@ -147,18 +176,16 @@ To add a caption, create a label for referencing, and control placement, wrap th
 
 - `\caption{text}`: Adds a numbered caption to the table.
 
-- `\label{marker}`: Assigns a unique `marker` to the table, which can be referenced elsewhere.
+- `\label{marker}`: Assigns a unique `marker` to the table, which can be referenced elsewhere. Table labels are typically prefixed with `tab:`.
 
 - `\ref{marker}`: Prints the number of the table associated with `marker`.
-
-- `\centering`: Often used inside the `table` environment to center the `tabular` block.
 
 ```latex
 \documentclass{article}
 
 \begin{document}
 
-As shown in Table~\ref{tab:shopping_list}, the total cost is important.
+As shown in Table~\ref{tab:shopping_list}, the table is centered and has a caption.
 
 \begin{table}[h!] % Place it HERE if possible, overriding rules
     \centering
@@ -179,32 +206,73 @@ As shown in Table~\ref{tab:shopping_list}, the total cost is important.
 
 ---
 
-## Side-by-Side Content
+## Overfull `\hbox` Warning
 
-To place tables next to each other, use the `minipage` environment. Each `tabular` environment is wrapped in its own `minipage`, and the `\hfill` command is used to push them apart. This entire construction can be placed inside a single `table` environment to create a unified, captioned table.
+A common error with tables is an "Overfull `\hbox`" warning. This means the table is wider than the available text width and is sticking out into the margin. There are a few ways to address this.
+
+1. Use a `p{width}` column for long text to allow it to wrap.
+
+2. Use the `tabularx` package for a more powerful, automated solution.
+
+---
+
+## The `tabularx` Package
+
+The `tabularx` package provides a new environment that creates tables of a specific total width, with columns that automatically expand to fill that width.
+
+- `\usepackage{tabularx}`: Loads the `tabularx` package, enabling columns to automatically adjust their widths.
+
+- `\begin{tabularx}{width}{cols}`: Creates a table with a total width.
+
+- `X` **column type**: A special column type provided by `tabularx`. It acts like a `p` column but automatically calculates its width to make the table fit the specified total width.
 
 ```latex
 \documentclass{article}
+\usepackage{tabularx} % Load the 'tabularx' package
 
 \begin{document}
 
 \begin{table}[h!]
-    \begin{minipage}[b]{0.48\textwidth}
+    \caption{A table that automatically fits the page width.}
+    % The table's total width will be the width of the text block
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \textbf{Term} & \textbf{Description}                                                                                   \\
+        \hline
+        tabularx      & An environment for creating tables of a fixed width with automatically expanding columns.              \\
+        \hline
+        Overfull hbox & An error that occurs when content is wider than the available text width, often caused by wide tables. \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\end{document}
+```
+
+---
+
+## Side-by-Side Content
+
+Use the `minipage` environment to place a table next to a block of text, or to place multiple, independent tables next to each other.
+
+```latex
+\documentclass{article}
+\usepackage{lipsum} % For dummy text
+
+\begin{document}
+
+\begin{table}[h!]
+    \begin{minipage}[b]{0.4\textwidth}
         \centering
         \begin{tabular}{|c|c|} \hline A & B \\ \hline 1 & 2 \\ \hline \end{tabular}
         \caption{First Floating Table}
         \label{tab:float1}
     \end{minipage}
-    \hfill % Fills the space between the images
-    \begin{minipage}[b]{0.48\textwidth}
-        \centering
-        \begin{tabular}{|c|c|} \hline C & D \\ \hline 3 & 4 \\ \hline \end{tabular}
-        \caption{Second Floating Table}
-        \label{tab:float2}
+    \hfill
+    \begin{minipage}[b]{0.55\textwidth}
+        \lipsum[1][1-10]
     \end{minipage}
 \end{table}
-
-Table~\ref{tab:float1} and Table~\ref{tab:float2} are placed side-by-side.
 
 \end{document}
 ```
@@ -233,7 +301,7 @@ To create professional, publication-quality tables with better spacing and visua
 
 ```latex
 \documentclass{article}
-\usepackage{booktabs} % Load the 'booktabs' package in the preamble
+\usepackage{booktabs} % Load the 'booktabs' package
 
 \begin{document}
 

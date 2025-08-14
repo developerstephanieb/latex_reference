@@ -191,7 +191,7 @@ For environments for multi-line equations and matrices, load the `amsmath` packa
 
 ```latex
 \documentclass{article}
-\usepackage{amsmath} % Load the 'amsmath' package in the preamble
+\usepackage{amsmath} % Load the 'amsmath' package
 
 \begin{document}
 
@@ -237,7 +237,7 @@ For additional mathematical symbols, load the `amssymb` package in the preamble.
 
 ```latex
 \documentclass{article}
-\usepackage{amssymb} % Load the 'amssymb' package in the preamble
+\usepackage{amssymb} % Load the 'amssymb' package
 
 \begin{document}
 
