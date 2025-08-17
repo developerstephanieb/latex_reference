@@ -214,6 +214,10 @@ A common error with tables is an "Overfull `\hbox`" warning. This means the tabl
 
 2. Use the `tabularx` package for a more powerful, automated solution.
 
+```bash
+Overfull \hbox ([some amount] too wide) in paragraph at lines [line numbers]
+```
+
 ---
 
 ## The `tabularx` Package
