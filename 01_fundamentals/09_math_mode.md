@@ -6,7 +6,7 @@ This guide provides an overview of math mode, the specialized environment for ty
 
 ## Entering Math Mode
 
-LaTeX provides two primary modes for typesetting mathematics.
+There are two primary modes for typesetting mathematics.
 
 - **Inline Mode**: For formulas that appear within a line of text. Wrap the expression by opening and closing with a single dollar sign (`$...$`) or use `\(...\)`.
 
@@ -25,7 +25,7 @@ This equation is written in display mode:
 
 ## Fundamental Constructs
 
-Superscripts and subscripts containing more than one character must be grouped using curly braces `{}`.
+Group multi-character superscripts and subscripts with curly braces `{}`.
 
 | Name         | Command                         | Example Code    | Rendered Output |
 | ------------ | ------------------------------- | --------------- | :-------------: |
@@ -38,7 +38,7 @@ Superscripts and subscripts containing more than one character must be grouped u
 
 ## Common Symbols
 
-Math mode supports a wide range of symbols beyond standard letters and numbers, most requiring specific commands.
+Beyond letters and numbers, math mode includes commands for a broad collection of symbols.
 
 ### General
 
@@ -86,8 +86,6 @@ Math mode supports a wide range of symbols beyond standard letters and numbers, 
 | $\equiv$  | Equivalent            | `\equiv`  |
 
 ### Functions
-
-These commands typeset function names upright (roman) and with proper spacing, distinguishing them from variables.
 
 |             Symbol              | Name                         | Command                         |
 | :-----------------------------: | ---------------------------- | ------------------------------- |
@@ -137,12 +135,11 @@ These commands typeset function names upright (roman) and with proper spacing, d
 |  $\dot{t}$  | Dot          | `\dot{t}`   |
 |  $\vec{v}$  | Vector arrow | `\vec{v}`   |
 
-
 ---
 
 ## The `equation` Environment
 
-For numbered equations that can be referenced, use the `equation` environment.
+Use the `equation` environment for numbered equations that can be referenced.
 
 - `\begin{equation}`: Begins a display math environment that will be automatically numbered.
 
@@ -181,13 +178,13 @@ Use the `amsmath` package to access environments for multi-line equations and ma
 
 - Additional commands:
 
-  | Name               | Command                    | Example                        |      Rendered Output      |
-  | ------------------ | -------------------------- | ------------------------------ | :-----------------------: |
-  | text in math       | `\text{text}`              | `$\text{speed} = 30$`          |    $\text{speed} = 30$    |
-  | box around content | `\boxed{text}`             | `$\boxed{E=mc^2}$`             |     $\boxed{E=mc^2}$      |
-  | dots               | `\dots`,`\cdots`, `\vdots` | `$\dots`,`$\cdots`, `$\vdots$` | $\dots$ $\cdots$ $\vdots$ |
-  | double integral    | `\iint`                    | `$\iint xy\,dx\,dy$`           |    $\iint xy\,dx\,dy$     |
-  | triple integral    | `\iiint`                   | `$\iiint z\,dx\,dy\,dz$`       |  $\iiint z\,dx\,dy\,dz$   |
+  | Name               | Command                    | Example                  |      Rendered Output      |
+  | ------------------ | -------------------------- | ------------------------ | :-----------------------: |
+  | text in math       | `\text{text}`              | `$\text{speed} = 30$`    |    $\text{speed} = 30$    |
+  | box around content | `\boxed{text}`             | `$\boxed{E=mc^2}$`       |     $\boxed{E=mc^2}$      |
+  | dots               | `\dots`,`\cdots`, `\vdots` | `$\dots \cdots \vdots$`  | $\dots$ $\cdots$ $\vdots$ |
+  | double integral    | `\iint`                    | `$\iint xy\,dx\,dy$`     |    $\iint xy\,dx\,dy$     |
+  | triple integral    | `\iiint`                   | `$\iiint z\,dx\,dy\,dz$` |  $\iiint z\,dx\,dy\,dz$   |
 
 ```latex
 \documentclass{article}

@@ -8,40 +8,37 @@ This guide covers LaTeX's cross-referencing system, which creates dynamic links 
 
 Cross-referencing relies on `\label` to create a marker, and `\ref` or `\pageref` to refer to that marker.
 
-- `\label{marker}`: Assigns a unique `marker` to an element. The `\label` command should be placed immediately after the item it is marking (e.g., after `\caption` or `\section`).
+- `\label{marker}`: Assigns a unique `marker` to an element. The `\label` command should be placed immediately after the item it is marking (e.g., after `\caption` or `\section`). It is best practice to use prefixes to identify the type of element being labeled.
+  | Prefix | Element Type | Example                    |
+  | ------ | ------------ | -------------------------- |
+  | `sec:` | Section      | `\label{sec:introduction}` |
+  | `fig:` | Figure       | `\label{fig:flowchart}`    |
+  | `tab:` | Table        | `\label{tab:results}`      |
+  | `eq:`  | Equation     | `\label{eq:euler}`         |
 
-- `\ref{marker}`: Prints the number of the element associated with `marker` (e.g., "3.2", "Figure 1", or "(5)")
+- `\ref{marker}`: Prints the number of the element associated with `marker` (e.g., "3.2", "1", or "(5)")
 
 - `\pageref{marker}`: Prints the page number where the marker is located.
 
-- `~` (Tilde): Use a non-breaking space (`~`) before a reference to prevent an awkward line break between the text and the number (e.g., `Figure~\ref{fig:my_figure}`).
+- `~` (Tilde): Use a non-breaking space (`~`) before a reference to prevent a line break between the text and the number (e.g., `Figure~\ref{fig:my_figure}`).
 
 ```latex
 \documentclass{article}
-\usepackage{graphicx}
 
 \begin{document}
 
 \section{Introduction}
 \label{sec:intro}
 
-This is the introduction. Later, we will see a sample figure on page~\pageref{fig:sample}.
+This is the introduction.
 
 \section{Main Content}
 
-As we discussed in Section~\ref{sec:intro}, LaTeX's referencing system is very powerful.
-It allows us to refer to figures, like Figure~\ref{fig:sample}, and equations, like Equation~\ref{eq:euler}.
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.5\textwidth]{example-image}
-  \caption{A sample image.}
-  \label{fig:sample}
-\end{figure}
+As discussed in Section~\ref{sec:intro}, LaTeX's referencing system allows referencing to equations like Equation~\ref{eq:euler}.
 
 \begin{equation}
-  e^{i\pi} + 1 = 0
-  \label{eq:euler}
+    e^{i\pi} + 1 = 0
+    \label{eq:euler}
 \end{equation}
 
 \end{document}
@@ -69,9 +66,10 @@ Use the `hyperref` package for clickable references and automatic labels.
 
 - `\url{address}`: A command for typesetting URLs, which will also be made clickable.
 
+- `\href{address}{text}`: Creates a hyperlink where the `text` is the clickable part that points to the specified `address`.
+
 ```latex
 \documentclass{article}
-\usepackage{graphicx}
 \usepackage{hyperref} % Load the 'hyperref' package
 
 \begin{document}
@@ -87,8 +85,49 @@ The table of contents below will also be hyperlinked.
 \section{Main Content}
 \label{sec:main}
 
-As we discussed in the \autoref{sec:intro}, the links are now active.
-You can find more at \url{https://www.latex-project.org/}.
+As discussed in the \autoref{sec:intro}, the links are now active.
+You can visit the \href{https://www.latex-project.org/}{LaTeX Project website} 
+for details.
+
+\end{document}
+```
+
+---
+
+## The `cleveref` Package
+
+The standard workflow is to use both `hyperref` and `cleveref` together.
+
+- `\usepackage{cleveref}`: Loads the `cleveref` package, which automatically determines the reference type and can intelligently handle multiple references at once. 
+
+- `\cref{marker}`: Automatically produces the correct label name (e.g., "figure", "section", "equation") and number.
+
+```latex
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{cleveref} % Load 'cleveref' after 'hyperref'
+
+\begin{document}
+
+\section{Introduction}
+\label{sec:intro}
+
+This is the introduction. See \cref{sec:main} for more details.
+We will also look at \cref{eq:euler,eq:pythagorean}.
+
+\section{Main Content}
+\label{sec:main}
+
+Here are two important equations:
+\begin{equation}
+    e^{i\pi} + 1 = 0
+    \label{eq:euler}
+\end{equation}
+
+\begin{equation}
+    a^2 + b^2 = c^2
+    \label{eq:pythagorean}
+\end{equation}
 
 \end{document}
 ```
