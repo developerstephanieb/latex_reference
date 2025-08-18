@@ -100,7 +100,7 @@ The standard workflow is to use both `hyperref` and `cleveref` together.
 
 - `\usepackage{cleveref}`: Loads the `cleveref` package, which automatically determines the reference type and can intelligently handle multiple references at once. 
 
-- `\cref{marker}`: Automatically produces the correct label name (e.g., "figure", "section", "equation") and number.
+- `\cref{marker1, marker2, ...}`: Automatically produces the correct label name (e.g., "figure", "section", "equation") and number. The capitalized version `\Cref` capitalizes the label name.
 
 ```latex
 \documentclass{article}

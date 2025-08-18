@@ -6,15 +6,9 @@ This guide covers how to create a bibliography and cite sources in LaTeX.
 
 ## The `thebibliography` Environment
 
-This method involves creating the bibliography by hand directly inside the LaTeX document. It is simple for very short documents but becomes tedious for larger ones.
+For short documents, the bibliography can be created by hand directly in the document.
 
-- `\begin{thebibliography}{label}`: Begins the bibliography list. The `{label}` argument sets the width for aligning reference numbers.
-
-  | `label` | Total bibliography entries |
-  | ------- | -------------------------- |
-  | 9       | 1-9                        |
-  | 99      | 10-99                      |
-  | 999     | 100-999                    |
+- `\begin{thebibliography}{label}`: Begins the bibliography. The `label` argument sets the width for aligning reference numbers (e.g., use 9 for up to 9 entries, 99 for up to 99, or 999 for up to 999).
 
 - `\bibitem{marker}`: Creates a new bibliography entry with a unique `marker`.
 
@@ -29,13 +23,11 @@ The theory of relativity was a major breakthrough in physics~\cite{einstein1905}
 Another key paper is~\cite{dirac1928}.
 
 \begin{thebibliography}{9} % Starts the bibliography
+    \bibitem{einstein1905}
+    A. Einstein, "On the Electrodynamics of Moving Bodies," 1905.
 
-\bibitem{einstein1905}
-A. Einstein, "On the Electrodynamics of Moving Bodies," 1905.
-
-\bibitem{dirac1928}
-P. A. M. Dirac, "The Quantum Theory of the Electron," 1928.
-
+    \bibitem{dirac1928}
+    P. A. M. Dirac, "The Quantum Theory of the Electron," 1928.
 \end{thebibliography}
 
 \end{document}
@@ -45,13 +37,7 @@ P. A. M. Dirac, "The Quantum Theory of the Electron," 1928.
 
 ## BibTeX
 
-BibTeX is a reference management system used alongside LaTeX to automate bibliography management.
-
-- The BibTeX workflow involves two files:
-
-   `.tex` file: The main LaTeX document.
-
-   `.bib` file: A plain text database of all the sources.
+BibTeX automates bibliography management by using a `.tex` file for the main document and a `.bib` file as a plain-text database of sources.
 
 - `\bibliographystyle{style}`: Sets the citation and bibliography style.
 
@@ -65,7 +51,7 @@ BibTeX is a reference management system used alongside LaTeX to automate bibliog
   | `acm`     | Alphabetical      | Numerical (`[1]`)       |
   | `apalike` | Alphabetical      | Author-year (`[Knu84]`) |
 
-- `\bibliography{filename}`: Inserts the bibliography at this location, pulling data from `filename.bib`.
+- `\bibliography{filename}`: Prints the bibliography from `filename.bib`.
 
 - `\cite{citation_key}`: Inserts an in-text citation corresponding to an entry in the `.bib` file.
 
@@ -89,27 +75,18 @@ Each entry in the `.bib` file starts with `@entrytype`, followed by a unique `ci
 
 - `@entrytype`: Describes the type of source being cited.
 
-    | `@entrytype`                     | For Citing...                                                                                |
-    | -------------------------------- | -------------------------------------------------------------------------------------------- |
-    | `@article`                       | An article from a journal or magazine.                                                       |
-    | `@book`                          | A book with an explicit publisher.                                                           |
-    | `@inproceedings`                 | A paper in a conference proceedings.                                                         |
-    | `@phdthesis` or `@mastersthesis` | A PhD or Master's thesis.                                                                    |
-    | `@techreport`                    | A technical report from a school or other institution.                                       |
-    | `@misc`                          | A fallback type for anything that doesn't fit elsewhere, like a website or a technical note. |
+- `citation_key`: A unique identifier for the source.
 
-- `citation_key`: A unique identifier for the source. It's used with the `\cite{citation_key}` command to refer to this specific entry.
+- `field = {value}`: Each entry type has a set of required and optional fields, which are case-insensitive. To preserve capitalization and formatting, use an extra set of braces `{{value}}` (e.g., `title = {A Guide to {LaTeX}}` or `author = {{The LaTeX Project}}`).
 
-- `field = {value}`: Each entry type has a set of required and optional fields, which are case-insensitive. The values of `field` must be enclosed in curly braces `{value}` or double quotes `"value"` (except for plain numbers). To protect capitalization and text formatting, use an extra set of braces `{{value}}` (e.g., `title = {A Guide to {LaTeX}}` or `author = {{The LaTeX Project}}`).
-
-    | `@entrytype`                    | Required `field`(s)                                    | Optional `field`(s)                                                                                                |
-    | :------------------------------ | :----------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |
-    | `@article`                      | `author`, `title`, `journal`, `year`                   | `volume`, `number`, `pages`, `month`,<br> `note`                                                                   |
-    | `@book`                         | `author` or `editor`, `title`, `publisher`,<br> `year` | `volume` or `number`, `series`, `address`,<br> `edition`, `month`, `note`                                          |
-    | `@inproceedings`                | `author`, `title`, `booktitle`, `year`                 | `editor`, `volume` or `number`, `series`,<br> `pages`, `address`, `month`, `organization`,<br> `publisher`, `note` |
-    | `@phdthesis` or `@masterthesis` | `author`, `title`, `school`, `year`                    | `type`, `address`, `month`, `note`                                                                                 |
-    | `@techreport`                   | `author`, `title`, `institution`, `year`               | `type`, `number`, `address`, `month`,<br> `note`                                                                   |
-    | `@misc`                         | *None*                                                 | `author`, `title`, `howpublished`, `month`,<br> `year`, `note`                                                     |
+    | `@entrytype`                    | For Citing...                                                                                | Required `field`(s)                                    | Optional `field`(s)                                                                                                |
+    | ------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+    | `@article`                      | An article from a journal or magazine.                                                       | `author`, `title`, `journal`, `year`                   | `volume`, `number`, `pages`, `month`,<br> `note`                                                                   |
+    | `@book`                         | A book with an explicit publisher.                                                           | `author` or `editor`, `title`, `publisher`,<br> `year` | `volume` or `number`, `series`, `address`,<br> `edition`, `month`, `note`                                          |
+    | `@inproceedings`                | A paper in a conference proceedings.                                                         | `author`, `title`, `booktitle`, `year`                 | `editor`, `volume` or `number`, `series`,<br> `pages`, `address`, `month`, `organization`,<br> `publisher`, `note` |
+    | `@phdthesis` or `@masterthesis` | A PhD or Master's thesis.                                                                    | `author`, `title`, `school`, `year`                    | `type`, `address`, `month`, `note`                                                                                 |
+    | `@techreport`                   | A technical report from a school or other institution.                                       | `author`, `title`, `institution`, `year`               | `type`, `number`, `address`, `month`,<br> `note`                                                                   |
+    | `@misc`                         | A fallback type for anything that doesn't fit elsewhere, like a website or a technical note. | *None*                                                 | `author`, `title`, `howpublished`, `month`,<br> `year`, `note`                                                     |
 
 ```latex
 % myreferences.bib
@@ -140,15 +117,9 @@ To fully generate a bibliography with BibTeX, run this specific sequence of comm
 
 ## The `biblatex` Package
 
-Use the `biblatex` package for more customization and better handling of complex requirements. It is the recommended system for bibliography management in LaTeX.
+The `biblatex` package is the recommended system for bibliography management. It adds modern entry types and supports advanced citation styles.
 
-- The `biblatex` workflow also involves two files:
-
-   `.tex` file: The main LaTeX document.
-
-   `.bib` file: A plain text database of all the sources.
-
-- `\usepackage[backend=biber, style=numeric]{biblatex}`: Loads the `biblatex` package, enabling  modern bibliography management.
+- `\usepackage[backend=biber, style=value]{biblatex}`: Loads the `biblatex` package, enabling  modern bibliography management.
 
   | `style`       | Sorting Method     | Citation Style                                 |
   | ------------- | ------------------ | ---------------------------------------------- |
@@ -160,9 +131,9 @@ Use the `biblatex` package for more customization and better handling of complex
   | `apa`         | Alphabetical       | Author-year (`(Knuth, 1984)`)                  |
   | `mla`         | Alphabetical       | Author-year (`(Knuth, 1984)`)                  |
 
-- `\addbibresource{filename.bib}`: Specifies the `.bib` database file to use.
+- `\addbibresource{filename.bib}`: Specifies the `.bib` file to use.
 
-- `\printbibliography`: Inserts the bibliography into the document.
+- `\printbibliography`: Prints the bibliography.
 
 ```latex
 \documentclass{article}
@@ -183,19 +154,12 @@ materials~\cite{latex-project}.
 
 The `biblatex` package is backward-compatible with all standard BibTeX entry types and fields, and it introduces many new ones for better handling of modern sources.
 
-| `@entrytype` | For Citing...                                   |
-| ------------ | ----------------------------------------------- |
-| `@online`    | A website or other online resource.             |
-| `@software`  | Computer software.                              |
-| `@dataset`   | A published data set.                           |
-| `@report`    | A technical report (improves on `@techreport`). |
-
-| `@entrytype` | Required `field`(s)                                  | Optional `field`(s)           |
-| ------------ | ---------------------------------------------------- | ----------------------------- |
-| `@online`    | `author` or `editor`, `title`, `year`,<br> `url`     | `urldate`, `note`             |
-| `@software`  | `author`, `title`, `year`                            | `version`, `url`, `publisher` |
-| `@dataset`   | `author`, `title`, `year`                            | `version`, `url`, `doi`       |
-| `@report`    | `author`, `title`, `type`, `institution`,<br> `year` | `number`, `address`, `month`  |
+| `@entrytype` | For Citing...                                   | Required `field`(s)                                  | Optional `field`(s)           |
+| ------------ | ----------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
+| `@online`    | A website or other online resource.             | `author` or `editor`, `title`, `year`,<br> `url`     | `urldate`, `note`             |
+| `@software`  | Computer software.                              | `author`, `title`, `year`                            | `version`, `url`, `publisher` |
+| `@dataset`   | A published data set.                           | `author`, `title`, `year`                            | `version`, `url`, `doi`       |
+| `@report`    | A technical report (improves on `@techreport`). | `author`, `title`, `type`, `institution`,<br> `year` | `number`, `address`, `month`  |
 
 ```latex
 % myreferences.bib
