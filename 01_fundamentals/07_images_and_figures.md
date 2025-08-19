@@ -1,12 +1,12 @@
 # 07: Images and Figures
 
-This guide explains how to include images using the `graphicx` package and how to wrap them in the `figure` environment to add captions and labels.
+This guide explains how to include images using the `graphicx` package, how to wrap them in the `figure` environment to add captions and labels, and arrange them within the document.
 
 ---
 
 ## Including Images
 
-Use the `graphicx` package to include images to a document.
+Use the `graphicx` package to add images to a document.
 
 - `\usepackage{graphicx}`: Loads the `graphicx` package, enabling image-related commands.
 

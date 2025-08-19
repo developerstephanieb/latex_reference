@@ -13,7 +13,7 @@ The `\newcommand` command defines a custom shortcut for a longer piece of code o
 ```latex
 \documentclass{article}
 
-% Define a new command \lr for "LaTeX Reference"
+% Define a new command
 \newcommand{\lr}{LaTeX Reference}
 
 % Define \defineterm to take two arguments

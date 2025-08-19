@@ -9,6 +9,7 @@ This guide covers LaTeX's cross-referencing system, which creates dynamic links 
 Cross-referencing relies on `\label` to create a marker, and `\ref` or `\pageref` to refer to that marker.
 
 - `\label{marker}`: Assigns a unique `marker` to an element. The `\label` command should be placed immediately after the item it is marking (e.g., after `\caption` or `\section`). It is best practice to use prefixes to identify the type of element being labeled.
+
   | Prefix | Element Type | Example                    |
   | ------ | ------------ | -------------------------- |
   | `sec:` | Section      | `\label{sec:introduction}` |

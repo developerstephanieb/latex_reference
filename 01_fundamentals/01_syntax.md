@@ -127,7 +127,7 @@ This text will start on the second page.
 
 ## Escaping Special Characters
 
-To print special characters, escape them with a backslash (`\`) or use a control word that represents the symbol.
+To print special characters, escape them with a backslash (`\`) or use a command that represents the symbol.
 
 | Character | Code                 |
 | :-------: | :------------------- |

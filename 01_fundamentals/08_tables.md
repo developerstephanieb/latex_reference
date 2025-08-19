@@ -1,6 +1,6 @@
 # 08: Tables
 
-This guide explains how to create tables using the `tabular` environment and how to wrap them in the `table` environment to add captions and labels.
+This guide explains how to create tables using the `tabular` environment, how to wrap them in the `table` environment to add captions and labels, and arrange them within the document.
 
 ---
 
@@ -45,7 +45,7 @@ Here is a table with lines:
 
 Here is a table using \verb|@{}| and \verb|p{}|:
 
-\begin{tabular}{l@{ -- }p{4cm}}
+\begin{tabular}{l@{ -- }p{5cm}}
     Label & Description                                \\
     Name  & A string identifying the person or object. \\
     Age   & The number of full years since birth.      \\
@@ -226,9 +226,9 @@ The `tabularx` package provides a new environment that creates tables of a speci
 
 - `\usepackage{tabularx}`: Loads the `tabularx` package, enabling columns to automatically adjust their widths.
 
-- `\begin{tabularx}{width}{cols}`: Creates a table with a total width.
+- `\begin{tabularx}{width}{cols}`:  Creates a table that stretches to the specified total width.
 
-- `X` **column type**: A special column type provided by `tabularx`. It acts like a `p` column but automatically calculates its width to make the table fit the specified total width.
+- **`X` column type**: A `tabularx` column that behaves like `p` but automatically adjusts its width to fill the table’s total width.
 
 ```latex
 \documentclass{article}
@@ -238,7 +238,6 @@ The `tabularx` package provides a new environment that creates tables of a speci
 
 \begin{table}[h!]
     \caption{A table that automatically fits the page width.}
-    % The table's total width will be the width of the text block
     \begin{tabularx}{\textwidth}{|l|X|}
         \hline
         \textbf{Term} & \textbf{Description}                                                                                   \\

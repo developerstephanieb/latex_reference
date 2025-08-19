@@ -8,9 +8,9 @@ This guide covers the essential LaTeX commands for formatting text, from changin
 
 There are two primary ways to apply font styles: as a command that takes an argument, or as a declaration that switches the style on for all subsequent text within its scope.
 
-- **Argument Form**: Applies a style to a specific piece of text. This is best for short, local changes.
+- **Argument Form**: Applies a style to a specific piece of text. 
 
-- **Declaration Form**: Acts as a switch. This is useful for styling larger blocks of text inside a group `{}` or an environment.
+- **Declaration Form**: Applies a style to all following text inside a group `{}` or an environment.
 
 - `\textbf{text}`, `\bfseries`: Makes text bold.
 
@@ -173,7 +173,6 @@ These environments are for formatting blocks of quoted prose or poetry and are i
 
 \begin{document}
 
-Here is some introductory text for a quote.
 \begin{quote}
 This is a short quotation, indented from both margins.
 \end{quote}
@@ -192,7 +191,7 @@ This is a short quotation, indented from both margins.
 
 Global font settings can be defined in the preamble to set defaults for the entire document.
 
-- `\documentclass[options]{class}`: Sets the default font size. Common size options are `10pt`, `11pt`, and `12pt`.
+- `\documentclass[options]{class}`: Sets the default font size. Common size [options] are `10pt`, `11pt`, and `12pt`.
 
 - `\renewcommand{\familydefault}{family_code}`: Sets the default font family.
 

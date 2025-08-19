@@ -6,7 +6,7 @@ This guide covers the standard LaTeX environments used to create itemized, numbe
 
 ## List Environments
 
-LaTeX provides three primary environments for creating lists. Each `\item` command marks a new entry in the list, and these environments can be nested within each other to create complex outlines.
+LaTeX provides three primary environments for creating lists. Each `\item` marks a new entry in the list, and these environments can be nested within each other to create complex outlines.
 
 - `\begin{itemize}`: Creates a bulleted (unordered) list. The bullet style changes automatically for each level of nesting.
 
