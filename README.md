@@ -23,7 +23,7 @@ latex_reference/
 │   └── 12_bibliography.md
 ├── 02_packages/
 │   ├── 
-│   └── 
+│   └── xcolor.md
 ├── 03_templates/
 │   ├── article/
 │   └── resume/
