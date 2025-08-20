@@ -10,10 +10,6 @@ The `xcolor` package extends LaTeX’s color capabilities, allowing colors to be
 
 - `\usepackage[options]{xcolor}`: Loads the `xcolor` package, enabling color commands and environments. Common `options` include predefined color sets such as `dvipsnames`, `svgnames`, and `x11names`. A full list of available colors is provided in the [xcolor package documentation](https://mirrors.mit.edu/CTAN/macros/latex/contrib/xcolor/xcolor.pdf#page=38).
 
-```latex
-
-```
-
 ---
 
 ## Applying Color to Text
@@ -26,7 +22,7 @@ There are two primary ways to apply color to text.
 
 ```latex
 \documentclass{article}
-\usepackage[dvipsnames]{xcolor}
+\usepackage[dvipsnames]{xcolor} 
 
 \begin{document}
 
