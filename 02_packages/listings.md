@@ -1,0 +1,128 @@
+# Listings
+
+This guide covers the `listings` package, which provides a customizable environment for typesetting source code.
+
+---
+
+## The `lstlisting` Environment
+
+The primary tool for displaying code is the `lstlisting` environment. It can be customized with a range of `key=value` options.
+
+- `\usepackage{listings}`: Loads the `listings` package, enabling the `lstlisting` environment, inline code commands, and configuration options for code styling.
+
+- `\begin{lstlisting}[options]`: Begins the code listing environment. All text within this environment will be typeset as-is, preserving spacing and line breaks.
+
+  | `option`           | Description                                                                                         |
+  | ------------------ | --------------------------------------------------------------------------------------------------- |
+  | `language`         | Sets the programming language for syntax highlighting.                                              |
+  | `caption`          | Adds a numbered caption to the code listing.                                                        |
+  | `label`            | Assigns a unique marker to the listing for cross-referencing.                                       |
+  | `numbers`          | Adds line numbers to the listing (`left`, `right`, `none`).                                         |
+  | `frame`            | Draws a frame around the code block (`single`, `shadowbox`, `none`).                                |
+  | `basicstyle`       | Sets the font style for the code.                                                                   |
+  | `keywordstyle`     | Sets the style for language keywords. Requires the `xcolor` package.                                |
+  | `commentstyle`     | Sets the style for comments.                                                                        |
+  | `stringstyle`      | Sets the style for strings.                                                                         |
+  | `showstringspaces` | Controls whether spaces in strings are visualized. Set to `false` to display them as normal spaces. |
+
+```latex
+\documentclass{article}
+\usepackage{xcolor} % Required for custom colors
+\usepackage{listings}
+
+\begin{document}
+
+\begin{lstlisting}[
+  language=C++,
+  basicstyle=\small\ttfamily,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{red},
+  numbers=left,
+  frame=single,
+  showstringspaces=false
+]
+// This is a comment
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello, World!";
+    return 0;
+}
+\end{lstlisting}
+
+\end{document}
+```
+
+---
+
+## Global Settings
+
+A consistent style can be defined for all code blocks.
+
+- `\lstset{options}`: Sets global options for all subsequent `lstlisting` environments. Options passed within a specific `lstlisting` environment override these global settings.
+
+```latex
+\documentclass{article}
+\usepackage{xcolor}   % Required for custom colors
+\usepackage{listings}
+\usepackage{hyperref} % Required for \autoref
+
+\lstset{
+  language=Python,
+  basicstyle=\small\ttfamily,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{red},
+  numbers=left,
+  frame=single,
+  showstringspaces=false
+}
+
+\begin{document}
+
+You can refer to code snippets, like the one in \autoref{lst:hello_world}.
+
+\begin{lstlisting}[
+  caption={A "Hello, World!" program in Python.},
+  label={lst:hello_world}
+]
+# This is a comment
+def greet(name):
+    """A simple function to greet someone."""
+    message = f"Hello, {name}!"
+    print(message)
+
+greet("World")
+\end{lstlisting}
+
+\end{document}
+```
+
+---
+
+## Inline Code
+
+For short, inline code snippets, use the `\lstinline` command.
+
+- `\lstinline|code|`: Typesets the `code` inline. 
+
+```latex
+\documentclass{article}
+\usepackage{xcolor}   % Required for custom colors
+\usepackage{listings}
+
+\lstset{
+  language={[LaTeX]TeX},
+  basicstyle=\ttfamily,
+  texcsstyle=\color{blue!80!black}
+}
+
+\begin{document}
+
+The \lstinline|\documentclass{article}| command is the first line
+in many documents.
+
+\end{document}
+```

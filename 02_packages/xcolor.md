@@ -4,17 +4,11 @@ This guide covers the `xcolor` package, which provides a comprehensive set of co
 
 ---
 
-## Loading the Package
-
-The `xcolor` package extends LaTeX’s color capabilities, allowing colors to be defined, mixed, and applied in text, tables, and figures. 
-
-- `\usepackage[options]{xcolor}`: Loads the `xcolor` package, enabling color commands and environments. Common `options` include predefined color sets such as `dvipsnames`, `svgnames`, and `x11names`. A full list of available colors is provided in the [xcolor package documentation](https://mirrors.mit.edu/CTAN/macros/latex/contrib/xcolor/xcolor.pdf#page=38).
-
----
-
 ## Applying Color to Text
 
 There are two primary ways to apply color to text.
+
+- `\usepackage[options]{xcolor}`: Loads the `xcolor` package, enabling color commands and environments. Common `options` include predefined color sets such as `dvipsnames`, `svgnames`, and `x11names`. A full list of available colors is provided in the [xcolor package documentation](https://mirrors.mit.edu/CTAN/macros/latex/contrib/xcolor/xcolor.pdf#page=38).
 
 - `\textcolor{color}{text}`: Colors a specific piece of text.
 

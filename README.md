@@ -22,7 +22,7 @@ latex_reference/
 │   ├── 11_defining_commands.md
 │   └── 12_bibliography.md
 ├── 02_packages/
-│   ├── 
+│   ├── listings.md
 │   └── xcolor.md
 ├── 03_templates/
 │   ├── article/
