@@ -76,6 +76,51 @@ These commands define metadata in the preamble, which `\maketitle` then renders 
 
 ---
 
+## The `titling` Package
+
+The `titling` package allows custom code to be inserted before and after the title, author, and date elements, providing full control over their formatting.
+
+- `\pretitle{text}`, `\posttitle{text}`: Code to be placed before and after the title.
+
+- `\preauthor{text}`, `\postauthor{text}`: Code to be placed before and after the author.
+
+- `\predate{text}`, `\postdate{text}`: Code to be placed before and after the date.
+
+```latex
+\documentclass{article}
+\usepackage{titling} % Load the package
+
+% Define the title, author, and date
+\title{A Custom Title}
+\author{A. N. Author}
+\date{\today}
+
+% Customize the layout of \maketitle
+\pretitle{\begin{center}\LARGE\bfseries}
+\posttitle{\end{center}\vspace{0.5em}}
+
+\preauthor{\begin{center}\large}
+\postauthor{\end{center}\vspace{0.5em}}
+
+\predate{\begin{center}\large}
+\postdate{\end{center}\hrule}
+
+\begin{document}
+
+% Now produces the custom title block
+\maketitle
+
+\section{Introduction}
+The title block above has been redesigned using the
+\texttt{titling} package. The elements have been
+centered the elements, their font sizes changes,
+and a horizontal rule was added after the date.
+
+\end{document}
+```
+
+---
+
 ## Sectioning
 
 These commands format and number section headings. To create an unnumbered heading, add an asterisk (`*`) after the command name.
