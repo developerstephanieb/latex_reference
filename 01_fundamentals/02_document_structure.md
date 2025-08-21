@@ -80,6 +80,8 @@ These commands define metadata in the preamble, which `\maketitle` then renders 
 
 The `titling` package allows custom code to be inserted before and after the title, author, and date elements, providing full control over their formatting.
 
+- `\usepackage{titling}`: Loads the `titling` package, enabling the customization commands for the title block.
+
 - `\pretitle{text}`, `\posttitle{text}`: Code to be placed before and after the title.
 
 - `\preauthor{text}`, `\postauthor{text}`: Code to be placed before and after the author.
