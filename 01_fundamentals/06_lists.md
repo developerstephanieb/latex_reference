@@ -58,6 +58,8 @@ Use the `enumitem` package for additional list formatting features.
 
 - `\setlist[list_type]{options}`: Sets global options for a specific `[list_type]` (e.g., `itemize`, `enumerate`, `description`).
 
+- `\begin{list_type}[options]`: Applies `[options]` to a single, specific list environment in the document body.
+
   | `options`           | Description                                                                                                                         |
   | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
   | `label=format`      | Sets the format for the item label. For `enumerate`, use counters like `\arabic*`, `\alph*`, or `\roman*`.                          |
@@ -74,8 +76,6 @@ Use the `enumitem` package for additional list formatting features.
   | `nosep`             | A shortcut that removes all vertical separation.                                                                                    |
   | `before=code`       | Inserts `code` before the list environment begins.                                                                                  |
   | `after=code`        | Inserts `code` after the list environment ends.                                                                                     |
-
-- `\begin{list_type}[options]`: Applies `[options]` to a single, specific list environment in the document body.
 
 ```latex
 \documentclass{article}
@@ -101,5 +101,3 @@ This list overrides the global settings for a custom format:
 
 \end{document}
 ```
-
----

@@ -12,7 +12,7 @@ The primary tool for displaying code is the `lstlisting` environment. It can be 
 
 - `\begin{lstlisting}[options]`: Begins the code listing environment. All text within this environment will be typeset as-is, preserving spacing and line breaks.
 
-  | `option`           | Description                                                                                         |
+  | `options`          | Description                                                                                         |
   | ------------------ | --------------------------------------------------------------------------------------------------- |
   | `language`         | Sets the programming language for syntax highlighting.                                              |
   | `caption`          | Adds a numbered caption to the code listing.                                                        |
