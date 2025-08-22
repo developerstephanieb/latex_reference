@@ -110,19 +110,20 @@ For short, inline code snippets, use the `\lstinline` command.
 
 ```latex
 \documentclass{article}
-\usepackage{xcolor}   % Required for custom colors
+\usepackage{xcolor}
 \usepackage{listings}
 
 \lstset{
-  language={[LaTeX]TeX},
+  language=bash,
   basicstyle=\ttfamily,
-  texcsstyle=\color{blue!80!black}
+  keywordstyle=\color{blue}
 }
 
 \begin{document}
 
-The \lstinline|\documentclass{article}| command is the first line
-in many documents.
+In the terminal, use the \lstinline|ls -l| command to list files
+in the current directory. To create a new folder, use
+\lstinline|mkdir new_directory|.
 
 \end{document}
 ```
