@@ -61,7 +61,16 @@ For references to resolve correctly, LaTeX requires compiling the document at le
 
 Use the `hyperref` package for clickable references and automatic labels.
 
-- `\usepackage{hyperref}`: Loads the `hyperref` package, making all references clickable hyperlinks in the PDF output.
+- `\usepackage[options]{hyperref}`: Loads the `hyperref` package, making all references clickable hyperlinks in the PDF output.
+  
+  | `options`          | Description                                                              |
+  | ------------------ | ------------------------------------------------------------------------ |
+  | `colorlinks=true`  | Removes the default boxes around links and colors the link text instead. |
+  | `linkcolor=color`  | Sets the color for internal links.                                       |
+  | `citecolor=color`  | Sets the color for bibliography citations.                               |
+  | `urlcolor=color`   | Sets the color for URLs.                                                 |
+  | `pdftitle={text}`  | Sets the title in the PDF's metadata.                                    |
+  | `pdfauthor={text}` | Sets the author in the PDF's metadata.                                   |
   
 - `\autoref{marker}`: Automatically creates a complete reference, including the name (e.g., "Figure 2", "Section 4.1", "Equation (3)"), all as a single hyperlink.
 
@@ -71,7 +80,13 @@ Use the `hyperref` package for clickable references and automatic labels.
 
 ```latex
 \documentclass{article}
-\usepackage{hyperref} % Load the 'hyperref' package
+\usepackage[
+  colorlinks=true,
+  linkcolor=red,
+  urlcolor=blue
+  pdftitle={A Guide to hyperref},
+  pdfauthor={A. N. Author},
+]{hyperref} % Load the 'hyperref' package
 
 \begin{document}
 
@@ -99,14 +114,20 @@ for details.
 
 The standard workflow is to use both `hyperref` and `cleveref` together.
 
-- `\usepackage{cleveref}`: Loads the `cleveref` package, which automatically determines the reference type and can intelligently handle multiple references at once. 
+- `\usepackage[options]{cleveref}`: Loads the `cleveref` package, which automatically determines the reference type and can intelligently handle multiple references at once. 
+
+  | `options`    | Description                                                                                                                   |
+  | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+  | `nameinlink` | Expands the hyperlink to include both the reference name and number (e.g., "figure 1" becomes the link, instead of just "1"). |
+  | `noabbrev`   | Prevents the abbreviation of reference types (e.g., prints "figure" instead of "fig.").                                       |
+  | `capitalize` | Makes `\cref` behave like `\Cref`, automatically capitalizing the first letter.                                               |
 
 - `\cref{marker1, marker2, ...}`: Automatically produces the correct label name (e.g., "figure", "section", "equation") and number. The capitalized version `\Cref` capitalizes the label name.
 
 ```latex
 \documentclass{article}
 \usepackage{hyperref}
-\usepackage{cleveref} % Load 'cleveref' after 'hyperref'
+\usepackage[nameinlink]{cleveref} % Load 'cleveref' after 'hyperref'
 
 \begin{document}
 

@@ -30,9 +30,15 @@ latex_reference/
 ├── 04_appendix/
 │   ├── 
 │   └── 
+├── 05_assets/
+│   ├── 
+│   ├── 
+│   └── 
 ├── .gitignore 
 └── README.md
 ```
+
+---
 
 ## Compiling
 

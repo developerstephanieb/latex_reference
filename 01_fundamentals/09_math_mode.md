@@ -23,6 +23,21 @@ This equation is written in display mode:
 
 ---
 
+## Manual Spacing
+
+The following commands can be used to manually insert horizontal space for fine-tuning.
+
+| Command  | Size          | Example Code  | Rendered Output |
+| -------- | ------------- | ------------- | :-------------: |
+| `\,`     | Thin space    | `$A\,B$`      |     $A\,B$      |
+| `\:`     | Medium space  | `$A\:B$`      |     $A\:B$      |
+| `\;`     | Thick space   | `$A\;B$`      |     $A\;B$      |
+| `\quad`  | 1 em space    | `$A\quad B$`  |   $A\quad B$    |
+| `\qquad` | 2 ems space   | `$A\qquad B$` |   $A\qquad B$   |
+| `\!`     | Negative thin | `$A\!B$`      |     $A\!B$      |
+
+---
+
 ## Fundamental Constructs
 
 Group multi-character superscripts and subscripts with curly braces `{}`.
@@ -166,11 +181,21 @@ As shown in Equation~\ref{eq:pythagorean}, the relationship is fundamental.
 
 ## The `amsmath` Package
 
-Use the `amsmath` package to access environments for multi-line equations and matrices.
+Use the `amsmath` package to access environments for multi-line equations and matrices. Appending a `*` to a numbered environment removes equation numbering.
 
 - `\usepackage{amsmath}`: Loads the `amsmath` package, enabling advanced mathematical typesetting.
 
 - `\begin{align}`: For aligning multiple equations. The `&` character specifies the alignment point, typically the equals sign.
+
+- `\begin{alignat}{n}`: An advanced version of `align` that provides control over spacing between `n` columns.
+
+- `\begin{gather}`: For grouping multiple equations that should be centered without any specific alignment.
+
+- `\begin{multline}`: For a single long equation that must be broken across multiple lines.
+
+- `\begin{split}`: Used inside another environment (like equation) to break a single, long equation into multiple lines while allowing for alignment with `&`.
+
+- `\begin{subequations}`: For creating a numbered group of equations with individual sub-labels.
 
 - **Matrix Environments**: `\begin{pmatrix}` for parentheses, `\begin{bmatrix}` for brackets, and `\begin{vmatrix}` for vertical bars.
 
@@ -194,23 +219,41 @@ Use the `amsmath` package to access environments for multi-line equations and ma
 
 This is an equation aligned at the equals sign.
 \begin{align}
-    f(x) & = (x+y)(x-y)          \\
-         & = x^2 - xy + yx - y^2 \\
-         & = x^2 - y^2
+  f(x) & = (x+y)(x-y)          \\
+       & = x^2 - xy + yx - y^2 \\
+       & = x^2 - y^2
 \end{align}
+
+These two equations are aligned in columns.
+\begin{alignat}{2}
+  f(x) & = (x+y)(x-y)          & \qquad g(x) & = (x+y)^2         \\
+       & = x^2 - xy + yx - y^2 &             & = x^2 + 2xy + y^2 \\
+       & = x^2 - y^2
+\end{alignat}
+
+This is a single equation broken into aligned lines.
+\begin{equation}
+  \begin{split}
+    (x+y)^3 & = (x+y)(x+y)^2                            \\
+            & = (x+y)(x^2 + 2xy + y^2)                  \\
+            & = x(x^2 + 2xy + y^2) + y(x^2 + 2xy + y^2) \\
+            & = x^3 + 2x^2y + xy^2 + x^2y + 2xy^2 + y^3 \\
+            & = x^3 + 3x^2y + 3xy^2 + y^3
+  \end{split}
+\end{equation}
 
 This is a matrix enclosed in parentheses.
 \[
-    A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+  A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
 \]
 
 This is a piecewise function.
 \[
-    f(x) =
-    \begin{cases}
-        -x, & \text{if } x < 0    \\
-        x,  & \text{if } x \geq 0
-    \end{cases}
+  f(x) =
+  \begin{cases}
+    -x, & \text{if } x < 0    \\
+    x,  & \text{if } x \geq 0
+  \end{cases}
 \]
 
 \end{document}

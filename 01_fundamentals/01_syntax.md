@@ -29,13 +29,13 @@ Commands control formatting and behavior. Every LaTeX document begins with the `
   | `book`    | For books.                          |
   | `letter`  | For writing letters.                |
 
-  | `options`                | Description                                        |
-  | ------------------------ | -------------------------------------------------- |
-  | `10pt`, `11pt`, `12pt`   | Sets the base font size for the document.          |
-  | `a4paper`, `letterpaper` | Sets the paper size.                               |
-  | `landscape`              | Sets the page orientation to landscape.            |
-  | `oneside`, `twoside`     | Formats for single-sided or double-sided printing. |
-  | `twocolumn`              | Typesets the document in two columns.              |
+  | `options`                | Description                                                |
+  | ------------------------ | ---------------------------------------------------------- |
+  | `10pt`, `11pt`, `12pt`   | Sets the base font size for the document.                  |
+  | `a4paper`, `letterpaper` | Sets the paper size.                                       |
+  | `landscape`              | Sets the page orientation to landscape.                    |
+  | `oneside`, `twoside`     | Sets the layout for single-sided or double-sided printing. |
+  | `twocolumn`              | Typesets the document in two columns.                      |
 
 ```latex
 \documentclass{article}

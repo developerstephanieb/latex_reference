@@ -48,6 +48,8 @@ These declarations change the size of text relative to the document’s base fon
 
 - `\small`: Slightly smaller than the default.
 
+- `\normalsize`: Default document font size.
+
 - `\large`, `\Large`, `\LARGE`: Progressively larger sizes above the default.
 
 - `\huge`, `\Huge`: Very large and largest text sizes, respectively.
@@ -129,7 +131,13 @@ Every line is right-aligned.\par  % <-- paragraph terminator is required
 
 Use the `setspace` package to control the spacing between lines in a paragraph.
 
-- `\usepackage{setspace}`: Loads the `setspace` package, enabling declarations for common spacing presets and an environment for custom spacing.
+- `\usepackage[spacing]{setspace}`: Loads the `setspace` package, enabling declarations for common spacing presets and an environment for custom spacing.
+
+   | `spacing`        | Description                  |
+   | ---------------- | ---------------------------- |
+   | `singlespacing`  | Sets single line spacing.    |
+   | `onehalfspacing` | Sets one-and-a-half spacing. |
+   | `doublespacing`  | Sets double line spacing.    |
 
 - `\setstretch{factor}`: Sets a custom line spacing for the entire document.
 
@@ -139,19 +147,17 @@ Use the `setspace` package to control the spacing between lines in a paragraph.
 
 ```latex
 \documentclass{article}
-\usepackage{setspace} % Load the 'setspace' package
-\usepackage{lipsum}   % For dummy text
-
-\setstretch{1.25}
+\usepackage[onehalfspacing]{setspace} % Load the 'setspace' package
+\usepackage{lipsum}                   % For dummy text
 
 \begin{document}
 
 \section*{Global Spacing}
 \lipsum[1] % This will have 1.25 spacing.
 
-\section*{Local Spacing}
-\doublespacing
+\begin{spacing}{2}
 \lipsum[2] % This will be double-spaced.
+\end{spacing}
 
 \end{document}
 ```

@@ -129,6 +129,8 @@ These commands format and number section headings. To create an unnumbered headi
 
 - `\part`: Creates a new part, the highest-level division in a document.
 
+- `\chapter{title}`: Starts a new chapter (in `report` and `book` classes).
+
 - `\section{title}`: Creates a new top-level section.
   
 - `\subsection{title}`: Creates a subsection.
@@ -203,6 +205,8 @@ The table of contents updates automatically, but requires two compilations: firs
 
 - `\tableofcontents`: Directly inserts a table of contents, automatically populated from numbered sectioning commands.
 
+- `\addcontentsline{type}{level}{title}`:  Manually adds an entry to a specified list. The `{type}` argument determines which list to use (`toc` for Table of Contents, `lof` for List of Figures, `lot` for List of Tables).
+
 - `\setcounter{tocdepth}{level}`: Controls the depth of section levels shown in the TOC.
 
 - `\listoffigures`: Generates a list of all figure captions.
@@ -224,8 +228,9 @@ This section will appear in the ToC.
 \subsection{First Point}
 A subsection, indented under Main Body in the ToC.
 
-\section*{Acknowledgments} % Unnumbered; not listed in the ToC
-This section is unnumbered and will not appear in the ToC.
+\section*{Acknowledgments} % Unnumbered; not listed in the ToC by default
+\addcontentsline{toc}{section}{Acknowledgments} % Manually add the entry to the ToC
+This section is unnumbered but will now appear in the ToC.
 
 \end{document}
 ```

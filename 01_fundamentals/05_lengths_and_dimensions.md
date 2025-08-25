@@ -99,3 +99,30 @@ This is the second paragraph. It is also not indented.
 
 \end{document}
 ```
+
+---
+
+## Creating New Length Parameters
+
+New length commands can be defined to act as reusable variables for the layout.
+
+- `\newlength{\command}`: Creates a new length command. The new length is initialized to `0pt`.
+
+```latex
+\documentclass{article}
+
+% Create a new length command named \customindent
+\newlength{\customindent}
+
+% Set its value
+\setlength{\customindent}{2cm}
+
+\begin{document}
+
+This line has no special indentation.
+
+\hspace{\customindent}This line begins with a custom gap of 2cm.
+
+\end{document}
+```
+

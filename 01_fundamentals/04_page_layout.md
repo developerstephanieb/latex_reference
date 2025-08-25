@@ -14,6 +14,7 @@ Use the `geometry` package to control page layout. While some page layout `[opti
   | ----------------------------- | ------------------------------------------------------------------- |
   | `a4paper`, `letterpaper`      | Sets the paper size.                                                |
   | `landscape`                   | Sets the page orientation to landscape.                             |
+  | `oneside`, `twoside`          | Sets the layout for single-sided or double-sided printing.          |
   | `margin=length`               | Sets all four margins (top, bottom, left, right) to the same value. |
   | `left=length`, `right=length` | Sets the left and right margins individually.                       |
   | `top=length`, `bottom=length` | Sets the top and bottom margins individually.                       |
@@ -66,7 +67,7 @@ The `\pagestyle` command controls the content of the headers and footers for the
   | `alph`      | Lowercase letters (`a`, `b`, `c`...)           |
   | `Alph`      | Uppercase letters (`A`, `B`, `C`...)           |
 
-- `\thepage`: Prints the current page number.
+- **Dynamic Macros**: Prints dynamic document information like the current page number (`\thepage`), section number (`\thesection`), or chapter (`\leftmark`) and section name (`\rightmark`) in books and reports.
 
 ```latex
 \documentclass[twoside]{article}
@@ -164,6 +165,8 @@ pagestyle defined, with the page number in the top right.
 Enable a two-column layout for the entire document by adding the `[twocolumn]` option to `\documentclass`.
 
 - `\documentclass[twocolumn]{article}`: Formats the entire document in two columns.
+
+- `\onecolumn`, `\twocolumn`: Switches the document to a single-column or two-column layout, forcing a new page.
 
 ```latex
 \documentclass[twocolumn]{article}

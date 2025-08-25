@@ -12,7 +12,7 @@ LaTeX provides three primary environments for creating lists. Each `\item` marks
 
 - `\begin{enumerate}`: Creates a numbered (ordered) list. The numbering format (e.g., `1`., `a)`, `i`.) changes automatically for each level of nesting.
 
-- `\begin{description}`: Creates a descriptive list, ideal for glossaries or definitions. Each item is labeled with a term provided in `\item[term]`, which is displayed in bold.
+- `\begin{description}`: Creates a descriptive list, ideal for glossaries or definitions. Each item is labeled with a term provided in `\item[label]`, which is displayed in bold.
 
 ```latex
 \documentclass{article}
@@ -76,6 +76,7 @@ Use the `enumitem` package for additional list formatting features.
   | `nosep`             | A shortcut that removes all vertical separation.                                                                                    |
   | `before=code`       | Inserts `code` before the list environment begins.                                                                                  |
   | `after=code`        | Inserts `code` after the list environment ends.                                                                                     |
+  | `inline`            | Displays lists horizontally. A `*` must also be appended to the list name (`enumerate*`, `itemize*`, `description*`).               |
 
 ```latex
 \documentclass{article}

@@ -6,24 +6,24 @@ This guide covers the `listings` package, which provides a customizable environm
 
 ## The `lstlisting` Environment
 
-The primary tool for displaying code is the `lstlisting` environment. It can be customized with a range of `key=value` options.
+The primary tool for displaying code is the `lstlisting` environment.
 
 - `\usepackage{listings}`: Loads the `listings` package, enabling the `lstlisting` environment, inline code commands, and configuration options for code styling.
 
 - `\begin{lstlisting}[options]`: Begins the code listing environment. All text within this environment will be typeset as-is, preserving spacing and line breaks.
 
-  | `options`          | Description                                                                                         |
-  | ------------------ | --------------------------------------------------------------------------------------------------- |
-  | `language`         | Sets the programming language for syntax highlighting.                                              |
-  | `caption`          | Adds a numbered caption to the code listing.                                                        |
-  | `label`            | Assigns a unique marker to the listing for cross-referencing.                                       |
-  | `numbers`          | Adds line numbers to the listing (`left`, `right`, `none`).                                         |
-  | `frame`            | Draws a frame around the code block (`single`, `shadowbox`, `none`).                                |
-  | `basicstyle`       | Sets the font style for the code.                                                                   |
-  | `keywordstyle`     | Sets the style for language keywords. Requires the `xcolor` package.                                |
-  | `commentstyle`     | Sets the style for comments.                                                                        |
-  | `stringstyle`      | Sets the style for strings.                                                                         |
-  | `showstringspaces` | Controls whether spaces in strings are visualized. Set to `false` to display them as normal spaces. |
+  | `options`                  | Description                                                                                         |
+  | -------------------------- | --------------------------------------------------------------------------------------------------- |
+  | `language=language_name`   | Sets the programming language for syntax highlighting.                                              |
+  | `caption={text}`           | Adds a numbered caption to the code listing.                                                        |
+  | `label={marker}`           | Assigns a unique marker to the listing for cross-referencing.                                       |
+  | `numbers=position`         | Adds line numbers to the listing (`left`, `right`, `none`).                                         |
+  | `frame=style`              | Draws a frame around the code block (`single`, `shadowbox`, `none`).                                |
+  | `basicstyle=\command`      | Sets the font style for the code.                                                                   |
+  | `keywordstyle=\command`    | Sets the style for language keywords. Requires the `xcolor` package.                                |
+  | `commentstyle=\command`    | Sets the style for comments.                                                                        |
+  | `stringstyle=\command`     | Sets the style for strings.                                                                         |
+  | `showstringspaces=boolean` | Controls whether spaces in strings are visualized. Set to `false` to display them as normal spaces. |
 
 ```latex
 \documentclass{article}
