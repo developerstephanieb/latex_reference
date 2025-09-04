@@ -219,41 +219,41 @@ Use the `amsmath` package to access environments for multi-line equations and ma
 
 This is an equation aligned at the equals sign.
 \begin{align}
-  f(x) & = (x+y)(x-y)          \\
-       & = x^2 - xy + yx - y^2 \\
-       & = x^2 - y^2
+    f(x) & = (x+y)(x-y)          \\
+         & = x^2 - xy + yx - y^2 \\
+         & = x^2 - y^2
 \end{align}
 
-These two equations are aligned in columns.
-\begin{alignat}{2}
-  f(x) & = (x+y)(x-y)          & \qquad g(x) & = (x+y)^2         \\
-       & = x^2 - xy + yx - y^2 &             & = x^2 + 2xy + y^2 \\
-       & = x^2 - y^2
-\end{alignat}
+These two unnumbered equations are aligned in columns.
+\begin{alignat*}{2}
+    f(x) & = (x+y)(x-y)          & \qquad g(x) & = (x+y)^2         \\
+         & = x^2 - xy + yx - y^2 &             & = x^2 + 2xy + y^2 \\
+         & = x^2 - y^2
+\end{alignat*}
 
 This is a single equation broken into aligned lines.
 \begin{equation}
-  \begin{split}
-    (x+y)^3 & = (x+y)(x+y)^2                            \\
-            & = (x+y)(x^2 + 2xy + y^2)                  \\
-            & = x(x^2 + 2xy + y^2) + y(x^2 + 2xy + y^2) \\
-            & = x^3 + 2x^2y + xy^2 + x^2y + 2xy^2 + y^3 \\
-            & = x^3 + 3x^2y + 3xy^2 + y^3
-  \end{split}
+    \begin{split}
+        (x+y)^3 & = (x+y)(x+y)^2                            \\
+                & = (x+y)(x^2 + 2xy + y^2)                  \\
+                & = x(x^2 + 2xy + y^2) + y(x^2 + 2xy + y^2) \\
+                & = x^3 + 2x^2y + xy^2 + x^2y + 2xy^2 + y^3 \\
+                & = x^3 + 3x^2y + 3xy^2 + y^3
+    \end{split}
 \end{equation}
 
 This is a matrix enclosed in parentheses.
 \[
-  A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+    A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
 \]
 
 This is a piecewise function.
 \[
-  f(x) =
-  \begin{cases}
-    -x, & \text{if } x < 0    \\
-    x,  & \text{if } x \geq 0
-  \end{cases}
+    f(x) =
+    \begin{cases}
+        -x, & \text{if } x < 0    \\
+        x,  & \text{if } x \geq 0
+    \end{cases}
 \]
 
 \end{document}
