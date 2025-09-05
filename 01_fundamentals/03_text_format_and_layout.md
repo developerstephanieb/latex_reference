@@ -6,7 +6,7 @@ This guide covers the essential LaTeX commands for formatting text, from changin
 
 ## Font Styles
 
-There are two primary ways to apply font styles: as a command that takes an argument, or as a declaration that switches the style on for all subsequent text within its scope.
+There are two primary ways to apply font styles: as a command that takes an argument, or as a declaration that switches the style for all subsequent text within its scope.
 
 - **Argument Form**: Applies a style to a specific piece of text. 
 
@@ -141,9 +141,9 @@ Use the `setspace` package to control the spacing between lines in a paragraph.
 
 - `\setstretch{factor}`: Sets a custom line spacing for the entire document.
 
-- `\begin{spacing}{factor}`: An environment that applies a custom spacing factor to a specific block of text.
+- `\begin{spacing}{factor}`: Applies a custom spacing factor to a specific block of text.
 
-- `\singlespacing`, `\onehalfspacing`, `\doublespacing`: Declarations that change the line spacing for all subsequent paragraphs in the document body.
+- `\singlespacing`, `\onehalfspacing`, `\doublespacing`: Change the line spacing for all subsequent paragraphs in the document body.
 
 ```latex
 \documentclass{article}
@@ -197,7 +197,7 @@ This is a short quotation, indented from both margins.
 
 Global font settings can be defined in the preamble to set defaults for the entire document.
 
-- `\documentclass[options]{class}`: Sets the default font size. Common size [options] are `10pt`, `11pt`, and `12pt`.
+- `\documentclass[options]{class}`: Sets the default font size. Common size `[options]` are `10pt`, `11pt`, and `12pt`.
 
 - `\renewcommand{\familydefault}{family_code}`: Sets the default font family.
 

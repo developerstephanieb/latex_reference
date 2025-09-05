@@ -28,7 +28,9 @@ Content goes here.
 
 ## Loading Packages
 
-Packages are external files that add new features and commands to LaTeX. They must be loaded in the preamble using the `\usepackage` command. The order in which packages are loaded can be important, as some packages depend on others.
+Packages must be loaded in the preamble using the `\usepackage` command. The order in which packages are loaded can be important, as some packages depend on others.
+
+- **Packages**: External files that add new features and commands to LaTeX.
 
 - `\usepackage[options]{package_name}`: Loads a package, with optional settings.
 
@@ -78,7 +80,7 @@ These commands define metadata in the preamble, which `\maketitle` then renders 
 
 ## The `titling` Package
 
-The `titling` package allows custom code to be inserted before and after the title, author, and date elements, providing full control over their formatting.
+The `titling` package allows custom code to be inserted before and after the title, author, and date elements.
 
 - `\usepackage{titling}`: Loads the `titling` package, enabling the customization commands for the title block.
 
@@ -90,7 +92,7 @@ The `titling` package allows custom code to be inserted before and after the tit
 
 ```latex
 \documentclass{article}
-\usepackage{titling} % Load the package
+\usepackage{titling} % Load the 'titling' package
 
 % Define the title, author, and date
 \title{A Custom Title}
@@ -115,8 +117,8 @@ The `titling` package allows custom code to be inserted before and after the tit
 \section{Introduction}
 The title block above has been redesigned using the
 \texttt{titling} package. The elements have been
-centered the elements, their font sizes changes,
-and a horizontal rule was added after the date.
+centered, their font sizes changed, and a 
+horizontal rule was added after the date.
 
 \end{document}
 ```
@@ -205,7 +207,7 @@ The table of contents updates automatically, but requires two compilations: firs
 
 - `\tableofcontents`: Directly inserts a table of contents, automatically populated from numbered sectioning commands.
 
-- `\addcontentsline{type}{level}{title}`:  Manually adds an entry to a specified list. The `{type}` argument determines which list to use (`toc` for Table of Contents, `lof` for List of Figures, `lot` for List of Tables).
+- `\addcontentsline{type}{level}{title}`:  Manually adds an entry to a specified list. The `{type}` argument determines which list to use (`toc` for Table of Contents, `lof` for List of Figures, `lot` for List of Tables), `{level}` sets the structural level of the entry, and `{title}` is the entry that will appear in the list.
 
 - `\setcounter{tocdepth}{level}`: Controls the depth of section levels shown in the TOC.
 
@@ -218,7 +220,7 @@ The table of contents updates automatically, but requires two compilations: firs
 
 \begin{document}
 
-\tableofcontents % Generates the ToC
+\tableofcontents
 \listoffigures
 \listoftables
 

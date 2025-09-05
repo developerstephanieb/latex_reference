@@ -55,7 +55,7 @@ Environments define blocks of content with specific formatting behavior.
 
 - **Environment**: A block that applies a formatting style to its content, enclosed by `\begin{name}` and `\end{name}`.
 
-- `\begin{document}`: An environment that encloses all visible content in a LaTeX file.
+- `\begin{document}`: An environment that encloses all visible content in a LaTeX document.
 
 ```latex
 \documentclass{article}
@@ -156,7 +156,7 @@ To print special characters, escape them with a backslash (`\`) or use a command
 
 ## Quotation Marks
 
-To produce typographically correct quotation marks, use backticks (`` ` ``) for opening quotes and single apostrophes (`'`) for closing quotes. Using the standard double-quote character will result in incorrect, straight quotes.
+To produce typographically correct quotation marks, use backticks (`` ` ``) for opening quotes and apostrophes (`'`) for closing quotes. Using the standard double-quote character will result in incorrect, straight quotes.
 
 - **Single Quotes**: Use a single backtick (`` ` ``) to open and a single apostrophe (`'`) to close.
 

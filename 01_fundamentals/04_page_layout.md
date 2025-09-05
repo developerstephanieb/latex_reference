@@ -67,7 +67,7 @@ The `\pagestyle` command controls the content of the headers and footers for the
   | `alph`      | Lowercase letters (`a`, `b`, `c`...)           |
   | `Alph`      | Uppercase letters (`A`, `B`, `C`...)           |
 
-- **Dynamic Macros**: Prints dynamic document information like the current page number (`\thepage`), section number (`\thesection`), or chapter (`\leftmark`) and section name (`\rightmark`) in books and reports.
+- **Dynamic Macros**: Prints dynamic document information like the current page number (`\thepage`), section number (`\thesection`), and chapter (`\leftmark`) or section heading (`\rightmark`) in books and reports.
 
 ```latex
 \documentclass[twoside]{article}
@@ -98,7 +98,7 @@ The header on this page will display the \texttt{left_text}.
 
 Use the `fancyhdr` package for full control over headers and footers.
 
-- `\usepackage{fancyhdr}`: Loads the package, providing commands for custom header and footer design.
+- `\usepackage{fancyhdr}`: Loads the `fancyhdr` package, providing commands for custom header and footer design.
 
 - `\pagestyle{fancy}`: Activates the custom header/footer settings.
 
@@ -117,7 +117,7 @@ Use the `fancyhdr` package for full control over headers and footers.
   | `L`, `C`, `R` | Left, Center, Right field.                 |
   | `E`, `O`      | Even, Odd pages (for `twoside` documents). |
 
-- `\fancypagestyle{name}{commands}`: Defines a new page style. Use `fancyhdr` commands inside its definition to configure it.
+- `\fancypagestyle{name}{commands}`: Defines a new page style.
 
 - `\fancyhf{}`: Clears all header and footer fields.
 
@@ -162,7 +162,7 @@ pagestyle defined, with the page number in the top right.
 
 ## Multi-Column Layouts
 
-Enable a two-column layout for the entire document by adding the `[twocolumn]` option to `\documentclass`.
+Add the `[twocolumn]` option to `\documentclass` to enable a two-column layout for the entire document.
 
 - `\documentclass[twocolumn]{article}`: Formats the entire document in two columns.
 
@@ -170,7 +170,6 @@ Enable a two-column layout for the entire document by adding the `[twocolumn]` o
 
 ```latex
 \documentclass[twocolumn]{article}
-
 \usepackage{lipsum} % For dummy text
 
 \begin{document}
@@ -199,7 +198,7 @@ Use the `multicol` package for more control over multi-column layouts, such as h
 
 - `\columnbreak`: Forces a column break at the point it is inserted.
 
-- `\setlength{\columnsep}{length}`: Sets the amount of space between columns.
+- `\setlength{\columnsep}{length}`: Sets the amount of horizontal space between columns.
 
 - `\setlength{\columnseprule}{length}`: Sets the thickness of the vertical rule (line) between columns. The default is `0pt` (no rule).
 
@@ -230,7 +229,7 @@ Use the `multicol` package for more control over multi-column layouts, such as h
 
 The `minipage` environment creates a small, self-contained "page" within the document. Its primary use is to place several blocks of content (text, images, tables) side-by-side.
 
-- `\begin{minipage}[pos]{length}`: Creates an inline block of a specified length. The optional `[pos]` argument controls the vertical alignment.
+- `\begin{minipage}[pos]{length}`: Creates an inline block of a specified length. The `[pos]` argument controls the vertical alignment.
 
   | `pos` | Description                                                        |
   | :---: | ------------------------------------------------------------------ |
@@ -295,9 +294,9 @@ The `\marginpar` command places short notes in the margin of the document.
 
 Use the `marginnote` package for more flexible margin notes, such as support for environments (like lists, floats, and footnotes) where `\marginpar` may fail.
 
-- `\usepackage{marginnote}`: Loads the `marginnote` package, providing a command to place margin notes anywhere on the page with adjustable vertical spacing.
+- `\usepackage{marginnote}`: Loads the `marginnote` package, enabling more precise placement control.
 
-- `\marginnote{text}[offset]`: Creates a margin note. The optional `[offset]` argument adds vertical space to prevent notes from overlapping.
+- `\marginnote{text}[offset]`: Creates a margin note. The optional `[offset]` argument adds vertical space.
 
 ```latex
 \documentclass{article}
