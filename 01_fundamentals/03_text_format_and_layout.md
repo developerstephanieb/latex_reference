@@ -12,11 +12,11 @@ There are two primary ways to apply font styles: as a command that takes an argu
 
 - **Declaration Form**: Applies a style to all following text inside a group `{}` or an environment.
 
-- `\textbf{text}`, `\bfseries`: Makes text bold.
+- `\textbf{<text>}`, `\bfseries`: Makes text bold.
 
-- `\textit{text}`, `\itshape`: Makes text italic.
+- `\textit{<text>}`, `\itshape`: Makes text italic.
 
-- `\underline{text}`: Underlines text.
+- `\underline{<text>}`: Underlines text.
 
 ```latex
 \documentclass{article}
@@ -76,11 +76,11 @@ This is the normal, default text size.
 
 These commands switch between the three main font families available in LaTeX.
 
-- `\textrm{text}`, `\rmfamily`: Switches to the Roman (serif) family, which is the default.
+- `\textrm{<text>}`, `\rmfamily`: Switches to the Roman (serif) family, which is the default.
 
-- `\textsf{text}`, `\sffamily`: Switches to the Sans-serif family.
+- `\textsf{<text>}`, `\sffamily`: Switches to the Sans-serif family.
 
-- `\texttt{text}`, `\ttfamily`: Switches to the Teletype (monospace) family.
+- `\texttt{<text>}`, `\ttfamily`: Switches to the Teletype (monospace) family.
 
 ```latex
 \documentclass{article}
@@ -110,6 +110,7 @@ These environments and declarations control the horizontal alignment of entire b
 
 ```latex
 \documentclass{article}
+
 \begin{document}
 
 \begin{center}
@@ -131,7 +132,7 @@ Every line is right-aligned.\par  % <-- paragraph terminator is required
 
 Use the `setspace` package to control the spacing between lines in a paragraph.
 
-- `\usepackage[spacing]{setspace}`: Loads the `setspace` package, enabling declarations for common spacing presets and an environment for custom spacing.
+- `\usepackage[<spacing>]{setspace}`: Loads the `setspace` package, enabling declarations for common spacing presets and an environment for custom spacing.
 
    | `spacing`        | Description                  |
    | ---------------- | ---------------------------- |
@@ -139,9 +140,9 @@ Use the `setspace` package to control the spacing between lines in a paragraph.
    | `onehalfspacing` | Sets one-and-a-half spacing. |
    | `doublespacing`  | Sets double line spacing.    |
 
-- `\setstretch{factor}`: Sets a custom line spacing for the entire document.
+- `\setstretch{<factor>}`: Sets a custom line spacing for the entire document.
 
-- `\begin{spacing}{factor}`: Applies a custom spacing factor to a specific block of text.
+- `\begin{spacing}{<factor>}`: Applies a custom spacing factor to a specific block of text.
 
 - `\singlespacing`, `\onehalfspacing`, `\doublespacing`: Change the line spacing for all subsequent paragraphs in the document body.
 
@@ -158,6 +159,33 @@ Use the `setspace` package to control the spacing between lines in a paragraph.
 \begin{spacing}{2}
 \lipsum[2] % This will be double-spaced.
 \end{spacing}
+
+\end{document}
+```
+
+---
+
+## Paragraph Indent and Spacing
+
+By default, paragraphs are separated with a first-line indent. The `parskip` package creates a "block" style in which paragraphs are separated by space instead of an indent. This is preferred over manual adjustments since it automatically handles spacing in other environments, like lists.
+
+- `\usepackage[<options>]{parskip}`: Load the `parskip` package to set the paragraph indent to zero and add a vertical space between paragraphs.
+
+  | `options`         | Description                                                                 |
+  | ----------------- | --------------------------------------------------------------------------- |
+  | `skip=<length>`   | Sets the vertical space between paragraphs to a specified length.           |
+  | `indent=<length>` | Sets the paragraph indentation to a specific length instead of removing it. |
+
+```latex
+\documentclass{article}
+\usepackage[skip=10pt]{parskip} % Load the 'parskip' package
+\usepackage{lipsum}             % For dummy text
+
+\begin{document}
+
+\lipsum[1]
+
+\lipsum[2]
 
 \end{document}
 ```
@@ -197,9 +225,9 @@ This is a short quotation, indented from both margins.
 
 Global font settings can be defined in the preamble to set defaults for the entire document.
 
-- `\documentclass[options]{class}`: Sets the default font size. Common size `[options]` are `10pt`, `11pt`, and `12pt`.
+- `\documentclass[<options>]{<class}>`: Sets the default font size. Common size `options` are `10pt`, `11pt`, and `12pt`.
 
-- `\renewcommand{\familydefault}{family_code}`: Sets the default font family.
+- `\renewcommand{\familydefault}{<family_code>}`: Sets the default font family.
 
   | `family_code` | Description                               |
   | ------------- | ----------------------------------------- |

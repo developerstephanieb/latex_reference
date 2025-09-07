@@ -8,17 +8,23 @@ This guide provides an overview of math mode, the specialized environment for ty
 
 There are two primary modes for typesetting mathematics.
 
-- **Inline Mode**: For formulas that appear within a line of text. Wrap the expression by opening and closing with a single dollar sign (`$...$`) or use `\(...\)`.
+- **Inline Mode**: For formulas that appear within a line of text. Wrap the expression by opening and closing with a single dollar sign (`$<expression>$`) or use `\( <expression> \)`.
 
-- **Display Mode**: For formulas that are set apart from the text on their own line and centered. Wrap the expression with `\[...\]`.
+- **Display Mode**: For formulas that are set apart from the text on their own line and centered. Wrap the expression with `\[ <expression> \]`.
 
 ```latex
+\documentclass{article}
+
+\begin{document}
+
 This equation is written inline: $E = mc^2$
 
 This equation is written in display mode:
 \[
     F = ma
 \]
+
+\end{document}
 ```
 
 ---
@@ -42,12 +48,12 @@ The following commands can be used to manually insert horizontal space for fine-
 
 Group multi-character superscripts and subscripts with curly braces `{}`.
 
-| Name         | Command                         | Example Code    | Rendered Output |
-| ------------ | ------------------------------- | --------------- | :-------------: |
-| Superscripts | `^`                             | `$x^{10}$`      |    $x^{10}$     |
-| Subscripts   | `_`                             | `$a_1$`         |      $a_1$      |
-| Fractions    | `\frac{numerator}{denominator}` | `$\frac{1}{2}$` |  $\frac{1}{2}$  |
-| Square roots | `\sqrt[n]{radicand}`            | `$\sqrt[3]{x}$` |  $\sqrt[3]{x}$  |
+| Name         | Command                             | Example Code    | Rendered Output |
+| ------------ | ----------------------------------- | --------------- | :-------------: |
+| Superscripts | `^`                                 | `$x^{10}$`      |    $x^{10}$     |
+| Subscripts   | `_`                                 | `$a_1$`         |      $a_1$      |
+| Fractions    | `\frac{<numerator>}{<denominator>}` | `$\frac{1}{2}$` |  $\frac{1}{2}$  |
+| Square roots | `\sqrt[<n>]{<radicand>}`            | `$\sqrt[3]{x}$` |  $\sqrt[3]{x}$  |
 
 ---
 
@@ -112,12 +118,12 @@ Beyond letters and numbers, math mode includes commands for a broad collection o
 
 ### Calculus
 
-| Name      | Command               | Example                  |    Rendered Output     |
-| --------- | --------------------- | ------------------------ | :--------------------: |
-| Integral  | `\int_{start}^{end}`  | `$\int_{0}^{1} x^2\,dx$` | $\int_{0}^{1} x^2\,dx$ |
-| Summation | `\sum_{start}^{end}`  | `$\sum_{i=1}^{n} i$`     |   $\sum_{i=1}^{n} i$   |
-| Product   | `\prod_{start}^{end}` | `$\prod_{i=1}^{n} i$`    |  $\prod_{i=1}^{n} i$   |
-| Limit     | `\lim_{var \to val}`  | `$\lim_{x \to \infty}$`  | $\lim_{x \to \infty}$  |
+| Name      | Command                   | Example                  |    Rendered Output     |
+| --------- | ------------------------- | ------------------------ | :--------------------: |
+| Integral  | `\int_{<start>}^{<end>}`  | `$\int_{0}^{1} x^2\,dx$` | $\int_{0}^{1} x^2\,dx$ |
+| Summation | `\sum_{<start>}^{<end>}`  | `$\sum_{i=1}^{n} i$`     |   $\sum_{i=1}^{n} i$   |
+| Product   | `\prod_{<start>}^{<end>}` | `$\prod_{i=1}^{n} i$`    |  $\prod_{i=1}^{n} i$   |
+| Limit     | `\lim_{<var> \to <val>}`  | `$\lim_{x \to \infty}$`  | $\lim_{x \to \infty}$  |
 
 ### Set Theory
 
@@ -142,13 +148,13 @@ Beyond letters and numbers, math mode includes commands for a broad collection o
 
 ### Accents
 
-|   Symbol    | Name         | Command     |
-| :---------: | ------------ | ----------- |
-|  $\hat{x}$  | Hat          | `\hat{x}`   |
-|  $\bar{y}$  | Bar          | `\bar{y}`   |
-| $\tilde{z}$ | Tilde        | `\tilde{z}` |
-|  $\dot{t}$  | Dot          | `\dot{t}`   |
-|  $\vec{v}$  | Vector arrow | `\vec{v}`   |
+| Name         | Command              | Example     | Rendered Output |
+| ------------ | -------------------- | ----------- | :-------------: |
+| Hat          | `\hat{<variable>}`   | `\hat{x}`   |    $\hat{x}$    |
+| Bar          | `\bar{<variable>}`   | `\bar{y}`   |    $\bar{y}$    |
+| Tilde        | `\tilde{<variable>}` | `\tilde{z}` |   $\tilde{z}$   |
+| Dot          | `\dot{<variable>}`   | `\dot{t}`   |    $\dot{t}$    |
+| Vector arrow | `\vec{<variable>}`   | `\vec{v}`   |    $\vec{v}$    |
 
 ---
 
@@ -158,9 +164,9 @@ Use the `equation` environment for numbered equations that can be referenced.
 
 - `\begin{equation}`: Begins a display math environment that will be automatically numbered.
 
-- `\label{marker}`: Assigns a unique `marker` to the equation.
+- `\label{<marker>}`: Assigns a unique marker to the equation.
 
-- `\ref{marker}`: Prints the equation number associated with `marker`.
+- `\ref{<marker>}`: Prints the equation number associated with marker.
 
 ```latex
 \documentclass{article}
@@ -170,8 +176,8 @@ Use the `equation` environment for numbered equations that can be referenced.
 As shown in Equation~\ref{eq:pythagorean}, the relationship is fundamental.
 
 \begin{equation}
-  a^2 + b^2 = c^2
-  \label{eq:pythagorean}
+    a^2 + b^2 = c^2
+    \label{eq:pythagorean}
 \end{equation}
 
 \end{document}
@@ -187,13 +193,13 @@ Use the `amsmath` package to access environments for multi-line equations and ma
 
 - `\begin{align}`: For aligning multiple equations. The `&` character specifies the alignment point, typically the equals sign.
 
-- `\begin{alignat}{n}`: An advanced version of `align` that provides control over spacing between `n` columns.
+- `\begin{alignat}{<n>}`: An advanced version of `align` that provides control over alignment between `n` columns with `&`.
 
 - `\begin{gather}`: For grouping multiple equations that should be centered without any specific alignment.
 
 - `\begin{multline}`: For a single long equation that must be broken across multiple lines.
 
-- `\begin{split}`: Used inside another environment (like equation) to break a single, long equation into multiple lines while allowing for alignment with `&`.
+- `\begin{split}`: Used inside another environment (like `equation`) to break a single, long equation into multiple lines while allowing for alignment with `&`.
 
 - `\begin{subequations}`: For creating a numbered group of equations with individual sub-labels.
 
@@ -205,11 +211,11 @@ Use the `amsmath` package to access environments for multi-line equations and ma
 
   | Name               | Command                    | Example                  |      Rendered Output      |
   | ------------------ | -------------------------- | ------------------------ | :-----------------------: |
-  | text in math       | `\text{text}`              | `$\text{speed} = 30$`    |    $\text{speed} = 30$    |
-  | box around content | `\boxed{text}`             | `$\boxed{E=mc^2}$`       |     $\boxed{E=mc^2}$      |
-  | dots               | `\dots`,`\cdots`, `\vdots` | `$\dots \cdots \vdots$`  | $\dots$ $\cdots$ $\vdots$ |
-  | double integral    | `\iint`                    | `$\iint xy\,dx\,dy$`     |    $\iint xy\,dx\,dy$     |
-  | triple integral    | `\iiint`                   | `$\iiint z\,dx\,dy\,dz$` |  $\iiint z\,dx\,dy\,dz$   |
+  | Text in math       | `\text{<text>}`            | `$\text{speed} = 30$`    |    $\text{speed} = 30$    |
+  | Box around content | `\boxed{<text>}`           | `$\boxed{E=mc^2}$`       |     $\boxed{E=mc^2}$      |
+  | Dots               | `\dots`,`\cdots`, `\vdots` | `$\dots \cdots \vdots$`  | $\dots$ $\cdots$ $\vdots$ |
+  | Double integral    | `\iint`                    | `$\iint xy\,dx\,dy$`     |    $\iint xy\,dx\,dy$     |
+  | Triple integral    | `\iiint`                   | `$\iiint z\,dx\,dy\,dz$` |  $\iiint z\,dx\,dy\,dz$   |
 
 ```latex
 \documentclass{article}
@@ -263,17 +269,18 @@ This is a piecewise function.
 
 ## The `amssymb` Package
 
-Use the `amssymb` package for additional mathematical symbols.
+The `amssymb` package provides library of symbols used in advanced mathematics.
 
-- `\usepackage{amssymb}`: Loads the `amssymb` package, enabling additional mathematical symbols.
+- `\usepackage{amssymb}`: Loads the `amssymb` package, enabling additional symbols for set theory and logic.
 
 - Additional symbols:
 
-  |                                       Symbol                                       | Name       | Command                                                                            |
-  | :--------------------------------------------------------------------------------: | ---------- | :--------------------------------------------------------------------------------- |
-  |                                    $\therefore$                                    | therefore  | `\therefore`                                                                       |
-  |                                     $\because$                                     | because    | `\because`                                                                         |
-  | $\mathbb{C}$, $\mathbb{R}$, $\mathbb{Q}$, $\mathbb{Z}$, $\mathbb{N}$, $\mathbb{I}$ | number set | `\mathbb{C}`, `\mathbb{R}`, `\mathbb{Q}`, `\mathbb{Z}`, `\mathbb{N}`, `\mathbb{I}` |
+  |                                       Symbol                                       | Name                         | Command                                                                            |
+  | :--------------------------------------------------------------------------------: | ---------------------------- | :--------------------------------------------------------------------------------- |
+  |                                    $\therefore$                                    | Therefore                    | `\therefore`                                                                       |
+  |                                     $\because$                                     | Because                      | `\because`                                                                         |
+  | $\mathbb{C}$, $\mathbb{R}$, $\mathbb{Q}$, $\mathbb{Z}$, $\mathbb{N}$, $\mathbb{I}$ | Number set                   | `\mathbb{C}`, `\mathbb{R}`, `\mathbb{Q}`, `\mathbb{Z}`, `\mathbb{N}`, `\mathbb{I}` |
+  |                                     $\square$                                      | End-of-proof symbol (Q.E.D.) | `\square`                                                                          |
 
 ```latex
 \documentclass{article}

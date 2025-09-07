@@ -20,7 +20,7 @@ Commands control formatting and behavior. Every LaTeX document begins with the `
 
 - **Command**: An instruction that begins with a backslash (`\`). Commands are case-sensitive and may take mandatory arguments in curly braces `{}` or optional arguments in square brackets `[]`.
 
-- `\documentclass[options]{class}`: A command that specifies the type of document to be created.   
+- `\documentclass[<options>]{<class>}`: A command that specifies the type of document to be created.   
 
   | `class`   | Purpose                             |
   | --------- | ----------------------------------- |
@@ -53,7 +53,7 @@ This is a simple document.
 
 Environments define blocks of content with specific formatting behavior.
 
-- **Environment**: A block that applies a formatting style to its content, enclosed by `\begin{name}` and `\end{name}`.
+- **Environment**: A block that applies a formatting style to its content, enclosed by `\begin{<name>}` and `\end{<name>}`.
 
 - `\begin{document}`: An environment that encloses all visible content in a LaTeX document.
 
@@ -89,9 +89,9 @@ LaTeX handles whitespace according to specific rules, and provides commands for 
 
 - `\hfill`: Inserts horizontal space that expands to fill the available width.
 
-- `\hspace{length}`: Inserts horizontal space of a specified length.
+- `\hspace{<length>}`: Inserts horizontal space of a specified length.
 
-- `\vspace{length}`: Inserts vertical space of a specified length.
+- `\vspace{<length>}`: Inserts vertical space of a specified length.
 
 ```latex
 \documentclass{article}
@@ -202,7 +202,7 @@ To display text exactly as typed, use verbatim tools.
 
 - `\begin{verbatim}`: An environment that outputs all enclosed content literally.
 
-- `\verb|text|`: An inline command for literal text.
+- `\verb|<text>|`: An inline command for literal text.
 
 ```latex
 \documentclass{article}

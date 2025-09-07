@@ -29,7 +29,7 @@ LaTeX understands both absolute and relative units of length.
 
 \begin{document}
 
-% This uses an absolute unit to create a fixed-size gap:
+% This uses an absolute unit to create a fixed-size gap.
 First word \hspace{1cm} Second word.
 
 % This uses a relative unit. The space created by `em'
@@ -80,9 +80,9 @@ even if the page margins change.
 
 The value of any length parameter can be changed using the following commands.
 
-- `\setlength{\command}{length}`: Sets the value of a length `\command` to a specific length.
+- `\setlength{<\command>}{<length>}`: Sets a length parameter to a specific value
 
-- `\addtolength{\command}{length}`: Adds a length to the current value of a length `\command`.
+- `\addtolength{<\command>}{<length>}`: Increments a length parameter by a given amount, adding to its current value.
 
 ```latex
 \documentclass{article}
@@ -106,7 +106,7 @@ This is the second paragraph. It is also not indented.
 
 New length commands can be defined to act as reusable variables for the layout.
 
-- `\newlength{\command}`: Creates a new length command. The new length is initialized to `0pt`.
+- `\newlength{<\command>}`: Creates a new length command. The new length is initialized to `0pt`.
 
 ```latex
 \documentclass{article}

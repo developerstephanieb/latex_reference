@@ -32,7 +32,7 @@ Packages must be loaded in the preamble using the `\usepackage` command. The ord
 
 - **Packages**: External files that add new features and commands to LaTeX.
 
-- `\usepackage[options]{package_name}`: Loads a package, with optional settings.
+- `\usepackage[<options>]{<package_name>}`: Loads a package, with optional settings.
 
 ```latex
 \documentclass{article}
@@ -52,11 +52,11 @@ Packages must be loaded in the preamble using the `\usepackage` command. The ord
 
 These commands define metadata in the preamble, which `\maketitle` then renders in the document body.
 
-- `\title{text}`: Stores the document's title.
+- `\title{<text>}`: Stores the document's title.
 
-- `\author{text}`: Stores the author's name(s).
+- `\author{<text>}`: Stores the author's name(s).
 
-- `\date{text}`: Stores a specific date. Use `\today` to dynamically insert the current date.
+- `\date{<text>}`: Stores a specific date. Use `\today` to dynamically insert the current date.
  
 - `\maketitle`: Typesets the stored title, author, and date information. 
 
@@ -84,11 +84,11 @@ The `titling` package allows custom code to be inserted before and after the tit
 
 - `\usepackage{titling}`: Loads the `titling` package, enabling the customization commands for the title block.
 
-- `\pretitle{text}`, `\posttitle{text}`: Code to be placed before and after the title.
+- `\pretitle{<text>}`, `\posttitle{<text>}`: Code to be placed before and after the title.
 
-- `\preauthor{text}`, `\postauthor{text}`: Code to be placed before and after the author.
+- `\preauthor{<text>}`, `\postauthor{<text>}`: Code to be placed before and after the author.
 
-- `\predate{text}`, `\postdate{text}`: Code to be placed before and after the date.
+- `\predate{<text>}`, `\postdate{<text>}`: Code to be placed before and after the date.
 
 ```latex
 \documentclass{article}
@@ -131,17 +131,17 @@ These commands format and number section headings. To create an unnumbered headi
 
 - `\part`: Creates a new part, the highest-level division in a document.
 
-- `\chapter{title}`: Starts a new chapter (in `report` and `book` classes).
+- `\chapter{<title>}`: Starts a new chapter (in `report` and `book` classes).
 
-- `\section{title}`: Creates a new top-level section.
+- `\section{<title>}`: Creates a new top-level section.
   
-- `\subsection{title}`: Creates a subsection.
+- `\subsection{<title>}`: Creates a subsection.
   
-- `\subsubsection{title}`: Creates a sub-subsection.
+- `\subsubsection{<title>}`: Creates a sub-subsection.
   
-- `\paragraph{title}`: Creates a paragraph heading, displayed inline with the text that follows it. 
+- `\paragraph{<title>}`: Creates a paragraph heading, displayed inline with the text that follows it. 
   
-- `\subparagraph{title}`: Creates the lowest-level inline heading.
+- `\subparagraph{<title>}`: Creates the lowest-level inline heading.
 
 ```latex
 \documentclass{article}
@@ -177,7 +177,7 @@ This section is not numbered because of the asterisk.
 
 LaTeX controls which sectioning commands are numbered using the `secnumdepth` counter. In the `article` class, the default value is 3, meaning only sections up to `\subsubsection` are numbered. To include numbering for deeper levels, increase the value of `secnumdepth` in the preamble.
 
-- `\setcounter{secnumdepth}{level}`: Sets the maximum depth of numbered sectioning.
+- `\setcounter{secnumdepth}{<level>}`: Sets the maximum depth of numbered sectioning.
   
   | `level` | Deepest Numbered Level |
   | :-----: | ---------------------- |
@@ -207,9 +207,9 @@ The table of contents updates automatically, but requires two compilations: firs
 
 - `\tableofcontents`: Directly inserts a table of contents, automatically populated from numbered sectioning commands.
 
-- `\addcontentsline{type}{level}{title}`:  Manually adds an entry to a specified list. The `{type}` argument determines which list to use (`toc` for Table of Contents, `lof` for List of Figures, `lot` for List of Tables), `{level}` sets the structural level of the entry, and `{title}` is the entry that will appear in the list.
+- `\addcontentsline{<type>}{<level>}{<title>}`:  Manually adds an entry to a specified list. The `type` argument determines which list to use (`toc` for Table of Contents, `lof` for List of Figures, `lot` for List of Tables), `level` sets the structural level of the entry, and `title` is the entry that will appear in the list.
 
-- `\setcounter{tocdepth}{level}`: Controls the depth of section levels shown in the TOC.
+- `\setcounter{tocdepth}{<level>}`: Controls the depth of section levels shown in the TOC.
 
 - `\listoffigures`: Generates a list of all figure captions.
 
@@ -267,9 +267,9 @@ This section appears as ``A''.
 
 For large projects, the content can be split into multiple `.tex` files. The external files should not contain their own preamble or document environment.
 
-- `\input{filename}`: Directly inserts the content of `filename.tex`.
+- `\input{<filename>}`: Directly inserts the content of `filename.tex`.
 
-- `\include{filename}`: Inserts content of `filename.tex` on a new page, typically for major sections like chapters. To specify which of the `\include` files to compile, use `\includeonly{file1, ...}` in the preamble.
+- `\include{<filename>}`: Inserts content of `filename.tex` on a new page, typically for major sections like chapters. To specify which of the `\include` files to compile, use `\includeonly{<file1, ...>}` in the preamble.
 
 ```latex
 \documentclass{report}
