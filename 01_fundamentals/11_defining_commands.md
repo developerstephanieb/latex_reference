@@ -8,7 +8,7 @@ This guide covers how to create custom commands and modify existing ones.
 
 The `\newcommand` command defines a custom shortcut for a longer piece of code or text.
 
-- `\newcommand{\name}[num]{definition}`: Creates a new command called `\name` that can accept `num` arguments. Inside the definition, refer to the arguments using `#1`, `#2`, and so on. The name must begin with `\` and not already exist.
+- `\newcommand{\<name>}[<num>]{<definition>}`: Creates a new command called `\<name>` that can accept `<num>` arguments. Inside the definition, refer to the arguments using `#1`, `#2`, and so on. The name must begin with `\` and not already exist.
 
 ```latex
 \documentclass{article}
@@ -35,7 +35,7 @@ Welcome to the \lr{} guide!
 
 The `\renewcommand` command modifies the behavior of an existing command. It enables customization of default behaviors, but should be used with caution, as redefining core commands can have unintended consequences.
 
-- `\renewcommand{\name}[num]{new_definition}`: Redefines the existing command `\name` to have a `new_definition`.
+- `\renewcommand{\<name>}[<num>]{<new_definition>}`: Redefines the existing command `\<name>` to have a `<new_definition>`.
 
 ```latex
 \documentclass{article}
@@ -60,7 +60,7 @@ The `\renewcommand` command modifies the behavior of an existing command. It ena
 
 The `\newenvironment` command defines a new custom environment.
 
-- `\newenvironment{name}[num]{before}{after}`: Creates a new environment called `name` that can accept `num` arguments, executing `{before}` at `\begin{name}` and `{after}` at `\end{name}`.
+- `\newenvironment{<name>}[<num>]{<before>}{<after>}`: Creates a new environment called `<name>` that can accept `<num>` arguments, executing `{<before>}` at `\begin{<name>}` and `{<after>}` at `\end{<name>}`.
 
 ```latex
 \documentclass{article}
@@ -86,7 +86,7 @@ The `\newenvironment` command defines a new custom environment.
 
 The `\renewenvironment` command modifies an existing environment.
 
-- `\renewenvironment{name}[num]{before}{after}`: Redefines the existing environment name.
+- `\renewenvironment{<name>}[<num>]{<before>}{<after>}`: Redefines the existing environment name.
 
 ```latex
 \documentclass{article}
