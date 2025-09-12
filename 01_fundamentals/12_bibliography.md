@@ -8,11 +8,11 @@ This guide covers how to create a bibliography and cite sources in LaTeX.
 
 For short documents, the bibliography can be created by hand directly in the document.
 
-- `\begin{thebibliography}{label}`: Begins the bibliography. The `label` argument sets the width for aligning reference numbers (e.g., use 9 for up to 9 entries, 99 for up to 99, or 999 for up to 999).
+- `\begin{thebibliography}{<label>}`: Begins the bibliography. The `<label>` argument sets the width for aligning reference numbers (e.g., use 9 for up to 9 entries, 99 for up to 99, or 999 for up to 999).
 
-- `\bibitem{marker}`: Creates a new bibliography entry with a unique `marker`.
+- `\bibitem{<marker>}`: Creates a new bibliography entry with a unique `<marker>`.
 
-- `\cite{marker}`: Inserts an in-text citation that corresponds to the `\bibitem` with the same `marker`.
+- `\cite{<marker>}`: Inserts an in-text citation that corresponds to the `\bibitem` with the same `<marker>`.
 
 ```latex
 \documentclass{article}
@@ -39,7 +39,7 @@ Another key paper is~\cite{dirac1928}.
 
 BibTeX automates bibliography management by using a `.tex` file for the main document and a `.bib` file as a plain-text database of sources.
 
-- `\bibliographystyle{style}`: Sets the citation and bibliography style.
+- `\bibliographystyle{<style>}`: Sets the citation and bibliography style.
 
   | `style`   | Sorting Method    | Citation Style          |
   | --------- | ----------------- | ----------------------- |
@@ -51,9 +51,9 @@ BibTeX automates bibliography management by using a `.tex` file for the main doc
   | `acm`     | Alphabetical      | Numerical (`[1]`)       |
   | `apalike` | Alphabetical      | Author-year (`[Knu84]`) |
 
-- `\bibliography{filename}`: Prints the bibliography from `filename.bib`.
+- `\bibliography{<filename>}`: Prints the bibliography from `filename.bib`.
 
-- `\cite{citation_key}`: Inserts an in-text citation corresponding to an entry in the `.bib` file.
+- `\cite{<citation_key>}`: Inserts an in-text citation corresponding to an entry in the `.bib` file.
 
 ```latex
 % mydocument.tex
@@ -71,13 +71,13 @@ Donald Knuth introduced the concept of literate programming~\cite{knuth1984}.
 
 ### The `.bib` File Format
 
-Each entry in the `.bib` file starts with `@entrytype`, followed by a unique `citation_key` and a series of `field = {value}` pairs.
+Each entry in the `.bib` file starts with `@<entrytype>`, followed by a unique `citation_key` and a series of `<field> = {<value>}` pairs.
 
-- `@entrytype`: Describes the type of source being cited.
+- `@<entrytype>`: Describes the type of source being cited.
 
-- `citation_key`: A unique identifier for the source.
+- `<citation_key>`: A unique identifier for the source.
 
-- `field = {value}`: Each entry type has a set of required and optional fields, which are case-insensitive. To preserve capitalization and formatting, use an extra set of braces `{{value}}` (e.g., `title = {A Guide to {LaTeX}}` or `author = {{The LaTeX Project}}`).
+- `<field> = {<value>}`: Each entry type has a set of required and optional fields, which are case-insensitive. To preserve capitalization and formatting, use an extra set of braces `{{<value>}}` (e.g., `title = {A Guide to {LaTeX}}` or `author = {{The LaTeX Project}}`).
 
     | `@entrytype`                    | For Citing...                                                                                | Required `field`(s)                                    | Optional `field`(s)                                                                                                |
     | ------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
@@ -119,7 +119,7 @@ To fully generate a bibliography with BibTeX, run this specific sequence of comm
 
 The `biblatex` package is the recommended system for bibliography management. It adds modern entry types and supports advanced citation styles.
 
-- `\usepackage[backend=biber, style=value]{biblatex}`: Loads the `biblatex` package, enabling  modern bibliography management.
+- `\usepackage[backend=biber, style=<value>]{biblatex}`: Loads the `biblatex` package, enabling  modern bibliography management.
 
   | `style`       | Sorting Method     | Citation Style                                 |
   | ------------- | ------------------ | ---------------------------------------------- |
@@ -131,7 +131,7 @@ The `biblatex` package is the recommended system for bibliography management. It
   | `apa`         | Alphabetical       | Author-year (`(Knuth, 1984)`)                  |
   | `mla`         | Alphabetical       | Author-year (`(Knuth, 1984)`)                  |
 
-- `\addbibresource{filename.bib}`: Specifies the `.bib` file to use.
+- `\addbibresource{<filename>.bib}`: Specifies the `.bib` file to use.
 
 - `\printbibliography`: Prints the bibliography.
 
