@@ -8,11 +8,11 @@ This guide covers the `xcolor` package, which provides a comprehensive set of co
 
 There are two primary ways to apply color to text.
 
-- `\usepackage[options]{xcolor}`: Loads the `xcolor` package, enabling color commands and environments. Common `options` include predefined color sets such as `dvipsnames`, `svgnames`, and `x11names`. A full list of available colors is provided in the [xcolor package documentation](https://mirrors.mit.edu/CTAN/macros/latex/contrib/xcolor/xcolor.pdf#page=38).
+- `\usepackage[<options>]{xcolor}`: Loads the `xcolor` package, enabling color commands and environments. Common `options` include predefined color sets such as `dvipsnames`, `svgnames`, and `x11names`. A full list of available colors is provided in the [xcolor package documentation](https://mirrors.mit.edu/CTAN/macros/latex/contrib/xcolor/xcolor.pdf#page=38).
 
-- `\textcolor{color}{text}`: Colors a specific piece of text.
+- `\textcolor{<color>}{<text>}`: Colors a specific piece of text.
 
-- `\color{color}`: Changes the color for all subsequent text within its scope.
+- `\color{<color>}`: Changes the color for all subsequent text within its scope.
 
 ```latex
 \documentclass{article}
@@ -36,7 +36,7 @@ You can color a \textcolor{Red}{single word} using the command form.
 
 Custom colors can be defined using various color models.
 
-- `\definecolor{name}{model}{spec}`: Creates a new color called `name`. The `model` specifies the color system, and the `spec` provides the corresponding comma-separated color values.
+- `\definecolor{<name>}{<model>}{<spec>}`: Creates a new color called `name`. The `model` specifies the color system, and the `spec` provides the corresponding comma-separated color values.
 
   | `model` | `spec`                                                                  |
   | ------- | ----------------------------------------------------------------------- |
@@ -71,9 +71,9 @@ And this text uses a \textcolor{MyOrange}{custom orange color}.
 
 Colors can be mixed to create tints, shades, or entirely new colors.
 
-- `color!percentage`: Creates a tint, where the `percentage` specifies the amount of `color` to be mixed with white.
+- `<color>!<percentage>`: Creates a tint, where the `percentage` specifies the amount of `color` to be mixed with white.
 
-- `color1!percentage!color2`: Creates a mix of two colors, where the `percentage` specifies the amount of `color1` to be mixed with `color2`.
+- `<color1>!<percentage>!<color2>`: Creates a mix of two colors, where the `percentage` specifies the amount of `color1` to be mixed with `color2`.
 
 ```latex
 \documentclass{article}
@@ -98,9 +98,9 @@ And this is a purple created by mixing blue and red:
 
 The `xcolor` package provides commands for creating boxes with colored backgrounds.
 
-- `\colorbox{color}{text}`: Creates a box with a colored background that fits the text tightly.
+- `\colorbox{<color>}{<text>}`: Creates a box with a colored background that fits the text tightly.
 
-- `\fcolorbox{frame_color}{bg_color}{text}`: Creates a framed box with a background color.
+- `\fcolorbox{<frame_color>}{<bg_color>}{<text>}`: Creates a framed box with a background color.
 
 ```latex
 \documentclass{article}
@@ -121,11 +121,11 @@ background and frame color.
 
 The `xcolor` package can also be used to color table rows and columns. To enable this, you must load the package with the `[table]` option.
 
-- `\usepackage[table]{xcolor}`: Loads the package with table coloring capabilities.
+- `\usepackage[<table>]{xcolor}`: Loads the package with table coloring capabilities.
 
-- `\rowcolors{start_row}{odd_color}{even_color}`: Colors alternating rows of a table, starting from `start_row`.
+- `\rowcolors{<start_row>}{<odd_color>}{<even_color>}`: Colors alternating rows of a table, starting from `start_row`.
 
-- `\cellcolor{color}`: Used inside a table cell to set its background color.
+- `\cellcolor{<color>}`: Used inside a table cell to set its background color.
 
 ```latex
 \documentclass{article}
