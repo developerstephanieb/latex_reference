@@ -63,27 +63,34 @@ Use the `hyperref` package for clickable references and automatic labels.
 
 - `\usepackage[<options>]{hyperref}`: Loads the `hyperref` package, making all references clickable hyperlinks in the PDF output.
   
-  | `options`          | Description                                                              |
-  | ------------------ | ------------------------------------------------------------------------ |
-  | `colorlinks=true`  | Removes the default boxes around links and colors the link text instead. |
-  | `linkcolor=color`  | Sets the color for internal links.                                       |
-  | `citecolor=color`  | Sets the color for bibliography citations.                               |
-  | `urlcolor=color`   | Sets the color for URLs.                                                 |
-  | `pdftitle={text}`  | Sets the title in the PDF's metadata.                                    |
-  | `pdfauthor={text}` | Sets the author in the PDF's metadata.                                   |
+  | `options`             | Description                                                              |
+  | --------------------- | ------------------------------------------------------------------------ |
+  | `colorlinks=true`     | Removes the default boxes around links and colors the link text instead. |
+  | `linkcolor=<color>`   | Sets the color for internal links.                                       |
+  | `hidelinks`           |                                                                          |
+  | `citecolor=<color>`   | Sets the color for bibliography citations.                               |
+  | `urlcolor=<color>`    | Sets the color for URLs.                                                 |
+  | `hyperfootnotes=true` |                                                                          |
+  | `bookmarks=true`      | `bookmarksopen=true` `bookmarksnumbered=true`                            |
+  | `pdftitle={<text>}`   | Sets the title in the PDF's metadata.                                    |
+  | `pdfauthor={<text>}`  | Sets the author in the PDF's metadata.                                   |
   
+- `\hyperref[<label>]{<text>}`:
+
 - `\autoref{<marker>}`: Automatically creates a complete reference, including the name (e.g., "Figure 2", "Section 4.1", "Equation (3)"), all as a single hyperlink.
 
 - `\url{<address>}`: A command for typesetting URLs, which will also be made clickable.
 
 - `\href{<address>}{<text>}`: Creates a hyperlink where the `text` is the clickable part that points to the specified `address`.
 
+- `\phantomsection`:
+
 ```latex
 \documentclass{article}
 \usepackage[
   colorlinks=true,
   linkcolor=red,
-  urlcolor=blue
+  urlcolor=blue,
   pdftitle={A Guide to hyperref},
   pdfauthor={A. N. Author},
 ]{hyperref} % Load the 'hyperref' package
@@ -114,7 +121,7 @@ for details.
 
 The standard workflow is to use both `hyperref` and `cleveref` together.
 
-- `\usepackage[<options>]{<cleveref>}`: Loads the `cleveref` package, which automatically determines the reference type and can intelligently handle multiple references at once. 
+- `\usepackage[<options>]{cleveref}`: Loads the `cleveref` package, which automatically determines the reference type and can intelligently handle multiple references at once. 
 
   | `options`    | Description                                                                                                                   |
   | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
