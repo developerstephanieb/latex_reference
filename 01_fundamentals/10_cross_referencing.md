@@ -8,7 +8,7 @@ This guide covers LaTeX's cross-referencing system, which creates dynamic links 
 
 Cross-referencing relies on `\label` to create a marker, and `\ref` or `\pageref` to refer to that marker.
 
-- `\label{<marker>}`: Assigns a unique `marker` to an element. The `\label` command should be placed immediately after the item it is marking (e.g., after `\caption` or `\section`). It is best practice to use prefixes to identify the type of element being labeled.
+- `\label{<marker>}`: Assigns a unique `marker` to an element. The `\label` command should be placed immediately after the item it is marking (e.g., after `\caption` or `\section`). It is best practice to include a prefix in the label name to identify the type of element being referenced.
 
   | Prefix | Element Type | Example                    |
   | ------ | ------------ | -------------------------- |
@@ -21,7 +21,7 @@ Cross-referencing relies on `\label` to create a marker, and `\ref` or `\pageref
 
 - `\pageref{<marker>}`: Prints the page number where the marker is located.
 
-- `~` (Tilde): Use a non-breaking space (`~`) before a reference to prevent a line break between the text and the number (e.g., `Figure~\ref{fig:my_figure}`).
+- `~` (Tilde): Use a non-breaking space before a reference to prevent a line break between the text and the number (e.g., `Figure~\ref{fig:my_figure}`).
 
 ```latex
 \documentclass{article}
@@ -63,27 +63,29 @@ Use the `hyperref` package for clickable references and automatic labels.
 
 - `\usepackage[<options>]{hyperref}`: Loads the `hyperref` package, making all references clickable hyperlinks in the PDF output.
   
-  | `options`             | Description                                                              |
-  | --------------------- | ------------------------------------------------------------------------ |
-  | `colorlinks=true`     | Removes the default boxes around links and colors the link text instead. |
-  | `linkcolor=<color>`   | Sets the color for internal links.                                       |
-  | `hidelinks`           |                                                                          |
-  | `citecolor=<color>`   | Sets the color for bibliography citations.                               |
-  | `urlcolor=<color>`    | Sets the color for URLs.                                                 |
-  | `hyperfootnotes=true` |                                                                          |
-  | `bookmarks=true`      | `bookmarksopen=true` `bookmarksnumbered=true`                            |
-  | `pdftitle={<text>}`   | Sets the title in the PDF's metadata.                                    |
-  | `pdfauthor={<text>}`  | Sets the author in the PDF's metadata.                                   |
-  
-- `\hyperref[<label>]{<text>}`:
+  | `options`             | Description                                                                                                 |
+  | --------------------- | ----------------------------------------------------------------------------------------------------------- |
+  | `colorlinks=true`     | Removes the default boxes around links and colors the link text instead.                                    |
+  | `linkcolor=<color>`   | Sets the color for internal links.                                                                          |
+  | `hidelinks`           | Removes both boxes and colors for links.                                                                    |
+  | `citecolor=<color>`   | Sets the color for bibliography citations.                                                                  |
+  | `urlcolor=<color>`    | Sets the color for URLs.                                                                                    |
+  | `hyperfootnotes=true` | Makes footnote markers clickable.                                                                           |
+  | `bookmarks=true`      | Creates PDF bookmarks. The `bookmarksnumbered=true` option includes section numbers in the bookmark titles. |
+  | `pdftitle={<text>}`   | Sets the title in the PDF's metadata.                                                                       |
+  | `pdfauthor={<text>}`  | Sets the author in the PDF's metadata.                                                                      |
 
 - `\autoref{<marker>}`: Automatically creates a complete reference, including the name (e.g., "Figure 2", "Section 4.1", "Equation (3)"), all as a single hyperlink.
+
+- `\nameref{<marker>}`: Prints the title of the section associated with the `marker`.
+
+- `\hyperref[<label>]{<text>}`: Creates a hyperlink to a specified `label` using the custom `text` as the clickable element.
 
 - `\url{<address>}`: A command for typesetting URLs, which will also be made clickable.
 
 - `\href{<address>}{<text>}`: Creates a hyperlink where the `text` is the clickable part that points to the specified `address`.
 
-- `\phantomsection`:
+- `\phantomsection`: Creates an anchor for a hyperlink at a location that doesn't have a natural anchor (like an unnumbered section).
 
 ```latex
 \documentclass{article}
@@ -97,19 +99,23 @@ Use the `hyperref` package for clickable references and automatic labels.
 
 \begin{document}
 
+\tableofcontents
+
 \section{Introduction}
 \label{sec:intro}
 
-This is the introduction. See \autoref{sec:main} for the main content.
-The table of contents below will also be hyperlinked.
+This is the introduction section.
+We can refer to it by number: \autoref{sec:intro},
+by name: \nameref{sec:intro},
+or as a custom link: \hyperref[sec:intro]{Go to the Introduction section}.
 
-\tableofcontents
+\phantomsection
+\addcontentsline{toc}{section}{Acknowledgments}
+\section*{Acknowledgments}
+\label{sec:ack}
 
-\section{Main Content}
-\label{sec:main}
-
-As discussed in the \autoref{sec:intro}, the links are now active.
-You can visit the \href{https://www.latex-project.org/}{LaTeX Project website} 
+Thanks to everyone who contributed.
+Visit the \href{https://www.latex-project.org/}{LaTeX Project website}
 for details.
 
 \end{document}
