@@ -36,6 +36,36 @@ You can also \textbf{\textit{nest them}}.
 
 ---
 
+## Special Characters and Symbols
+
+The following commands produce commonly used text symbols.
+
+|     Symbol      | Name                     | Command         |
+| :-------------: | ------------------------ | --------------- |
+|      $\S$       | Section sign             | `\S`            |
+|      $\P$       | Paragraph sign (pilcrow) | `\P`            |
+|  $\copyright$   | Copyright sign           | `\copyright`    |
+|     $\dag$      | Dagger                   | `\dag`          |
+|     $\ddag$     | Double dagger            | `\ddag`         |
+|    $\pounds$    | Pounds sterling sign     | `\pounds`       |
+| $\textellipsis$ | Ellipsis                 | `\textellipsis` |
+
+```latex
+\documentclass{article}
+
+\begin{document}
+
+As stated in \S 5 of the document, the results were conclusive.
+
+The paragraph ends here \P. A dagger can be used for footnotes\dag.
+
+This work is \copyright 2025.
+
+\end{document}
+```
+
+---
+
 ## Font Sizing
 
 These declarations change the size of text relative to the document’s base font size. 
