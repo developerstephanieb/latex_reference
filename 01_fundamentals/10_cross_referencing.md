@@ -35,7 +35,7 @@ This is the introduction.
 
 \section{Main Content}
 
-As discussed in Section~\ref{sec:intro}, LaTeX's referencing system allows referencing to equations like Equation~\ref{eq:euler}.
+As discussed in Section~\ref{sec:intro}, LaTeX's referencing system allows referencing to equations like Equation~\ref{eq:euler} located on page~\pageref{eq:euler}.
 
 \begin{equation}
     e^{i\pi} + 1 = 0
