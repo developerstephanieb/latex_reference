@@ -15,12 +15,12 @@ Use `\newcommand` or `\providecommand` to define a custom shortcut for a longer 
 ```latex
 \documentclass{article}
 
-% Define \defineterm to take two arguments
-% #1 will be the term (bold), #2 will be the definition (italic)
+% Define \defineterm to take [2] arguments
+% Argument #1 will be bold, #2 will be italic
 \newcommand{\defineterm}[2]{\noindent\textbf{#1}: \textit{#2}\\}
 
 % This command will be created because it doesn't exist
-\newcommand{\lr}{LaTeX Reference}
+\providecommand{\lr}{LaTeX Reference}
 
 % This command will do nothing because \section already exists
 \providecommand{\section}{...}
@@ -64,22 +64,29 @@ While `\newcommand` creates new commands, `\renewcommand` handles existing ones.
 
 Use `\newenvironment` to define a new custom environment.
 
-- `\newenvironment{<name>}[<num>]{<before>}{<after>}`: Creates a new environment that must not already exist. It executes `{<before>}` at `\begin{<name>}` and `{<after>}` at `\end{<name>}`.
+- `\newenvironment{<name>}[<num>]{<begin>}{<end>}`: Creates a new environment that must not already exist. It executes `{<begin>}` at `\begin{<name>}` and `{<end>}` at `\end{<name>}`.
 
 ```latex
 \documentclass{article}
-\usepackage{xcolor} % For text color
+\usepackage{tcolorbox} % For the framed box
+\usepackage{lipsum}    % For dummy text
 
-% Define a new 'warning' environment
-\newenvironment{warning}
-  {\begin{quote}\color{red}\bfseries Warning: } % Code to execute at the beginning
-  {\end{quote}}                                 % Code to execute at the end
+\newenvironment{problem}[1]
+  % The 'begin' code
+  {
+    \begin{tcolorbox}
+    \textbf{\large #1}\par
+  }
+  % The 'end' code
+  {
+    \end{tcolorbox}
+  }
 
 \begin{document}
 
-\begin{warning}
-    This is an warning.
-\end{warning}
+\begin{problem}{Problem 1.1: Kinematics}
+\lipsum[1][3]
+\end{problem}
 
 \end{document}
 ```
@@ -90,15 +97,15 @@ Use `\newenvironment` to define a new custom environment.
 
 Just as `\renewcommand` alters commands, `\renewenvironment` changes how existing environments work.
 
-- `\renewenvironment{<name>}[<num>]{<before>}{<after>}`: Redefines an existing environment. LaTeX will show an error if the environment doesn't already exist.
+- `\renewenvironment{<name>}[<num>]{<begin>}{<end>}`: Redefines an existing environment. LaTeX will show an error if the environment doesn't already exist.
 
 ```latex
 \documentclass{article}
 
 % Redefine the 'quote' environment to center the text and make it italic.
 \renewenvironment{quote}
-  {\begin{center}\itshape}  % At the beginning, start centering and turn on italics.
-  {\end{center}}            % At the end, stop centering.
+  {\begin{center}\itshape} % At the beginning, start centering and turn on italics.
+  {\end{center}}           % At the end, stop centering.
 
 \begin{document}
 

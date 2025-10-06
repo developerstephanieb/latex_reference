@@ -160,6 +160,34 @@ pagestyle defined, with the page number in the top right.
 
 ---
 
+## Controlling Page Breaks
+
+Use these commands for direct control over where pages end and new ones begin.
+
+- `\newpage`: Forces a new page to start at the exact point the command is placed.
+
+- `\nopagebreak[<priority>]`: Suggests not to break the page. The `<priority>` from 0 to 4 indicates how undesirable a break is, with `[4]` being the strongest request. 
+
+```latex
+\documentclass{article}
+\usepackage{lipsum} % For dummy text
+
+\begin{document}
+
+\section*{Important Results}
+\nopagebreak[4]
+This text is now guaranteed to stay with its heading.
+
+\newpage
+
+\section*{Appendix}
+This text will start on the second page.
+
+\end{document}
+```
+
+---
+
 ## Multi-Column Layouts
 
 Add the `twocolumn` option to `\documentclass` to enable a two-column layout for the entire document.

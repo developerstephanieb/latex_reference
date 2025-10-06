@@ -81,8 +81,6 @@ LaTeX handles whitespace according to specific rules, and provides commands for 
 
 - `\\` or `\newline`: Forces a line break.
 
-- `\newpage`: Forces a page break.
-
 - `~`: Inserts a non-breaking space, ensuring that the words it connects are not separated by a line break.
 
 - `\noindent`: Prevents the automatic indentation at the start of a paragraph.
@@ -116,9 +114,6 @@ Left text \hfill Right text.
 \vspace{1em}
 
 This line follows vertical space.
-
-\newpage
-This text will start on the second page.
 
 \end{document}
 ```
