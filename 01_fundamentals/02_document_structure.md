@@ -10,7 +10,7 @@ The **preamble** is everything before the `document` environment. It is used to 
 
 - `\documentclass[<options>]{<class>}`: The first command in any document. It specifies the document type and global options.
 
-  | `class`   | Purpose                             |
+  | `class`   | Description                         |
   | --------- | ----------------------------------- |
   | `article` | For short documents.                |
   | `report`  | For longer documents with chapters. |
@@ -32,7 +32,7 @@ The **preamble** is everything before the `document` environment. It is used to 
 ```latex
 % ----- Preamble -----
 \documentclass[12pt, a4paper]{article}
-\usepackage{amsmath} % Example: Loads package for advanced math
+\usepackage{amsmath} % Loads package for advanced math
 
 % Define metadata
 \title{A Study of Document Structure}
@@ -44,7 +44,10 @@ The **preamble** is everything before the `document` environment. It is used to 
 
 \maketitle % Renders the title block
 
-The document content follows the title.
+Einstein's mass-energy equivalence formula is:
+\begin{equation}
+  E = mc^2
+\end{equation}
 
 \end{document}
 ```
