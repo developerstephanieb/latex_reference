@@ -27,13 +27,6 @@ latex_reference/
 ├── 03_templates/
 │   ├── article/
 │   └── resume/
-├── 04_appendix/
-│   ├── 
-│   └── 
-├── 05_assets/
-│   ├── 
-│   ├── 
-│   └── 
 ├── .gitignore 
 └── README.md
 ```

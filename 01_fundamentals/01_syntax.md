@@ -1,77 +1,35 @@
 # 01: Syntax
 
-This guide provides an overview of the core LaTeX syntax needed to write documents.
+The **syntax** of a LaTeX document is the set of rules governing how commands, environments, and text must be written to produce a correctly formatted document.
 
 ---
 
-## Comments
+## Core Components
 
-The percent sign (`%`) marks the beginning of a comment. Everything after it on the line is ignored.
+**Commands** issue instructions, **environments** contain blocks of content, and **comments** are used for notes within the source code.
 
-```latex
-% This is a comment
-```
+- **Comment** (`%`): The percent sign marks the start of a comment. Any text following it on the same line is ignored by the compiler.
 
----
+- **Command** (`\`): An instruction that begins with a backslash. Commands are case-sensitive and may take mandatory arguments in curly braces `{}` or optional arguments in square brackets `[]`.
 
-## Commands and the Document Class
-
-Commands control formatting and behavior. Every LaTeX document begins with the `\documentclass` command.
-
-- **Command**: An instruction that begins with a backslash (`\`). Commands are case-sensitive and may take mandatory arguments in curly braces `{}` or optional arguments in square brackets `[]`.
-
-- `\documentclass[<options>]{<class>}`: A command that specifies the type of document to be created.   
-
-  | `class`   | Purpose                             |
-  | --------- | ----------------------------------- |
-  | `article` | For short documents.                |
-  | `report`  | For longer documents with chapters. |
-  | `book`    | For books.                          |
-  | `letter`  | For writing letters.                |
-
-  | `options`                | Description                                                |
-  | ------------------------ | ---------------------------------------------------------- |
-  | `10pt`, `11pt`, `12pt`   | Sets the base font size for the document.                  |
-  | `a4paper`, `letterpaper` | Sets the paper size.                                       |
-  | `landscape`              | Sets the page orientation to landscape.                    |
-  | `oneside`, `twoside`     | Sets the layout for single-sided or double-sided printing. |
-  | `twocolumn`              | Typesets the document in two columns.                      |
+- **Environment** (`\begin{<name>}` & `\end{<name>}`): A block that applies specific formatting to its content. 
 
 ```latex
+% This is a comment.
 \documentclass{article}
 
-\begin{document}
+\begin{document} % Marks the beginning of the document
 
-This is a simple document.
+Hello, LaTeX!    % This text will appear in the final PDF.
 
-\end{document}
+\end{document}   % Marks the end of the document
 ```
 
 ---
 
-## Environments
+## Whitespace and Line Breaks
 
-Environments define blocks of content with specific formatting behavior.
-
-- **Environment**: A block that applies a formatting style to its content, enclosed by `\begin{<name>}` and `\end{<name>}`.
-
-- `\begin{document}`: An environment that encloses all visible content in a LaTeX document.
-
-```latex
-\documentclass{article}
-
-\begin{document}
-
-All visible content goes here.
-
-\end{document}
-```
-
----
-
-## Whitespace and Breaks
-
-LaTeX handles whitespace according to specific rules, and provides commands for manual control.
+LaTeX interprets whitespace according to specific rules and provides commands for manual spacing control.
 
 - **Spaces and Tabs**: Multiple consecutive spaces or tabs are treated as a single space.
 
@@ -99,7 +57,6 @@ LaTeX handles whitespace according to specific rules, and provides commands for 
 Multiple   spaces are treated as one.
 A single
 line break is also just a space.
-You can force a line break\\without starting a new paragraph.
 
 This text starts a new paragraph because there was a blank line above it.
 
@@ -109,33 +66,34 @@ The text in Section~5 will always stay together.
 
 Left text \hfill Right text.
 
-\hspace{2em}This line begins with extra horizontal space.
-
-\vspace{1em}
-
-This line follows vertical space.
-
 \end{document}
 ```
 
 ---
 
-## Escaping Special Characters
+## Special Characters and Grouping
 
-To print special characters, escape them with a backslash (`\`) or use a command that represents the symbol.
+Certain characters have special meaning in LaTeX. This section covers how to print these reserved characters literally, create typographically correct quotation marks, and group content.
 
-| Character | Code                 |
-| :-------: | :------------------- |
-|    `#`    | `\#`                 |
-|    `$`    | `\$`                 |
-|    `%`    | `\%`                 |
-|    `&`    | `\&`                 |
-|    `_`    | `\_`                 |
-|    `{`    | `\{`                 |
-|    `}`    | `\}`                 |
-|    `~`    | `\textasciitilde{}`  |
-|    `^`    | `\textasciicircum{}` |
-|    `\`    | `\textbackslash{}`   |
+- **Escaped Characters**: To display a special character, prefix it with a backslash.
+
+  | Character | Code                 |
+  | :-------: | :------------------- |
+  |    `#`    | `\#`                 |
+  |    `$`    | `\$`                 |
+  |    `%`    | `\%`                 |
+  |    `&`    | `\&`                 |
+  |    `_`    | `\_`                 |
+  |    `{`    | `\{`                 |
+  |    `}`    | `\}`                 |
+  |    `~`    | `\textasciitilde{}`  |
+  |    `^`    | `\textasciicircum{}` |
+  |    `\`    | `\textbackslash{}`   |
+
+- **Quotation Marks**: Typographically correct quotes are created using backticks
+  (`` ` ``) for opening quotes and apostrophes (`'`) for closing quotes.
+
+- **Grouping** (`{...}`): Curly braces limit a command's scope.
 
 ```latex
 \documentclass{article}
@@ -144,58 +102,22 @@ To print special characters, escape them with a backslash (`\`) or use a command
 
 \$5.00, 100\%, R\&D, and item \#1.
 
-\end{document}
-```
-
----
-
-## Quotation Marks
-
-To produce typographically correct quotation marks, use backticks (`` ` ``) for opening quotes and apostrophes (`'`) for closing quotes. Using the standard double-quote character will result in incorrect, straight quotes.
-
-- **Single Quotes**: Use a single backtick (`` ` ``) to open and a single apostrophe (`'`) to close.
-
-- **Double Quotes**: Use two backticks (``` `` ```) to open and two apostrophes (`''`) to close.
-
-```latex
-\documentclass{article}
-
-\begin{document}
-
 ``This is a double-quoted sentence.''
 
 `This is a single-quoted sentence.'
 
-"This is incorrect."
-
-\end{document}
-```
-
----
-
-## Grouping
-
-Curly braces `{}` groups text and limits the scope of commands applied within them.
-
-```latex
-\documentclass{article}
-
-\begin{document}
-
-This is normal sized text.
 {\large This text is large.}
-This text is back to the normal size.
 
 \end{document}
 ```
 
 ---
 
-## Verbatim
+## Verbatim Text
 
-To display text exactly as typed, use verbatim tools. 
+Verbatim tools render text exactly as it is typed, ignoring LaTeX commands and preserving all whitespace and line breaks. 
 
-- `\begin{verbatim}`: An environment that outputs all enclosed content literally.
+- `verbatim` **environment**: Outputs all enclosed content literally.
 
 - `\verb|<text>|`: An inline command for literal text.
 
