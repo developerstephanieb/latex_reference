@@ -8,7 +8,7 @@ The structure of a LaTeX document is defined by its preamble, where global setti
 
 Before any content is written, a LaTeX document requires a setup block that defines its type, external features, and metadata. This block, called the **preamble**, includes everything before the `document` environment.
 
-- `\documentclass[<options>]{<class>}`: The first command in any document. It specifies the document type and global options.
+- `\documentclass[<options>]{<class>}`: The first command in any document. It specifies the document type.
 
   | `class`   | Description                         |
   | --------- | ----------------------------------- |
@@ -17,21 +17,13 @@ Before any content is written, a LaTeX document requires a setup block that defi
   | `book`    | For books.                          |
   | `letter`  | For writing letters.                |
 
-  | `options`                | Description                                                |
-  | ------------------------ | ---------------------------------------------------------- |
-  | `10pt`, `11pt`, `12pt`   | Sets the base font size for the document.                  |
-  | `a4paper`, `letterpaper` | Sets the paper size.                                       |
-  | `landscape`              | Sets the page orientation to landscape.                    |
-  | `oneside`, `twoside`     | Sets the layout for single-sided or double-sided printing. |
-  | `twocolumn`              | Typesets the document in two columns.                      |
-
 - `\usepackage[<options>]{<package>}`: Loads an external package to extend LaTeX's capabilities. 
 
 - `\title{<text>}, \author{<text>}, \date{<text>}`: A set of commands that store the document's metadata. The `\date` command can be given a specific date or set to `\today` to use the current compilation date. The `\maketitle` command must be placed in the document body to typeset the metadata.
 
 ```latex
 % ----- Preamble -----
-\documentclass[12pt, a4paper]{article}
+\documentclass{article}
 \usepackage{amsmath} % Loads package for advanced math
 
 % Define metadata

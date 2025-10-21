@@ -1,22 +1,61 @@
 # 03: Text Format and Layout
 
-This guide covers the essential LaTeX commands for formatting text, from changing the style of individual words to controlling the layout of entire blocks.
+LaTeX provides a comprehensive set of tools for controlling the appearance of text, from the style of individual words to the layout and spacing of entire paragraphs.
 
 ---
 
-## Font Styles
+## Global Settings
 
-There are two primary ways to apply font styles: as a command that takes an argument, or as a declaration that switches the style for all subsequent text within its scope.
+A document's foundational style is set in the preamble, establishing the default look for all text in the document.
 
-- **Argument Form**: Applies a style to a specific piece of text. 
+- `\documentclass[<options>]{<class>}`: Sets base font size, paper size, and default font family.
 
-- **Declaration Form**: Applies a style to all following text inside a group `{}` or an environment.
+  | `options`                | Description                                                |
+  | ------------------------ | ---------------------------------------------------------- |
+  | `10pt`, `11pt`, `12pt`   | Sets the base font size for the document.                  |
+  | `a4paper`, `letterpaper` | Sets the paper size.                                       |
+  | `landscape`              | Sets the page orientation to landscape.                    |
+  | `oneside`, `twoside`     | Sets the layout for single-sided or double-sided printing. |
+  | `twocolumn`              | Typesets the document in two columns.                      |
+
+- `\renewcommand{\familydefault}{<family_code>}`: Sets the default font family.
+
+  | `family_code` | Description                               |
+  | ------------- | ----------------------------------------- |
+  | `\rmdefault`  | Sets the default to Roman (serif).        |
+  | `\sfdefault`  | Sets the default to Sans-serif.           |
+  | `\ttdefault`  | Sets the default to Monospace (Teletype). |
+
+```latex
+\documentclass[12pt]{article}
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+
+This text will be 12pt and sans-serif by default.
+
+\end{document}
+```
+
+---
+
+## Font Appearance
+
+In contrast to the global defaults, these font styles apply locally. They are implemented either as a command that takes text as an argument or as a **declaration** that switches the style for all subsequent text within its scope.
 
 - `\textbf{<text>}`, `\bfseries`: Makes text bold.
 
 - `\textit{<text>}`, `\itshape`: Makes text italic.
 
 - `\underline{<text>}`: Underlines text.
+
+- `\textrm{<text>}`, `\rmfamily`: Switches to the Roman (serif) family.
+
+- `\textsf{<text>}`, `\sffamily`: Switches to the Sans-serif family.
+
+- `\texttt{<text>}`, `\ttfamily`: Switches to the Teletype (monospace) family.
+
+- `\tiny`, `\scriptsize`, `\footnotesize`, `\small`, `\normalsize`, `\large`, `\Large`, `\LARGE`, `\huge`, `\Huge`: Declarations that change the text size relative to the document's base font. They range from `\tiny` (smallest) to `\Huge` (largest).
 
 ```latex
 \documentclass{article}
@@ -25,118 +64,36 @@ There are two primary ways to apply font styles: as a command that takes an argu
 
 \textbf{This text is bold.}
 
-{\itshape This entire sentence is in italics.}
-
-\underline{This text is underlined.}
-
 You can also \textbf{\textit{nest them}}.
 
-\end{document}
-```
+{
+\sffamily\large
+This entire sentence is large and sans-serif.
+The \texttt{monospace} font is great for code.
+}
 
----
-
-## Special Characters and Symbols
-
-The following commands produce commonly used text symbols.
-
-|     Symbol      | Name                     | Command         |
-| :-------------: | ------------------------ | --------------- |
-|      $\S$       | Section sign             | `\S`            |
-|      $\P$       | Paragraph sign (pilcrow) | `\P`            |
-|  $\copyright$   | Copyright sign           | `\copyright`    |
-|     $\dag$      | Dagger                   | `\dag`          |
-|     $\ddag$     | Double dagger            | `\ddag`         |
-|    $\pounds$    | Pounds sterling sign     | `\pounds`       |
-| $\textellipsis$ | Ellipsis                 | `\textellipsis` |
-
-```latex
-\documentclass{article}
-
-\begin{document}
-
-As stated in \S 5 of the document, the results were conclusive.
-
-The paragraph ends here \P. A dagger can be used for footnotes\dag.
-
-This work is \copyright 2025.
+This text is back to the document default.
 
 \end{document}
 ```
 
 ---
 
-## Font Sizing
+## Paragraph and Block Layout
 
-These declarations change the size of text relative to the document’s base font size. 
+There are several environments for controlling the alignment and formatting of entire blocks of text, such as paragraphs, quotes, and poetry.
 
-- `\tiny`: Smallest available text size.
-
-- `\scriptsize`: Smaller than footnotes; often used for subscripts or annotations.
-
-- `\footnotesize`: Standard size for footnotes.
-
-- `\small`: Slightly smaller than the default.
-
-- `\normalsize`: Default document font size.
-
-- `\large`, `\Large`, `\LARGE`: Progressively larger sizes above the default.
-
-- `\huge`, `\Huge`: Very large and largest text sizes, respectively.
-
-```latex
-\documentclass{article}
-
-\begin{document}
-
-{\small This is smaller than the default.}
-
-This is the normal, default text size.
-
-{\Large This is larger than the default.}
-
-{\Huge This is one of the largest sizes available.}
-
-\end{document}
-```
-
----
-
-## Font Families
-
-These commands switch between the three main font families available in LaTeX.
-
-- `\textrm{<text>}`, `\rmfamily`: Switches to the Roman (serif) family, which is the default.
-
-- `\textsf{<text>}`, `\sffamily`: Switches to the Sans-serif family.
-
-- `\texttt{<text>}`, `\ttfamily`: Switches to the Teletype (monospace) family.
-
-```latex
-\documentclass{article}
-
-\begin{document}
-
-\textrm{This is the default Roman (serif) font.}
-
-{\sffamily This entire paragraph is in sans-serif font.}
-
-\texttt{This is a teletype (monospace) font, often used for code.}
-
-\end{document}
-```
-
----
-
-## Alignment
-
-These environments and declarations control the horizontal alignment of entire blocks of text.
-
-- `\begin{center}`, `\centering`: Centers each line of text.
+- `center` **environment**, `\centering`: Centers text.
   
-- `\begin{flushleft}`, `\raggedright`: Aligns text to the left margin, which is the default.
+- `flushleft` **environment**, `\raggedright`: Aligns text to the left.
   
-- `\begin{flushright}`, `\raggedleft`: Aligns text to the right margin.
+- `flushright` **environment**, `\raggedleft`: Aligns text to the right.
+
+- `quote` **environment**: For short quotes, single-paragraph quotes.
+
+- `quotation` **environment**: For longer quotations spanning multiple paragraphs.
+
+- `verse` **environment**: For poetry, where line breaks are made with `\\` and stanzas are separated by a blank line.
 
 ```latex
 \documentclass{article}
@@ -147,24 +104,23 @@ These environments and declarations control the horizontal alignment of entire b
     This text is centered.
 \end{center}
 
-{
-\raggedleft
-This text is aligned to the right.\\
-Every line is right-aligned.\par  % <-- paragraph terminator is required
-}
+\begin{verse}
+  Roses are red, \\
+  Violets are blue.
+\end{verse}
 
 \end{document}
 ```
 
 ---
 
-## Line Spacing
+## Line Spacing (the `setspace` package)
 
-Use the `setspace` package to control the spacing between lines in a paragraph.
+The vertical distance between lines within a block of text can be adjusted using the `setspace` package.
 
-- `\usepackage[<spacing>]{setspace}`: Loads the `setspace` package, enabling declarations for common spacing presets and an environment for custom spacing.
+- `setspace` **package**: Provides tools to control the spacing between lines.
 
-   | `spacing`        | Description                  |
+   | `options`        | Description                  |
    | ---------------- | ---------------------------- |
    | `singlespacing`  | Sets single line spacing.    |
    | `onehalfspacing` | Sets one-and-a-half spacing. |
@@ -195,11 +151,11 @@ Use the `setspace` package to control the spacing between lines in a paragraph.
 
 ---
 
-## Paragraph Indent and Spacing
+## Paragraph Spacing (the `parskip` package)
 
-By default, paragraphs are separated with a first-line indent. The `parskip` package creates a "block" style in which paragraphs are separated by space instead of an indent. This is preferred over manual adjustments since it automatically handles spacing in other environments, like lists.
+By default, paragraphs are separated with a first-line indent. To switch to a "block" style where paragraphs are separated by vertical space instead, use the `parskip` package. This is preferred over manual adjustments since it automatically manages spacing in other environments, such as lists.
 
-- `\usepackage[<options>]{parskip}`: Load the `parskip` package to set the paragraph indent to zero and add a vertical space between paragraphs.
+- `parskip` **package**: Switches the paragraph indent to zero and add a vertical space between paragraphs.
 
   | `options`         | Description                                                                 |
   | ----------------- | --------------------------------------------------------------------------- |
@@ -222,56 +178,30 @@ By default, paragraphs are separated with a first-line indent. The `parskip` pac
 
 ---
 
-## Blockquotes and Verses
+## Special Characters and Symbols
 
-These environments are for formatting blocks of quoted prose or poetry and are indented from both margins.
+The following commands produce commonly used text symbols.
 
-- `\begin{quote}`: Used for short quotes.
-
-- `\begin{quotation}`: Used for longer quotes (more than one paragraph), with slightly more indentation.
-
-- `\begin{verse}`: Used for poetry where stanzas are separated by a blank line and line breaks are created with `\\`.
+|     Symbol      | Name                     | Command         |
+| :-------------: | ------------------------ | --------------- |
+|      $\S$       | Section sign             | `\S`            |
+|      $\P$       | Paragraph sign (pilcrow) | `\P`            |
+|  $\copyright$   | Copyright sign           | `\copyright`    |
+|     $\dag$      | Dagger                   | `\dag`          |
+|     $\ddag$     | Double dagger            | `\ddag`         |
+|    $\pounds$    | Pounds sterling sign     | `\pounds`       |
+| $\textellipsis$ | Ellipsis                 | `\textellipsis` |
 
 ```latex
 \documentclass{article}
 
 \begin{document}
 
-\begin{quote}
-This is a short quotation, indented from both margins.
-\end{quote}
+As stated in \S 5 of the document, the results were conclusive.
 
-\begin{verse}
-  Roses are red, \\
-  Violets are blue.
-\end{verse}
+The paragraph ends here \P. A dagger can be used for footnotes\dag.
 
-\end{document}
-```
-
----
-
-## Global Font Settings
-
-Global font settings can be defined in the preamble to set defaults for the entire document.
-
-- `\documentclass[<options>]{<class}>`: Sets the default font size. Common size `options` are `10pt`, `11pt`, and `12pt`.
-
-- `\renewcommand{\familydefault}{<family_code>}`: Sets the default font family.
-
-  | `family_code` | Description                               |
-  | ------------- | ----------------------------------------- |
-  | `\rmdefault`  | Sets the default to Roman (serif).        |
-  | `\sfdefault`  | Sets the default to Sans-serif.           |
-  | `\ttdefault`  | Sets the default to Monospace (Teletype). |
-
-```latex
-\documentclass[12pt]{article}
-\renewcommand{\familydefault}{\sfdefault}
-
-\begin{document}
-
-This entire document now uses a 12pt sans-serif font as its default.
+This work is \copyright 2025.
 
 \end{document}
 ```
