@@ -1,4 +1,4 @@
-# LaTeX Reference
+# LaTeX
 
 A structured collection of LaTeX syntax, packages, templates, and practical examples.
 
